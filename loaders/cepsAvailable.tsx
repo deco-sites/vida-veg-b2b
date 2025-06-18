@@ -1,4 +1,4 @@
-import { parse } from "jsr:@std/csv";
+import { parse } from "@std/encoding/csv";
 
 interface Props {
   /**
@@ -26,7 +26,6 @@ async function loadData(path: string): Promise<string> {
     if (!res.ok) throw new Error(`Failed to fetch ${path}`);
     return await res.text();
   }
-  // Remove leading slash if exists
   const filePath = path.startsWith("/") ? path.slice(1) : path;
   return await Deno.readTextFile(filePath);
 }
