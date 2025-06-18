@@ -16,3 +16,5 @@ export const HEADER_HEIGHT_MOBILE = "104px";
 export const NAVBAR_HEIGHT_MOBILE = "56px";
 export const HEADER_HEIGHT_DESKTOP = "176px";
 export const NAVBAR_HEIGHT_DESKTOP = "44px";
+
+export const CEP_VALIDATION_MODAL_ID = "cep-validation-modal";
