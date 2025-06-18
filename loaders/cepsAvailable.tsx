@@ -1,30 +1,3 @@
-<<<<<<< HEAD
-import Papa from "https://esm.sh/papaparse@5.4.1";
-
-export interface Props {
-  cepsCsvUrl: string; // arquivo do CMS (upload de CSV)
-}
-
-interface CsvCep {
-  cep: string;
-}
-
-export default async function loader({ cepsCsvUrl }: Props, req: Request) {
-  const res = await fetch(cepsCsvUrl);
-  const text = await res.text();
-
-  const parsed = Papa.parse<CsvCep>(text, { header: true });
-  const validCeps = parsed.data.map(({ cep }) => cep.trim());
-
-  const cookies = Object.fromEntries(
-    req.headers.get("cookie")?.split("; ").map((c) => c.split("=")) ?? [],
-  );
-  const userCep = cookies["__dc-cep"];
-
-  return {
-    cep: userCep,
-    isAvailable: validCeps.includes(userCep),
-=======
 import { parse } from "@std/encoding/csv";
 
 interface Props {
@@ -53,7 +26,6 @@ async function loadData(path: string): Promise<string> {
     if (!res.ok) throw new Error(`Failed to fetch ${path}`);
     return await res.text();
   }
-  // Remove leading slash if exists
   const filePath = path.startsWith("/") ? path.slice(1) : path;
   return await Deno.readTextFile(filePath);
 }
@@ -70,6 +42,5 @@ export default async function loader(
   const match = records.some((r) => normalize(r["cep"] || "") === normalized);
   return {
     available: match,
->>>>>>> 46bc82c719b11f534566e1c872b5450b0c5edd47
   };
 }
