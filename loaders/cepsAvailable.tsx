@@ -1,4 +1,3 @@
-import { parse } from "@std/encoding/csv";
 
 interface Props {
   /**
@@ -14,6 +13,21 @@ interface Props {
 
 export interface Returns {
   available: boolean;
+}
+
+function parseCsv(text: string): Array<Record<string, string>> {
+  const [headerLine, ...lines] = text.trim().split(/\r?\n/);
+  const headers = headerLine.split(',').map((h) => h.trim());
+  return lines
+    .filter((l) => l.trim())
+    .map((line) => {
+      const values = line.split(',');
+      const record: Record<string, string> = {};
+      headers.forEach((h, i) => {
+        record[h] = values[i]?.trim() ?? '';
+      });
+      return record;
+    });
 }
 
 function normalize(value: string): string {
@@ -34,10 +48,7 @@ export default async function loader(
   { file = "./static/allowed_ceps.csv", cep }: Props,
 ): Promise<Returns> {
   const csv = await loadData(file);
-  const records = [] as Array<Record<string, string>>;
-  for await (const row of parse(csv, { skipFirstRow: true })) {
-    records.push(row as Record<string, string>);
-  }
+  const records = parseCsv(csv);
   const normalized = normalize(cep);
   const match = records.some((r) => normalize(r["cep"] || "") === normalized);
   return {

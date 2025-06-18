@@ -1,7 +1,16 @@
 import { Handlers } from "$fresh/server.ts";
-import Papa from "https://esm.sh/papaparse@5.4.1";
 import { h } from "preact";
 import { renderToString } from "preact-render-to-string";
+
+function parseCsv(text: string): string[] {
+  const [headerLine, ...lines] = text.trim().split(/\r?\n/);
+  const headers = headerLine.split(',').map((h) => h.trim().toLowerCase());
+  const cepIndex = headers.indexOf('cep');
+  if (cepIndex === -1) return [];
+  return lines
+    .map((line) => line.split(',')[cepIndex]?.trim() ?? '')
+    .filter((v) => v);
+}
 
 function FormHtml({ csvUrl, cep = "" }: { csvUrl: string; cep?: string }) {
   return (
@@ -60,8 +69,7 @@ export const handler: Handlers = {
     const cep = form.get("cep")?.toString().trim() ?? "";
 
     const csvText = await fetch(csvUrl).then((res) => res.text());
-    const parsed = Papa.parse<{ cep: string }>(csvText, { header: true });
-    const cepsValidos = parsed.data.map((r) => r.cep?.trim()).filter(Boolean);
+    const cepsValidos = parseCsv(csvText);
 
     const html = cepsValidos.includes(cep)
       ? renderToString(<SuccessHtml cep={cep} csvUrl={csvUrl} />)
