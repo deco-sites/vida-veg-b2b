@@ -1,16 +1,27 @@
-interface Props {
-  /**
-  * @description The description of name.
-  */
-  name?: string;
+import Papa from "https://esm.sh/papaparse@5.4.1";
+
+export interface Props {
+  cepsCsvUrl: string; // arquivo do CMS (upload de CSV)
 }
 
-export interface Returns {
-  name: string
+interface CsvCep {
+  cep: string;
 }
 
-export default function loader({ name  = "Capy" }: Props): Returns {
-  return { 
-    name,
-  }
+export default async function loader({ cepsCsvUrl }: Props, req: Request) {
+  const res = await fetch(cepsCsvUrl);
+  const text = await res.text();
+
+  const parsed = Papa.parse<CsvCep>(text, { header: true });
+  const validCeps = parsed.data.map(({ cep }) => cep.trim());
+
+  const cookies = Object.fromEntries(
+    req.headers.get("cookie")?.split("; ").map((c) => c.split("=")) ?? [],
+  );
+  const userCep = cookies["__dc-cep"];
+
+  return {
+    cep: userCep,
+    isAvailable: validCeps.includes(userCep),
+  };
 }
