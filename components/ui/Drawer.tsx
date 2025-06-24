@@ -71,12 +71,12 @@ function Aside({ title, drawer, children }: {
       class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y"
       style={{ maxWidth: "100vw" }}
     >
-      <div class="flex justify-between items-center">
-        <h1 class="px-4 py-3">
-          <span class="font-medium text-2xl">{title}</span>
+      <div class="flex justify-between items-center bg-primary p-5">
+        <h1>
+          <span class="font-bold text-xl text-accent">{title}</span>
         </h1>
-        <label for={drawer} aria-label="X" class="btn btn-ghost">
-          <Icon id="close" />
+        <label for={drawer} aria-label="X" class="">
+          <Icon id="new-close-white" width={24} height={24}/>
         </label>
       </div>
       {children}

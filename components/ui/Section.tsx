@@ -17,7 +17,7 @@ function Header({ title, cta }: Props) {
   return (
     <div
       class={clx(
-        "flex justify-between items-center gap-2",
+        "flex justify-center w-full items-center gap-2 my-7",
         "px-5 sm:px-0",
       )}
     >
@@ -52,7 +52,7 @@ function Container({ class: _class, ...props }: JSX.IntrinsicElements["div"]) {
     <div
       {...props}
       class={clx(
-        "container flex flex-col gap-4 sm:gap-6 w-full py-5 sm:py-10",
+        "container flex flex-col gap-4 sm:gap-6 w-full pt-5 lg:pb-4 sm:py-10",
         _class?.toString(),
       )}
     />

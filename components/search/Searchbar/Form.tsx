@@ -1,123 +1,132 @@
-/**
- * We use a custom route at /s?q= to perform the search. This component
- * redirects the user to /s?q={term} when the user either clicks on the
- * button or submits the form. Make sure this page exists in deco.cx/admin
- * of yout site. If not, create a new page on this route and add the appropriate
- * loader.
- *
- * Note that this is the most performatic way to perform a search, since
- * no JavaScript is shipped to the browser!
- */
 import { Suggestion } from "apps/commerce/types.ts";
 import {
   SEARCHBAR_INPUT_FORM_ID,
   SEARCHBAR_POPUP_ID,
 } from "../../../constants.ts";
 import { useId } from "../../../sdk/useId.ts";
+import { useUI } from "../../../sdk/useUI.ts";
 import { useComponent } from "../../../sections/Component.tsx";
 import Icon from "../../ui/Icon.tsx";
 import { Props as SuggestionProps } from "./Suggestions.tsx";
 import { useScript } from "@deco/deco/hooks";
 import { asResolved } from "@deco/deco";
 import { type Resolved } from "@deco/deco";
-// When user clicks on the search button, navigate it to
+
 export const ACTION = "/s";
-// Querystring param used when navigating the user
 export const NAME = "q";
+
 export interface SearchbarProps {
-  /**
-   * @title Placeholder
-   * @description Search bar default placeholder message
-   * @default What are you looking for?
-   */
   placeholder?: string;
-  /** @description Loader to run when suggesting new elements */
   loader: Resolved<Suggestion | null>;
 }
-const script = (formId: string, name: string, popupId: string) => {
-  const form = document.getElementById(formId) as HTMLFormElement | null;
-  const input = form?.elements.namedItem(name) as HTMLInputElement | null;
-  form?.addEventListener("submit", () => {
-    const search_term = input?.value;
-    if (search_term) {
-      window.DECO.events.dispatch({
-        name: "search",
-        params: { search_term },
-      });
-    }
-  });
-  // Keyboard event listeners
-  addEventListener("keydown", (e: KeyboardEvent) => {
-    const isK = e.key === "k" || e.key === "K" || e.keyCode === 75;
-    // Open Searchbar on meta+k
-    if (e.metaKey === true && isK) {
-      const input = document.getElementById(popupId) as HTMLInputElement | null;
-      if (input) {
-        input.checked = true;
-        document.getElementById(formId)?.focus();
-      }
-    }
-  });
-};
+
 const Suggestions = import.meta.resolve("./Suggestions.tsx");
-export default function Searchbar(
-  { placeholder = "What are you looking for?", loader }: SearchbarProps,
-) {
+
+export default function Searchbar({
+  placeholder = "O que você está procurando?",
+  loader,
+}: SearchbarProps) {
   const slot = useId();
+  const { displaySearchbar } = useUI();
+  const open = displaySearchbar.value;
+
   return (
     <div
-      class="w-full grid gap-8 px-4 py-6"
-      style={{ gridTemplateRows: "min-content auto" }}
+      id="search-bar"
+      class="gap-4 rounded-xl transition-all flex items-center w-full lg:max-w-[880px] bg-white lg:bg-transparent"
     >
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join">
+      <form
+        id={SEARCHBAR_INPUT_FORM_ID}
+        action={ACTION}
+        class="flex items-center gap-2 justify-between w-full "
+      >
+        <div id="input" class="flex items-center gap-1 w-full px-3 bg-white  rounded-xl">
+          <button
+            type="submit"
+            class=""
+            aria-label="Search"
+            tabIndex={-1}
+          >
+            <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
+            <Icon id="new-search" class="inline [.htmx-request_&]:hidden w-5 h-5" />
+          </button>
+
+          <input
+            autoFocus
+            tabIndex={0}
+            class="h-10 px-3 w-full outline-0"
+            name={NAME}
+            placeholder={placeholder}
+            autoComplete="off"
+            hx-target={`#${slot}`}
+            hx-post={
+              loader &&
+              useComponent<SuggestionProps>(Suggestions, {
+                loader: asResolved(loader),
+              })
+            }
+            hx-trigger={`input changed delay:300ms, ${NAME}`}
+            hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
+            hx-swap="innerHTML"
+            hx-on:click={`
+              const sb = document.getElementById('search-bar');
+              const sl = document.getElementById('${slot}');
+              const btn = sb?.querySelector('button[type=submit]');
+              const closed = document.getElementById('closed');
+              sb?.classList.add('p-5');
+              sb?.classList.add('bg-base-200');
+              closed?.classList.remove('hidden');
+              closed?.classList.add('flex');
+              sl?.classList.add('active-slot');
+              btn?.classList.add('highlight-btn');
+            `}
+          />
+        </div>
+
         <button
-          type="submit"
-          class="btn join-item btn-square no-animation"
-          aria-label="Search"
-          for={SEARCHBAR_INPUT_FORM_ID}
-          tabIndex={-1}
-        >
-          <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
-          <Icon id="search" class="inline [.htmx-request_&]:hidden" />
-        </button>
-        <input
-          autoFocus
-          tabIndex={0}
-          class="input input-bordered join-item flex-grow"
-          name={NAME}
-          placeholder={placeholder}
-          autocomplete="off"
-          hx-target={`#${slot}`}
-          hx-post={loader && useComponent<SuggestionProps>(Suggestions, {
-            loader: asResolved(loader),
-          })}
-          hx-trigger={`input changed delay:300ms, ${NAME}`}
-          hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
-          hx-swap="innerHTML"
-        />
-        <label
+          id="closed"
           type="button"
-          class="join-item btn btn-ghost btn-square hidden sm:inline-flex no-animation"
-          for={SEARCHBAR_POPUP_ID}
-          aria-label="Toggle searchbar"
+          class="text-gray-400 hidden items-center gap-1"  /* comece escondido */
+          aria-label="Close search"
+          hx-on:click={`
+            const sb = document.getElementById('search-bar');
+            const sl = document.getElementById('${slot}');
+            const btn = sb?.querySelector('button[type=submit]');
+            const closed = document.getElementById('closed');
+            closed?.classList.add('hidden');
+            closed?.classList.remove('flex');
+            sb?.classList.remove('p-5');
+            sb?.classList.remove('bg-base-200');
+            sl?.classList.remove('active-slot');
+          `}
         >
-          <Icon id="close" />
-        </label>
+          <Icon id="new-close" class="w-5 h-5" />
+          Fechar
+        </button>
       </form>
 
-      {/* Suggestions slot */}
-      <div id={slot} />
+      <div id={slot} class="transition-all duration-300" />
 
-      {/* Send search events as the user types */}
       <script
         type="module"
         dangerouslySetInnerHTML={{
-          __html: useScript(
-            script,
-            SEARCHBAR_INPUT_FORM_ID,
-            NAME,
-            SEARCHBAR_POPUP_ID,
-          ),
+          __html: `
+            document.addEventListener('click', (e) => {
+              const sb = document.getElementById('search-bar');
+              const sl = document.getElementById('${slot}');
+              const btn = sb?.querySelector('button[type=submit]');
+              const closed = document.getElementById('closed');
+              
+              // Se clicar fora do search-bar, fecha e esconde botão fechar
+              if (!sb?.contains(e.target)) {
+                closed?.classList.add('hidden');
+                closed?.classList.remove('flex');
+                sb?.classList.remove('p-5');
+                sb?.classList.remove('bg-base-200');
+                sl?.classList.remove('active-slot');
+              }
+            });
+          `,
         }}
       />
     </div>

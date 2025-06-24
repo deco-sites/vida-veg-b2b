@@ -12,7 +12,7 @@ import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
 import { useId } from "../../sdk/useId.ts";
 
-interface Props {
+export interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
@@ -26,8 +26,8 @@ interface Props {
   class?: string;
 }
 
-const WIDTH = 287;
-const HEIGHT = 287;
+const WIDTH = 180;
+const HEIGHT = 180;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 function ProductCard({
@@ -153,29 +153,29 @@ function ProductCard({
           </span>
         </div>
 
-        <div class="absolute bottom-0 right-0">
+        {/* <div class="absolute bottom-0 right-0">
           <WishlistButton item={item} variant="icon" />
-        </div>
+        </div> */}
       </figure>
 
       <a href={relativeUrl} class="pt-5">
-        <span class="font-medium">
+        <span class="font-normal text-base text-base-content">
           {title}
         </span>
 
         <div class="flex gap-2 pt-2">
           {listPrice && (
-            <span class="line-through font-normal text-gray-400">
+            <span class="line-through font-normal text-base-300">
               {formatPrice(listPrice, offers?.priceCurrency)}
             </span>
           )}
-          <span class="font-medium text-base-400">
+          <span class="font-medium text-primary">
             {formatPrice(price, offers?.priceCurrency)}
           </span>
         </div>
       </a>
 
-      {/* SKU Selector */}
+      {/* SKU Selector
       {variants.length > 1 && firstVariantName !== shoeSizeVariant && (
         <ul class="flex items-center justify-start gap-2 pt-4 pb-1 pl-1 overflow-x-auto">
           {variants.map(([value, link]) => [value, relative(link)] as const)
@@ -193,7 +193,7 @@ function ProductCard({
               </li>
             ))}
         </ul>
-      )}
+      )} */}
 
       <div class="flex-grow" />
 
@@ -204,13 +204,7 @@ function ProductCard({
               product={product}
               seller={seller}
               item={item}
-              class={clx(
-                "btn",
-                "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
-                "hover:!bg-transparent",
-                "disabled:!bg-transparent disabled:!opacity-50",
-                "btn-primary hover:!text-primary disabled:!text-primary",
-              )}
+              class="bg-secondary rounded-2xl text-base font-bold text-base h-12 items-center"
             />
           )
           : (

@@ -3,6 +3,18 @@ import type { JSX } from "preact";
 
 export type AvailableIcons =
   | "search"
+  | "new-search"
+  | "new-close"
+  | "new-login"
+  | "new-cart"
+  | "new-chevron-down"
+  | "new-chevron-right"
+  | "new-close-white"
+  | "new-trash"
+  | "new-menu"
+  | "minus"
+| "plus"
+| "cart-white"
   | "shopping_bag"
   | "menu"
   | "account_circle"

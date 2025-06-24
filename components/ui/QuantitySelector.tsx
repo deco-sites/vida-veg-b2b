@@ -2,6 +2,7 @@ import { type JSX } from "preact";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useScript } from "@deco/deco/hooks";
+import Icon from "./Icon.tsx";
 const onClick = (delta: number) => {
   // doidera!
   event!.stopPropagation();
@@ -17,10 +18,10 @@ function QuantitySelector(
   { id = useId(), disabled, ...props }: JSX.IntrinsicElements["input"],
 ) {
   return (
-    <div class="join border rounded w-full">
+    <div class="flex max-w-28 w-full border border-base-300 rounded-xl px-3 justify-center h-8">
       <button
         type="button"
-        class="btn btn-square btn-ghost no-animation"
+         class="px-2 text-base-300 text-sm"
         hx-on:click={useScript(onClick, -1)}
         disabled={disabled}
       >
@@ -28,18 +29,11 @@ function QuantitySelector(
       </button>
       <div
         data-tip={`Quantity must be between ${props.min} and ${props.max}`}
-        class={clx(
-          "flex-grow join-item",
-          "flex justify-center items-center",
-          "has-[:invalid]:tooltip has-[:invalid]:tooltip-error has-[:invalid]:tooltip-open has-[:invalid]:tooltip-bottom",
-        )}
+        class="flex"
       >
         <input
           id={id}
-          class={clx(
-            "input text-center flex-grow [appearance:textfield]",
-            "invalid:input-error",
-          )}
+          class="text-center text-base-300 text-sm"
           disabled={disabled}
           inputMode="numeric"
           type="number"
@@ -48,7 +42,7 @@ function QuantitySelector(
       </div>
       <button
         type="button"
-        class="btn btn-square btn-ghost no-animation"
+         class="px-2 text-base-300 text-sm"
         hx-on:click={useScript(onClick, 1)}
         disabled={disabled}
       >

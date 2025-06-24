@@ -158,26 +158,26 @@ export default function Cart(
           {count === 0
             ? (
               <div class="flex flex-col gap-6">
-                <span class="font-medium text-2xl">Your bag is empty</span>
+                <span class="font-bold text-2xl text-base-300">Seu carrinho está vazio</span>
                 <label
                   for={MINICART_DRAWER_ID}
-                  class="btn btn-outline no-animation"
+                  class="bg-primary text-base font-bold text-base rounded-2xl h-14 justify-center items-center flex"
                 >
-                  Choose products
+                 Escolher produtos
                 </label>
               </div>
             )
             : (
               <>
                 {/* Free Shipping Bar */}
-                <div class="px-2 py-4 w-full">
+                {/* <div class="px-2 py-4 w-full">
                   <FreeShippingProgressBar
                     total={total}
                     locale={locale}
                     currency={currency}
                     target={freeShippingTarget}
                   />
-                </div>
+                </div> */}
 
                 {/* Cart Items */}
                 <ul
@@ -197,29 +197,27 @@ export default function Cart(
                 </ul>
 
                 {/* Cart Footer */}
-                <footer class="w-full">
+                <footer class="w-full px-5 py-5">
                   {/* Subtotal */}
-                  <div class="border-t border-base-200 py-2 flex flex-col">
-                    {discounts > 0 && (
-                      <div class="flex justify-between items-center px-4">
-                        <span class="text-sm">Discounts</span>
-                        <span class="text-sm">
-                          {formatPrice(discounts, currency, locale)}
-                        </span>
-                      </div>
-                    )}
-                    <div class="w-full flex justify-between px-4 text-sm">
+                  <div class="py-2 flex gap-4 flex-col">
+                    {enableCoupon && <Coupon coupon={coupon} />}
+                    <div class="w-full flex justify-between text-base-300 font-bold text-base">
                       <span>Subtotal</span>
                       <output form={MINICART_FORM_ID}>
                         {formatPrice(subtotal, currency, locale)}
                       </output>
                     </div>
-                    {enableCoupon && <Coupon coupon={coupon} />}
-                  </div>
-
-                  {/* Total */}
-                  <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
-                    <div class="flex justify-between items-center w-full">
+                         {/* descontos */}
+                       {discounts > 0 && (
+                      <div class="flex justify-between items-center text-secondary font-medium text-sm">
+                        <span class="text-sm">Descontos</span>
+                        <span class="text-sm">
+                          {formatPrice(discounts, currency, locale)}
+                        </span>
+                      </div>
+                    )}
+           {/* Total */}
+                       <div class="flex justify-between items-center w-full text-base text-base-300 font-bold">
                       <span>Total</span>
                       <output
                         form={MINICART_FORM_ID}
@@ -228,22 +226,30 @@ export default function Cart(
                         {formatPrice(total, currency, locale)}
                       </output>
                     </div>
-                    <span class="text-sm text-base-300">
-                      Fees and shipping will be calculated at checkout
-                    </span>
+           {/* frete */}
+                      {/* <span class="text-sm text-base-300">
+                      As taxas e o frete serão calculados na finalização da compra
+                    </span> */}
                   </div>
 
-                  <div class="p-4">
+
+                  <div class="flex flex-col gap-4">
                     <a
                       class="btn btn-primary w-full no-animation"
                       href={checkoutHref}
                       hx-on:click={useScript(sendBeginCheckoutEvent)}
                     >
-                      <span class="[.htmx-request_&]:hidden">
-                        Begin Checkout
+                      <span class="[.htmx-request_&]:hidden text-accent text-base">
+                        Finalizar Compra
                       </span>
                       <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
                     </a>
+                           <label
+                  for={MINICART_DRAWER_ID}
+                  class="flex justify-center text-base font-bold text-base-300"
+                >
+                 Continuar Comprando
+                </label>
                   </div>
                 </footer>
               </>

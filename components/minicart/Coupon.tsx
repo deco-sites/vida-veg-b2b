@@ -5,41 +5,25 @@ export interface Props {
 }
 function Coupon({ coupon }: Props) {
   return (
-    <div class="flex justify-between items-center px-4">
-      <span class="text-sm">Discount coupon</span>
 
-      <button
-        type="button"
-        class="btn btn-ghost underline font-normal no-animation"
-        hx-on:click={useScript(() => {
-          event?.stopPropagation();
-          const button = event?.currentTarget as HTMLButtonElement;
-          button.classList.add("hidden");
-          button.nextElementSibling?.classList.remove("hidden");
-        })}
-      >
-        {coupon || "Add"}
-      </button>
-
-      {/* Displayed when checkbox is checked=true */}
-      <div class="join hidden">
+      <div class="flex items-center justify-between">
+        <span class="text-sm text-base-content font-bold">Adicionar cupom:</span>
         <input
           form={MINICART_FORM_ID}
           name="coupon"
-          class="input join-item"
+          class="px-5 h-10 flex items-center text-start text-xs text-base-300 rounded-2xl max-w-[270px] bg-base-200"
           type="text"
           value={coupon ?? ""}
-          placeholder={"Cupom"}
+          placeholder={"Digite o Cupom"}
         />
         <button
           form={MINICART_FORM_ID}
-          class="btn join-item"
+          class="bg-base-content text-xs font-bold text-accent rounded-2xl px-5 h-10 flex items-center"
           name="action"
           value="set-coupon"
         >
           Ok
         </button>
-      </div>
     </div>
   );
 }

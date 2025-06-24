@@ -49,36 +49,37 @@ function CartItem({ item, index, locale, currency }: Props) {
       <div class="flex flex-col gap-2">
         {/* Name and Remove button */}
         <div class="flex justify-between items-center">
-          <legend>{name}</legend>
-          <button
-            class={clx(
-              isGift && "hidden",
-              "btn btn-ghost btn-square no-animation",
-            )}
-            hx-on:click={useScript(removeItemHandler)}
-          >
-            <Icon id="trash" size={24} />
-          </button>
+          <legend class="text-base-content font-normal text-sm">{name}</legend>
         </div>
 
         {/* Price Block */}
         <div class="flex items-center gap-2">
-          <span class="line-through text-sm">
+          <span class="line-through text-sm text-primary">
             {formatPrice(listPrice, currency, locale)}
           </span>
-          <span class="text-sm text-secondary">
+          <span class="text-sm text-base-content font-bold">
             {isGift ? "Grátis" : formatPrice(price, currency, locale)}
           </span>
         </div>
 
         {/* Quantity Selector */}
-        <div class={clx(isGift && "hidden")}>
+        <div class="flex items-center justify-between">
           <QuantitySelector
             min={0}
             max={QUANTITY_MAX_VALUE}
             value={quantity}
             name={`item::${index}`}
           />
+
+                    <button
+            class={clx(
+              isGift && "hidden",
+              "btn btn-ghost btn-square no-animation",
+            )}
+            hx-on:click={useScript(removeItemHandler)}
+          >
+            <Icon id="new-trash" size={24} />
+          </button>
         </div>
       </div>
     </fieldset>
