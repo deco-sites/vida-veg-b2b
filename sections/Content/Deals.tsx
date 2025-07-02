@@ -44,26 +44,14 @@ const Deals = ({ deals, preload }: Props) => {
                 ? (
                     <div className="overflow-x-auto no-scrollbar px-5">
                         <div className="flex space-x-4 animate-scroll">
-                            {deals.map((deal, index) => (
+                            {deals && deals.map((deal, index) => (
                                 <div
                                     key={index}
-                                    className="flex items-start gap-[15px] min-w-[213px]"
+                                    className="flex items-start px-5 py-4 bg-base-200 min-w-[230px] rounded-2xl"
                                 >
-                                    <Image
-                                        src={deal.image ? deal.image : ""}
-                                        alt={deal.title || "Imagem de condição"}
-                                        width={deal.width || width}
-                                        height={deal.height || height}
-                                        fetchPriority="low"
-                                        loading={preload ? "lazy" : "eager"}
-                                    />
-                                    <div className="flex items-start flex-col">
-                                        <p className="text-base font-semibold text-dark">
-                                            {deal.title}
-                                        </p>
-                                        <p className="text-base font-normal text-dark-gray">
-                                            {deal.label}
-                                        </p>
+                                    <div className="flex items-center flex-row gap-2">
+                                        <img src={deal?.image} />
+                                        <p className="text-sm font-semibold text-primary" dangerouslySetInnerHTML={{ __html: deal.content }} />
                                     </div>
                                 </div>
                             ))}
@@ -71,27 +59,15 @@ const Deals = ({ deals, preload }: Props) => {
                     </div>
                 )
                 : (
-                    <div className="flex space-between gap-4">
-                        {deals.map((deal, index) => (
+                    <div className="flex justify-between gap-4">
+                        {deals && deals.map((deal, index) => (
                             <div
                                 key={index}
-                                className="flex items-start gap-[15px] lg:max-w-[214px]"
+                                className="flex items-start gap-2 px-5 py-4 bg-base-200  lg:max-w-[230px] rounded-2xl"
                             >
-                                <Image
-                                    src={deal.image ? deal.image : ""}
-                                    alt={deal.title || "Imagem de condição"}
-                                    width={deal.width || width}
-                                    height={deal.height || height}
-                                    fetchPriority="low"
-                                    loading={preload ? "lazy" : "eager"}
-                                />
-                                <div className="flex items-start flex-col">
-                                    <p className="text-base font-semibold text-black">
-                                        {deal.title}
-                                    </p>
-                                    <p className="text-base font-normal text-dark-gray">
-                                        {deal.label}
-                                    </p>
+                                <div className="flex items-center flex-row gap-2">
+                                    <img src={deal?.image} width={32} height={32} />
+                                    <p className="text-sm font-semibold text-primary" dangerouslySetInnerHTML={{ __html: deal.content }} />
                                 </div>
                             </div>
                         ))}

@@ -31,7 +31,7 @@ export default function Searchbar({
   return (
     <div
       id="search-bar"
-      class="gap-4 rounded-xl transition-all flex items-center w-full lg:max-w-[880px] bg-white lg:bg-transparent"
+      class="gap-4 rounded-xl transition-all flex items-center w-full lg:max-w-[880px] bg-white"
     >
       <form
         id={SEARCHBAR_INPUT_FORM_ID}

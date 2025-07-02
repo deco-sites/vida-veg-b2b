@@ -31,7 +31,7 @@ export interface Props {
 function NotFound() {
   return (
     <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
+      <span>Página não encontrada</span>
     </div>
   );
 }
@@ -81,7 +81,7 @@ function PageResult(props: SectionProps<typeof loader>) {
           hx-get={partialPrev}
         >
           <span class="inline [.htmx-request_&]:hidden">
-            Show Less
+            Ver menos
           </span>
           <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
         </a>
@@ -121,7 +121,7 @@ function PageResult(props: SectionProps<typeof loader>) {
                 hx-get={partialNext}
               >
                 <span class="inline [.htmx-request_&]:hidden">
-                  Show More
+                  Ver Mais
                 </span>
                 <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
               </a>
@@ -209,8 +209,8 @@ function Result(props: SectionProps<typeof loader>) {
     },
   });
   const results = (
-    <span class="text-sm font-normal">
-      {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
+    <span class="text-sm font-normal text-base-300">
+      {page.pageInfo.recordPerPage}  resultados
     </span>
   );
   const sortBy = sortOptions.length > 0 && (
@@ -260,8 +260,10 @@ function Result(props: SectionProps<typeof loader>) {
               <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
-                    <span class="text-base font-semibold h-12 flex items-center">
-                      Filters
+                    <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
+
+                      <Icon id="filter-desktop" />
+                      Filtrar
                     </span>
 
                     <Filters filters={filters} />

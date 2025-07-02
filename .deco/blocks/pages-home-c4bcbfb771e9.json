@@ -52,9 +52,67 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Content/Deals.tsx",
+        "deals": [
+          {
+            "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+          },
+          {
+            "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+          },
+          {
+            "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+          },
+          {
+            "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+          }
+        ],
+        "preload": false
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Content/OurProducts.tsx",
+        "title": "Nossas Categorias",
+        "subtitle": "<p><span>Temos um portfólio completo com alimentos 100% de base vegetal, gostosos e saudáveis.</span></p>",
+        "cards": [
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          },
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          },
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          },
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          },
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          },
+          {
+            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+            "label": "Requeijão"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
         "title": "Featured Products",
-        "cta": "/mono",
         "products": {
           "__resolveType": "shopify/loaders/ProductList.ts",
           "props": {
@@ -69,43 +127,16 @@
             "variantOptions": []
           },
           "metafields": []
-        }
+        },
+        "cta": "/mono"
       }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "Vitrine 1",
-        "products": null
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ShelfWithBanner.tsx",
-        "title": "Vitrine 2",
-        "products": {
-          "__resolveType": "shopify/loaders/ProductList.ts",
-          "props": {
-            "sort": "",
-            "query": "a",
-            "count": 10
-          },
-          "filters": {
-            "tags": [],
-            "productTypes": [],
-            "productVendors": [],
-            "variantOptions": []
-          },
-          "metafields": []
-        },
-        "banner": {
-          "mobile": "https://placehold.co/350x240",
-          "alt": "banner",
-          "href": "/",
-          "desktop": "https://placehold.co/440x440"
-        }
+        "products": null,
+        "title": "Vitrine 1"
       }
     },
     {
@@ -127,13 +158,41 @@
           },
           "metafields": []
         },
-        "title": "Vitrine 3",
         "banner": {
           "mobile": "https://placehold.co/350x240",
           "alt": "banner",
           "href": "/",
           "desktop": "https://placehold.co/440x440"
-        }
+        },
+        "title": "Vitrine 2"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ShelfWithBanner.tsx",
+        "products": {
+          "__resolveType": "shopify/loaders/ProductList.ts",
+          "props": {
+            "sort": "",
+            "query": "a",
+            "count": 10
+          },
+          "filters": {
+            "tags": [],
+            "productTypes": [],
+            "productVendors": [],
+            "variantOptions": []
+          },
+          "metafields": []
+        },
+        "banner": {
+          "mobile": "https://placehold.co/350x240",
+          "alt": "banner",
+          "href": "/",
+          "desktop": "https://placehold.co/440x440"
+        },
+        "title": "Vitrine 3"
       }
     },
     {
@@ -171,26 +230,6 @@
         "images": {
           "desktop": "https://placehold.co/1440x400",
           "mobile": "https://placehold.co/350x154"
-        }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
-        "label": "Sign up",
-        "placeholder": "Email address",
-        "empty": {
-          "title": "Get top deals, latest trends, and more.",
-          "description": "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here."
-        },
-        "success": {
-          "title": "Thank you for subscribing!",
-          "description": "You’re now signed up to receive the latest news, trends, and exclusive promotions directly to your inbox. Stay tuned!"
-        },
-        "failed": {
-          "title": "Oops!. Something went wrong!",
-          "description": "Something went wrong. Please try again. If the problem persists, please contact us."
         }
       }
     },

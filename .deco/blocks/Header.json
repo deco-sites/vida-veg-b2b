@@ -3,7 +3,11 @@
   "searchbar": {
     "loader": {
       "__resolveType": "resolved",
-      "data": null
+      "data": {
+        "__resolveType": "commerce/loaders/product/extensions/suggestions.ts",
+        "extensions": [],
+        "data": null
+      }
     }
   },
   "alerts": [

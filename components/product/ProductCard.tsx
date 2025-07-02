@@ -26,8 +26,8 @@ export interface Props {
   class?: string;
 }
 
-const WIDTH = 180;
-const HEIGHT = 180;
+const WIDTH = 200;
+const HEIGHT = 200;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 function ProductCard({
@@ -56,7 +56,7 @@ function ProductCard({
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {/* Add click event to dataLayer */}
+  {/* Add click event to dataLayer */ }
   const event = useSendEvent({
     on: "click",
     event: {
@@ -75,13 +75,12 @@ function ProductCard({
   return (
     <div
       {...event}
-      class={clx("card card-compact group text-sm", _class)}
+      class={clx("card card-compact group text-sm justify-between", _class)}
     >
       <figure
         class={clx(
           "relative bg-base-200",
-          "rounded border border-transparent",
-          "group-hover:border-primary",
+          "rounded"
         )}
         style={{ aspectRatio: ASPECT_RATIO }}
       >
@@ -101,7 +100,6 @@ function ProductCard({
             alt={front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            style={{ aspectRatio: ASPECT_RATIO }}
             class={clx(
               "object-cover",
               "rounded w-full",
@@ -117,7 +115,6 @@ function ProductCard({
             alt={back?.alternateName ?? front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            style={{ aspectRatio: ASPECT_RATIO }}
             class={clx(
               "object-cover",
               "rounded w-full",
@@ -145,7 +142,7 @@ function ProductCard({
           {/* Discounts */}
           <span
             class={clx(
-              "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
+              "text-xs font-bold text-white bg-primary text-center rounded-badge px-2 py-1",
               (percent < 1 || !inStock) && "opacity-0",
             )}
           >
@@ -158,18 +155,18 @@ function ProductCard({
         </div> */}
       </figure>
 
-      <a href={relativeUrl} class="pt-5">
-        <span class="font-normal text-base text-base-content">
+      <a href={relativeUrl} class="flex flex-col gap-5">
+        <span class="font-normal text-base text-base-content h-12 overflow-hidden ">
           {title}
         </span>
+        <div class="flex items-center gap-1 mb-4">
 
-        <div class="flex gap-2 pt-2">
           {listPrice && (
-            <span class="line-through font-normal text-base-300">
+            <span class="line-through font-normal text-base-300 text-sm">
               {formatPrice(listPrice, offers?.priceCurrency)}
             </span>
           )}
-          <span class="font-medium text-primary">
+          <span class="font-bold text-primary lg:text-xl">
             {formatPrice(price, offers?.priceCurrency)}
           </span>
         </div>
@@ -194,8 +191,6 @@ function ProductCard({
             ))}
         </ul>
       )} */}
-
-      <div class="flex-grow" />
 
       <div>
         {inStock
