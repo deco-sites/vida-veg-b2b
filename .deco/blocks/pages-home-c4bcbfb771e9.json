@@ -49,35 +49,24 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Content/OurProducts.tsx",
-        "title": "Nossos produtos",
-        "subtitle": "<p><span>Temos um portfólio completo com </span><strong><span>alimentos 100% de base vegetal, gostosos e saudáveis.</span></strong></p>",
-        "cards": [
-          {
-            "src": "https://assets.decocache.com/vida-veg-b2b/8e64fe5a-f93e-4f95-978c-c47e0dd16019/Ellipse-2.png",
-            "label": "Queijos"
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Featured Products",
+        "cta": "/mono",
+        "products": {
+          "__resolveType": "shopify/loaders/ProductList.ts",
+          "props": {
+            "sort": "",
+            "count": 10,
+            "query": "IOGURTE "
           },
-          {
-            "src": "https://assets.decocache.com/vida-veg-b2b/763940c1-ad5d-490f-b3ff-2721e7310e79/Ellipse-4.png",
-            "label": "Sobremesas"
+          "filters": {
+            "tags": [],
+            "productTypes": [],
+            "productVendors": [],
+            "variantOptions": []
           },
-          {
-            "label": "Requeijão",
-            "src": "https://assets.decocache.com/vida-veg-b2b/22eba95c-d832-42cd-9532-07221b983aa6/Ellipse-5.png"
-          },
-          {
-            "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
-            "label": "Manteigas"
-          },
-          {
-            "src": "https://assets.decocache.com/vida-veg-b2b/8e64fe5a-f93e-4f95-978c-c47e0dd16019/Ellipse-2.png",
-            "label": "Queijos"
-          },
-          {
-            "src": "https://assets.decocache.com/vida-veg-b2b/763940c1-ad5d-490f-b3ff-2721e7310e79/Ellipse-4.png",
-            "label": "Sobremesas"
-          }
-        ]
+          "metafields": []
+        }
       }
     },
     {
@@ -199,27 +188,34 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Content/ImageGallery.tsx",
-        "banners": [
-          {
-            "mobile": "https://placehold.co/640x400",
-            "desktop": "https://placehold.co/720x400",
-            "alt": "/",
-            "href": "/"
-          },
-          {
-            "mobile": "https://placehold.co/640x400",
-            "desktop": "https://placehold.co/720x400",
-            "alt": "/",
-            "href": "/"
-          }
-        ]
+        "__resolveType": "site/sections/Newsletter/Newsletter.tsx",
+        "label": "Sign up",
+        "placeholder": "Email address",
+        "empty": {
+          "title": "Get top deals, latest trends, and more.",
+          "description": "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here."
+        },
+        "success": {
+          "title": "Thank you for subscribing!",
+          "description": "You’re now signed up to receive the latest news, trends, and exclusive promotions directly to your inbox. Stay tuned!"
+        },
+        "failed": {
+          "title": "Oops!. Something went wrong!",
+          "description": "Something went wrong. Please try again. If the problem persists, please contact us."
+        }
       }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "products": null
       }
     }
   ],
