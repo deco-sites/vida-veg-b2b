@@ -27,8 +27,6 @@ export default function Searchbar({
   loader,
 }: SearchbarProps) {
   const slot = useId();
-  const { displaySearchbar } = useUI();
-  const open = displaySearchbar.value;
 
   return (
     <div

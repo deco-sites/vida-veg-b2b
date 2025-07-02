@@ -33,7 +33,7 @@ export class ErrorBoundary extends Component<{
     return <>{children}</>;
   }
 }
-export function useComponent<T = Record<string, unknown>>(
+export  function useComponent<T = Record<string, unknown>>(
   component: string,
   props?: T,
   otherProps: {

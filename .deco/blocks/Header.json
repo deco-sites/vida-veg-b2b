@@ -1,7 +1,6 @@
 {
   "__resolveType": "site/sections/Header/Header.tsx",
   "searchbar": {
-    "placeholder": "What are you looking for?",
     "loader": {
       "__resolveType": "resolved",
       "data": null

@@ -6,10 +6,8 @@
 import { signal } from "@preact/signals";
 
 
-const displaySearchbar = signal(false)
 
 const state = {
-  displaySearchbar,
 };
 
 export const useUI = () => state;

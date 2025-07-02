@@ -1,8 +1,11 @@
 {
   "__resolveType": "site/apps/deco/shopify.ts",
-  "adminAccessToken": {},
+  "adminAccessToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "encrypted": "339e3599eaaea591a5147fcb4f45abca",
+    "name": "SHOPIFY_ACCESS_TOKEN"
+  },
   "platform": "shopify",
-  "storefrontAccessToken": "1e5fbe92421081ccd2dcaeab9ecfe965",
   "storeName": "hwic6k-0p",
-  "publicUrl": "hwic6k-0p.myshopify.com"
+  "storefrontAccessToken": "1e5fbe92421081ccd2dcaeab9ecfe965"
 }

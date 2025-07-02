@@ -19,7 +19,8 @@
             "subTitle": "Top-quality roller skate shoes for all levels. ",
             "href": "/s?q=shoes&page=0",
             "label": "Grab Yours Now!"
-          }
+          },
+          "href": "/"
         },
         {
           "desktop": "https://assets.decocache.com/storefront/98a22637-60b2-41f7-9d49-dbbf99f50472/1742560212519-d26304f4-355b-48d0-b649-e24b9cbf0ded",
@@ -30,7 +31,8 @@
             "subTitle": "Modern men's clothing and accessories.",
             "href": "/men",
             "label": "Shop the Collection"
-          }
+          },
+          "href": "/"
         },
         {
           "desktop": "https://assets.decocache.com/storefront/6ee525fa-fcd1-4cbe-be78-eaaa312c0471/1742560219550-1226ef79-c7e0-403c-b716-b6b9af3f2936",
@@ -41,7 +43,8 @@
             "title": "Embrace New Trends",
             "subTitle": "Stylish clothes and accessories."
           },
-          "alt": "Woman"
+          "alt": "Woman",
+          "href": "/"
         }
       ],
       "preload": true
@@ -73,6 +76,15 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
+        "title": "Vitrine 1",
+        "products": null
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ShelfWithBanner.tsx",
+        "title": "Vitrine 2",
         "products": {
           "__resolveType": "shopify/loaders/ProductList.ts",
           "props": {
@@ -88,7 +100,12 @@
           },
           "metafields": []
         },
-        "title": "Vitrine 1"
+        "banner": {
+          "mobile": "https://placehold.co/350x240",
+          "alt": "banner",
+          "href": "/",
+          "desktop": "https://placehold.co/440x440"
+        }
       }
     },
     {
@@ -110,41 +127,13 @@
           },
           "metafields": []
         },
+        "title": "Vitrine 3",
         "banner": {
           "mobile": "https://placehold.co/350x240",
           "alt": "banner",
           "href": "/",
           "desktop": "https://placehold.co/440x440"
-        },
-        "title": "Vitrine 2"
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ShelfWithBanner.tsx",
-        "products": {
-          "__resolveType": "shopify/loaders/ProductList.ts",
-          "props": {
-            "sort": "",
-            "query": "a",
-            "count": 10
-          },
-          "filters": {
-            "tags": [],
-            "productTypes": [],
-            "productVendors": [],
-            "variantOptions": []
-          },
-          "metafields": []
-        },
-        "banner": {
-          "mobile": "https://placehold.co/350x240",
-          "alt": "banner",
-          "href": "/",
-          "desktop": "https://placehold.co/440x440"
-        },
-        "title": "Vitrine 3"
+        }
       }
     },
     {
