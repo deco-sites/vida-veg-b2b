@@ -70,14 +70,14 @@ function BannerItem(
           fetchPriority={lcp ? "high" : "auto"}
           src={mobile}
           width={412}
-          height={660}
+          height={400}
         />
         <Source
           media="(min-width: 768px)"
           fetchPriority={lcp ? "high" : "auto"}
           src={desktop}
           width={1440}
-          height={600}
+          height={400}
         />
         <img
           class="object-cover w-full h-full rounded-2xl"
@@ -96,7 +96,7 @@ function Carousel({ images = [], preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="w-full container p-4 mx-auto"
+      class="w-full"
     >
       <div class="relative">
         <Slider class="carousel carousel-center w-full gap-6 rounded-2xl">
@@ -107,25 +107,27 @@ function Carousel({ images = [], preload, interval }: Props) {
           ))}
         </Slider>
 
-        <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 left-0 mx-4">
-          <Slider.PrevButton
-            class="hidden sm:flex disabled:invisible btn btn-outline text-black hover:text-black btn-circle no-animation border-0 bg-white hover:bg-white shadow-lg"
-            disabled={false}
-          >
-            <Icon id="chevron-right" size={24} class="rotate-180" />
-          </Slider.PrevButton>
-        </div>
+        <div class="container">
+          <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 left-0 mx-4 ">
+            <Slider.PrevButton
+              class="hidden sm:flex  disabled:invisible btn  text-white   btn-circle no-animation border  bg-white  bg-opacity-50"
+              disabled={false}
+            >
+              <Icon id="arrow-white"  size={24}  />
+            </Slider.PrevButton>
+          </div>
 
-        <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 right-0 mx-4">
-          <Slider.NextButton
-            class="hidden sm:flex disabled:invisible btn btn-outline text-black hover:text-black btn-circle no-animation border-0 bg-white hover:bg-white shadow-lg"
-            disabled={false}
-          >
-            <Icon id="chevron-right" size={24} />
-          </Slider.NextButton>
-        </div>
+          <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 right-0 mx-4">
+            <Slider.NextButton
+              class="hidden sm:flex disabled:invisible btn  text-white  btn-circle no-animation border  bg-white  bg-opacity-50"
+              disabled={false}
+            >
+              <Icon id="arrow-white"  size={24} class="rotate-180" />
+            </Slider.NextButton>
+          </div>
 
-        <ul class="flex items-center justify-center w-full gap-3 mt-2">
+        </div>
+        {/* <ul class="flex items-center justify-center w-full gap-3 mt-2">
           {images.map((_, index) => (
             <li class="carousel-item">
               <Slider.Dot
@@ -134,7 +136,7 @@ function Carousel({ images = [], preload, interval }: Props) {
               />
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
 
       <Slider.JS rootId={id} interval={interval && interval * 1e3} infinite />

@@ -20,8 +20,8 @@ export interface Props {
 
 function Banner({ title, description, images, cta }: Props) {
   return (
-    <Section.Container>
-      <div class="relative bg-base-200 mx-5 sm:mx-0">
+    <Section.Container class="lg:!mt-7">
+      <div class="relative bg-base-200 mx-5 sm:mx-0 ">
         <Picture>
           <Source
             media="(max-width: 640px)"

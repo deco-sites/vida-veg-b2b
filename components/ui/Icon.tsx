@@ -13,6 +13,7 @@ export type AvailableIcons =
   | "new-close-white"
   | "new-trash"
   | "order-by"
+  | "arrow-white"
   | "new-menu"
   | "minus"
   | "plus"

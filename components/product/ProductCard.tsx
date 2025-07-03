@@ -102,7 +102,7 @@ function ProductCard({
             height={HEIGHT}
             class={clx(
               "object-cover",
-              "rounded w-full",
+              "rounded-2xl w-full",
               "col-span-full row-span-full",
             )}
             sizes="(max-width: 640px) 50vw, 20vw"
@@ -117,7 +117,7 @@ function ProductCard({
             height={HEIGHT}
             class={clx(
               "object-cover",
-              "rounded w-full",
+              "rounded-2xl w-full",
               "col-span-full row-span-full",
               "transition-opacity opacity-0 lg:group-hover:opacity-100",
             )}
@@ -129,24 +129,15 @@ function ProductCard({
 
         {/* Wishlist button */}
         <div class="absolute top-0 left-0 w-full flex items-center justify-between">
-          {/* Notify Me */}
-          <span
-            class={clx(
-              "text-sm/4 font-normal text-black bg-error bg-opacity-15 text-center rounded-badge px-2 py-1",
-              inStock && "opacity-0",
-            )}
-          >
-            Notify me
-          </span>
 
           {/* Discounts */}
           <span
             class={clx(
-              "text-xs font-bold text-white bg-primary text-center rounded-badge px-2 py-1",
+              "text-xs font-bold text-white bg-secondary text-center rounded-badge mt-2 ml-2 px-2 py-1",
               (percent < 1 || !inStock) && "opacity-0",
             )}
           >
-            {percent} % off
+            {percent} % OFF
           </span>
         </div>
 

@@ -29,7 +29,7 @@ function Banner({
   });
 
   return (
-    <div class="w-full container p-4 lg:p-0 mx-auto">
+    <div class="w-full container p-4 lg:p-0 mx-auto lg:mt-7">
       <div>
         <a
           {...selectPromotionEvent}

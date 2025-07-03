@@ -89,10 +89,10 @@ function Gallery({
   ],
 }: Props) {
   return (
-    <Section.Container>
+    <Section.Container class="!pt-7">
       <Section.Header title={title} cta={cta} />
 
-      <ul class="grid gap-2 sm:gap-4 grid-cols-1 sm:grid-cols-2 px-5 sm:px-0">
+      <ul class="grid gap-2 sm:gap-7 grid-cols-1 sm:grid-cols-2 px-5 sm:px-0">
         {banners.map((item) => (
           <li>
             <Banner {...item} />
