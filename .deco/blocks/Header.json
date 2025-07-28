@@ -21,43 +21,28 @@
   },
   "navItems": [
     {
-      "children": [
-        {
-          "children": [],
-          "image": {
-            "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-          },
-          "name": "Restaurantes, Bares e Lanchonetes",
-          "url": "/",
-          "identifier": "Bom para o seu negócio:"
-        },
-        {
-          "name": "Cruzeiros, Hotéis e Resorts",
-          "url": "/"
-        },
-        {
-          "name": "Hospitais e Clínicas"
-        },
-        {
-          "name": "Escolas"
-        }
-      ],
+      "children": [],
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "url": "/quem-somos",
-      "name": "Quem Somos",
-      "identifier": "Bom para o seu negócio"
+      "name": "Quem Somos"
     },
     {
       "children": [
         {
-          "name": "Menu item",
+          "name": "Restaurantes, Bares e Lanchonetes",
           "url": "/menu-item"
         },
         {
           "url": "/menu-item",
-          "name": "Menu item"
+          "name": "Cruzeiros, Hotéis e Risortes"
+        },
+        {
+          "name": "Hospitais e Clinicas"
+        },
+        {
+          "name": "Escolas"
         }
       ],
       "image": {
@@ -68,7 +53,14 @@
       "identifier": "Bom para o seu negócio"
     },
     {
-      "children": [],
+      "children": [
+        {
+          "name": " Academias e Clubes"
+        },
+        {
+          "name": "Indústrias de Alimentos"
+        }
+      ],
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
@@ -79,12 +71,24 @@
     {
       "children": [
         {
-          "name": "Seo",
+          "name": "Bebida Vegetal",
           "url": "/seo"
         },
         {
-          "name": "Seo",
+          "name": "Iogurte Proteico",
           "url": "/seo"
+        },
+        {
+          "name": "Iogurte Vegetal"
+        },
+        {
+          "name": "Cremes e Pastas"
+        },
+        {
+          "name": "Shake Proteico"
+        },
+        {
+          "name": "Proteina Culinária"
         }
       ],
       "image": {
@@ -96,21 +100,16 @@
     },
     {
       "children": [],
-      "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-      },
-      "url": "/receitas",
-      "name": "Receitas",
-      "identifier": "Bom para o seu negócio"
+      "url": "https://vidaveg.com.br/category/plant-based/",
+      "name": "Receitas"
     },
     {
       "children": [],
+      "url": "https://vidaveg.com.br/receita/",
+      "name": "Blog",
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-      },
-      "url": "/blog",
-      "identifier": "Bom para o seu negócio",
-      "name": "Blog"
+      }
     }
   ],
   "loading": "eager"
