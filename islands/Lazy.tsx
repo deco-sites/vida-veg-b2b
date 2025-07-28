@@ -1,6 +1,6 @@
 /** website/sections/Rendering/Lazy.tsx */
-import { h } from "preact";
-import { useState, useEffect } from "preact/hooks";
+import { h as _h } from "preact";
+import { useEffect, useState } from "preact/hooks";
 
 // Componente auxiliar que só rendeiza crianças no cliente
 function ClientOnly({ children }: { children: preact.ComponentChildren }) {

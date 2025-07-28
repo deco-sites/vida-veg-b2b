@@ -31,38 +31,44 @@ export default function Searchbar({
   return (
     <div
       id="search-bar"
-      class="gap-4 rounded-xl transition-all flex items-center w-full lg:max-w-[880px] bg-white"
+      class="gap-4 rounded-xl transition-all flex items-center w-full bg-white"
     >
       <form
         id={SEARCHBAR_INPUT_FORM_ID}
         action={ACTION}
         class="flex items-center gap-2 justify-between w-full "
       >
-        <div id="input" class="flex items-center gap-1 w-full px-3 bg-white  rounded-xl">
+        <div
+          id="input"
+          class="flex items-center gap-1 w-full px-3 bg-white  rounded-2xl"
+        >
           <button
             type="submit"
-            class=""
+            class="leading-[0]"
             aria-label="Search"
             tabIndex={-1}
           >
             <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
-            <Icon id="new-search" class="inline [.htmx-request_&]:hidden w-5 h-5" />
+            <Icon
+              id="new-search"
+              width={20}
+              height={20}
+              class="inline [.htmx-request_&]:hidden"
+            />
           </button>
 
           <input
             autoFocus
             tabIndex={0}
-            class="h-10 px-3 w-full outline-0"
+            class="h-10 px-3 w-full outline-0 text-xs"
             name={NAME}
             placeholder={placeholder}
             autoComplete="off"
             hx-target={`#${slot}`}
-            hx-post={
-              loader &&
+            hx-post={loader &&
               useComponent<SuggestionProps>(Suggestions, {
                 loader: asResolved(loader),
-              })
-            }
+              })}
             hx-trigger={`input changed delay:300ms, ${NAME}`}
             hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
             hx-swap="innerHTML"
@@ -71,7 +77,7 @@ export default function Searchbar({
               const sl = document.getElementById('${slot}');
               const btn = sb?.querySelector('button[type=submit]');
               const closed = document.getElementById('closed');
-              sb?.classList.add('p-5');
+              sb?.classList.add('p-2');
               sb?.classList.add('bg-base-200');
               closed?.classList.remove('hidden');
               closed?.classList.add('flex');
@@ -84,7 +90,7 @@ export default function Searchbar({
         <button
           id="closed"
           type="button"
-          class="text-gray-400 hidden items-center gap-1"  /* comece escondido */
+          class="text-gray-400 hidden items-center gap-1"
           aria-label="Close search"
           hx-on:click={`
             const sb = document.getElementById('search-bar');
@@ -119,9 +125,10 @@ export default function Searchbar({
               if (!sb?.contains(e.target)) {
                 closed?.classList.add('hidden');
                 closed?.classList.remove('flex');
-                sb?.classList.remove('p-5');
+                sb?.classList.remove('p-2');
                 sb?.classList.remove('bg-base-200');
                 sl?.classList.remove('active-slot');
+                btn?.classList.remove('highlight-btn');
               }
             });
           `,

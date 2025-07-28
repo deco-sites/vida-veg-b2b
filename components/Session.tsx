@@ -288,8 +288,8 @@ export default function Session(
             <div
               class="h-full flex flex-col bg-base-100 items-center justify-center overflow-auto"
               style={{
-                minWidth: "calc(min(100vw, 450px))",
-                maxWidth: "450px",
+                minWidth: "calc(min(100vw, 540px))",
+                maxWidth: "540px",
               }}
             >
               <CartProvider cart={minicart!} />

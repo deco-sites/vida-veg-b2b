@@ -155,7 +155,10 @@ function AddToCartButton(props: Props) {
       )}
       <button
         disabled
-        class={clx("flex items-center gap-2 flex-grow justify-center text-accent", _class?.toString())}
+        class={clx(
+          "flex items-center gap-2 flex-grow justify-center text-accent",
+          _class?.toString(),
+        )}
         hx-on:click={useScript(onClick)}
       >
         <Icon id="cart-white" size={20} />

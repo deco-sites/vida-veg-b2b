@@ -56,7 +56,7 @@ function ProductCard({
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {/* Add click event to dataLayer */ }
+  {/* Add click event to dataLayer */}
   const event = useSendEvent({
     on: "click",
     event: {
@@ -80,7 +80,7 @@ function ProductCard({
       <figure
         class={clx(
           "relative bg-base-200",
-          "rounded"
+          "rounded",
         )}
         style={{ aspectRatio: ASPECT_RATIO }}
       >
@@ -129,7 +129,6 @@ function ProductCard({
 
         {/* Wishlist button */}
         <div class="absolute top-0 left-0 w-full flex items-center justify-between">
-
           {/* Discounts */}
           <span
             class={clx(
@@ -141,9 +140,11 @@ function ProductCard({
           </span>
         </div>
 
-        {/* <div class="absolute bottom-0 right-0">
+        {
+          /* <div class="absolute bottom-0 right-0">
           <WishlistButton item={item} variant="icon" />
-        </div> */}
+        </div> */
+        }
       </figure>
 
       <a href={relativeUrl} class="flex flex-col gap-5">
@@ -151,7 +152,6 @@ function ProductCard({
           {title}
         </span>
         <div class="flex items-center gap-1 mb-4">
-
           {listPrice && (
             <span class="line-through font-normal text-base-300 text-sm">
               {formatPrice(listPrice, offers?.priceCurrency)}
@@ -163,7 +163,8 @@ function ProductCard({
         </div>
       </a>
 
-      {/* SKU Selector
+      {
+        /* SKU Selector
       {variants.length > 1 && firstVariantName !== shoeSizeVariant && (
         <ul class="flex items-center justify-start gap-2 pt-4 pb-1 pl-1 overflow-x-auto">
           {variants.map(([value, link]) => [value, relative(link)] as const)
@@ -181,7 +182,8 @@ function ProductCard({
               </li>
             ))}
         </ul>
-      )} */}
+      )} */
+      }
 
       <div>
         {inStock

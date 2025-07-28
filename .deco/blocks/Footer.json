@@ -2,81 +2,106 @@
   "__resolveType": "site/sections/Footer/Footer.tsx",
   "links": [
     {
-      "title": "Our Company",
+      "title": "Produtos",
       "children": [
         {
-          "title": "About us",
+          "href": "/iogurtes-veg",
+          "title": "Iogurtes Veg "
+        },
+        {
+          "title": "Leites Veg",
           "href": "#"
         },
         {
-          "title": "Our blog",
+          "title": "Veg Protein",
           "href": "#"
         },
         {
-          "title": "Stores",
+          "title": "Manteigas e Cremes",
           "href": "#"
         },
         {
-          "title": "Work with us",
-          "href": "#"
+          "title": "Queijos Veg"
+        },
+        {
+          "title": "Sobremesas"
+        },
+        {
+          "title": "Creme Deleite"
+        },
+        {
+          "title": "Vida Coffee"
         }
       ],
       "href": "#"
     },
     {
-      "title": "Orders & Purchases",
+      "title": "Menu",
       "href": "#",
       "children": [
         {
-          "title": "Check order status",
+          "title": "Minha Conta",
           "href": "#"
         },
         {
-          "title": "Return and exchanges",
+          "title": "Quem Somos",
           "href": "#"
         },
         {
-          "title": "Product retail",
+          "title": "Varejo",
           "href": "#"
         },
         {
-          "title": "Gift cards",
+          "title": "Produtos",
           "href": "#"
+        },
+        {
+          "title": "Receitas"
+        },
+        {
+          "title": "Blog"
         }
       ]
     },
     {
-      "title": "Support & Services",
+      "title": "Institucional",
       "href": "#",
       "children": [
         {
-          "title": "Support Center",
+          "title": "Política de Trocas e Devolução",
           "href": "#"
         },
         {
-          "title": "Schedule a service",
+          "title": "Política de Privacidade",
           "href": "#"
         },
         {
-          "title": "Contact us",
+          "title": "Política de Entrega",
           "href": "#"
+        },
+        {
+          "title": "Termos de Uso"
         }
       ]
     },
     {
-      "title": "Support & Services",
+      "title": "Entre em Contato",
       "children": [
         {
-          "title": "Support Center",
+          "title": "SAC: +55 (35) 99932-7472",
+          "href": "tel:+5535999327472",
+          "icon": "https://assets.decocache.com/vida-veg-b2b/dab71271-0b8c-41fa-8942-12c394b51251/PhoneCall.svg"
+        },
+        {
+          "title": "Contato",
           "href": "#"
         },
         {
-          "title": "Schedule a service",
+          "title": "Trabalhe Conosco",
           "href": "#"
         },
         {
-          "title": "Contact us",
-          "href": "#"
+          "title": "Canal de denúncias - Conduta e Ética"
         }
       ],
       "href": "#"

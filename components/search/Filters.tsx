@@ -21,9 +21,12 @@ function ValueItem(
 ) {
   return (
     <a href={url} rel="nofollow" class="flex items-center gap-2">
-      <div aria-checked={selected} class={`relative h-6 w-6 rounded-none border border-secondary after:content-[''] after:absolute after:top-[0.2rem] after:left-[0.2rem] after:rounded-none after:w-4 after:h-4 after:bg-secondary after:transition-all ${
-    selected ? 'after:opacity-100' : 'after:opacity-0'
-  }`} />
+      <div
+        aria-checked={selected}
+        class={`relative h-6 w-6 rounded-none border border-secondary after:content-[''] after:absolute after:top-[0.2rem] after:left-[0.2rem] after:rounded-none after:w-4 after:h-4 after:bg-secondary after:transition-all ${
+          selected ? "after:opacity-100" : "after:opacity-0"
+        }`}
+      />
       <span class="text-sm">{label}</span>
       {quantity > 0 && <span class="text-sm text-base-400">({quantity})</span>}
     </a>

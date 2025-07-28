@@ -6,7 +6,9 @@ import { useComponent } from "../../sections/Component.tsx";
 import Coupon from "./Coupon.tsx";
 import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "./Item.tsx";
+import Hr from "../ui/Hr.tsx";
 import { useScript } from "@deco/deco/hooks";
+
 export interface Minicart {
   /** Cart from the ecommerce platform */
   platformCart: Record<string, unknown>;
@@ -22,6 +24,7 @@ export interface Minicart {
     enableCoupon?: boolean;
     freeShippingTarget: number;
     checkoutHref: string;
+    shipping?: number;
   };
 }
 const onLoad = (formID: string) => {
@@ -106,6 +109,7 @@ export default function Cart(
         enableCoupon = true,
         freeShippingTarget,
         checkoutHref,
+        shipping = 0,
       },
     },
   }: {
@@ -158,26 +162,30 @@ export default function Cart(
           {count === 0
             ? (
               <div class="flex flex-col gap-6">
-                <span class="font-bold text-2xl text-base-300">Seu carrinho está vazio</span>
+                <span class="font-bold text-2xl text-base-300">
+                  Seu carrinho está vazio
+                </span>
                 <label
                   for={MINICART_DRAWER_ID}
-                  class="bg-primary text-base font-bold text-base rounded-2xl h-14 justify-center items-center flex"
+                  class="bg-primary text-base font-bold text-white rounded-2xl h-14 justify-center items-center flex"
                 >
-                 Escolher produtos
+                  Escolher produtos
                 </label>
               </div>
             )
             : (
               <>
                 {/* Free Shipping Bar */}
-                {/* <div class="px-2 py-4 w-full">
+                {
+                  /* <div class="px-2 py-4 w-full">
                   <FreeShippingProgressBar
                     total={total}
                     locale={locale}
                     currency={currency}
                     target={freeShippingTarget}
                   />
-                </div> */}
+                </div> */
+                }
 
                 {/* Cart Items */}
                 <ul
@@ -197,18 +205,28 @@ export default function Cart(
                 </ul>
 
                 {/* Cart Footer */}
-                <footer class="w-full px-5 py-5">
+                <footer class="w-full px-5 py-5 shadow-[0_-2px_8px_rgba(0,0,0,0.05)]">
                   {/* Subtotal */}
-                  <div class="py-2 flex gap-4 flex-col">
+                  <div class="lg:pb-5 flex gap-4 flex-col">
                     {enableCoupon && <Coupon coupon={coupon} />}
+
+                    {/* Shipping Display */}
+                    {shipping > 0 && (
+                      <div class="flex justify-between items-center text-base-300 font-medium text-sm">
+                        <span>Frete</span>
+                        <span>{formatPrice(shipping, currency, locale)}</span>
+                      </div>
+                    )}
+
+                    <Hr color="#ccc" />
                     <div class="w-full flex justify-between text-base-300 font-bold text-base">
                       <span>Subtotal</span>
                       <output form={MINICART_FORM_ID}>
                         {formatPrice(subtotal, currency, locale)}
                       </output>
                     </div>
-                         {/* descontos */}
-                       {discounts > 0 && (
+                    {/* descontos */}
+                    {discounts > 0 && (
                       <div class="flex justify-between items-center text-secondary font-medium text-sm">
                         <span class="text-sm">Descontos</span>
                         <span class="text-sm">
@@ -216,26 +234,27 @@ export default function Cart(
                         </span>
                       </div>
                     )}
-           {/* Total */}
-                       <div class="flex justify-between items-center w-full text-base text-base-300 font-bold">
+                    {/* Total */}
+                    <div class="flex justify-between items-center w-full text-base text-base-300 font-bold">
                       <span>Total</span>
                       <output
                         form={MINICART_FORM_ID}
-                        class="font-medium text-xl"
+                        class="font-medium text-base"
                       >
                         {formatPrice(total, currency, locale)}
                       </output>
                     </div>
-           {/* frete */}
-                      {/* <span class="text-sm text-base-300">
+                    {/* frete */}
+                    {
+                      /* <span class="text-sm text-base-300">
                       As taxas e o frete serão calculados na finalização da compra
-                    </span> */}
+                    </span> */
+                    }
                   </div>
-
 
                   <div class="flex flex-col gap-4">
                     <a
-                      class="btn btn-primary w-full no-animation"
+                      class="btn btn-primary w-full no-animation rounded-2xl"
                       href={checkoutHref}
                       hx-on:click={useScript(sendBeginCheckoutEvent)}
                     >
@@ -244,12 +263,12 @@ export default function Cart(
                       </span>
                       <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
                     </a>
-                           <label
-                  for={MINICART_DRAWER_ID}
-                  class="flex justify-center text-base font-bold text-base-300"
-                >
-                 Continuar Comprando
-                </label>
+                    <label
+                      for={MINICART_DRAWER_ID}
+                      class="flex justify-center text-base font-bold text-base-300"
+                    >
+                      Continuar Comprando
+                    </label>
                   </div>
                 </footer>
               </>

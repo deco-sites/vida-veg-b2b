@@ -71,7 +71,7 @@ function CartItem({ item, index, locale, currency }: Props) {
             name={`item::${index}`}
           />
 
-                    <button
+          <button
             class={clx(
               isGift && "hidden",
               "btn btn-ghost btn-square no-animation",

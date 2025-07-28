@@ -76,7 +76,7 @@ function Aside({ title, drawer, children }: {
           <span class="font-bold text-xl text-accent">{title}</span>
         </h1>
         <label for={drawer} aria-label="X" class="">
-          <Icon id="new-close-white" width={24} height={24}/>
+          <Icon id="new-close-white" width={24} height={24} />
         </label>
       </div>
       {children}

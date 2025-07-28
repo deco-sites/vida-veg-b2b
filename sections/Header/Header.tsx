@@ -4,7 +4,9 @@ import Image from "apps/website/components/Image.tsx";
 import Bag from "../../components/header/Bag.tsx";
 import Menu from "../../components/header/Menu.tsx";
 import NavItem, { MenuItem } from "../../components/header/NavItem.tsx";
-import Searchbar, { type SearchbarProps } from "../../components/search/Searchbar/Form.tsx";
+import Searchbar, {
+  type SearchbarProps,
+} from "../../components/search/Searchbar/Form.tsx";
 import Drawer from "../../components/ui/Drawer.tsx";
 import Icon from "../../components/ui/Icon.tsx";
 import {
@@ -40,9 +42,9 @@ export interface SectionProps {
 type Props = Omit<SectionProps, "alerts">;
 
 const Desktop = ({ navItems, logo, searchbar }: Props) => (
-  <div class="flex flex-col gap-4 pt-5 container">
-    <div class="flex items-center">
-      <div class="w-1/6">
+  <div class="flex flex-col pt-4 container">
+    <div class="flex justify-between items-center">
+      <div class="w-fit">
         <a href="/" aria-label="Store logo">
           <Image
             src={logo.src}
@@ -55,13 +57,13 @@ const Desktop = ({ navItems, logo, searchbar }: Props) => (
       <div class="w-4/6 flex justify-center">
         <Searchbar {...searchbar} />
       </div>
-      <div class="flex lg:gap-8 w-1/6">
+      <div class="flex justify-end lg:gap-8 w-fit">
         <Login />
         <Bag />
       </div>
     </div>
-    <div class="flex justify-center items-center">
-      <ul class="flex">
+    <div class="flex justify-center items-center ">
+      <ul class="flex lg:gap-12">
         {navItems?.slice(0, 10).map((item) => <NavItem item={item} />)}
       </ul>
     </div>
@@ -75,17 +77,17 @@ const Mobile = ({ logo, searchbar, navItems, loading }: Props) => (
       class="drawer-end"
       aside={
         <Drawer.Aside title="Menu" drawer={SIDEMENU_DRAWER_ID}>
-          {loading === "lazy" ? (
-            <div
-              id={SIDEMENU_CONTAINER_ID}
-              class="h-full flex items-center justify-center"
-              style={{ minWidth: "90vw" }}
-            >
-              <span class="loading loading-spinner" />
-            </div>
-          ) : (
-            <Menu navItems={navItems ?? []} />
-          )}
+          {loading === "lazy"
+            ? (
+              <div
+                id={SIDEMENU_CONTAINER_ID}
+                class="h-full flex items-center justify-center"
+                style={{ minWidth: "90vw" }}
+              >
+                <span class="loading loading-spinner" />
+              </div>
+            )
+            : <Menu navItems={navItems ?? []} />}
         </Drawer.Aside>
       }
     />
@@ -137,26 +139,23 @@ function Header({
   return (
     <header
       style={{
-        height:
-          device === "desktop"
-            ? HEADER_HEIGHT_DESKTOP
-            : HEADER_HEIGHT_MOBILE,
+        height: device === "desktop"
+          ? HEADER_HEIGHT_DESKTOP
+          : HEADER_HEIGHT_MOBILE,
       }}
+      class={`bg-primary`}
     >
-
       <div class="bg-primary fixed w-full z-40">
-        {device === "desktop" ? (
-          <Desktop logo={logo} {...props} />
-        ) : (
-          <Mobile logo={logo} {...props} />
-        )}
+        {device === "desktop"
+          ? <Desktop logo={logo} {...props} />
+          : <Mobile logo={logo} {...props} />}
       </div>
     </header>
   );
 }
 
 export const LoadingFallback = (props: LoadingFallbackProps<Props>) => (
-  <Header {...(props as any)} loading="lazy" />
+  <Header {...(props as Record<string, unknown>)} loading="lazy" />
 );
 
 export default Header;

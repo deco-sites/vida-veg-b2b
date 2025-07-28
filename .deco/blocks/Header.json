@@ -16,8 +16,8 @@
   "logo": {
     "src": "https://data.decoassets.com/lp-vida-veg/25984b16-e82d-4fca-91fd-934dfbbe6ba4/logo-chef.png",
     "alt": "Deco Storefront",
-    "width": 94,
-    "height": 93
+    "width": 80,
+    "height": 80
   },
   "navItems": [
     {
@@ -40,12 +40,6 @@
         },
         {
           "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
         }
       ],
       "image": {
@@ -53,6 +47,33 @@
       },
       "url": "/quem-somos",
       "name": "Quem Somos",
+      "identifier": "Bom para o seu negócio"
+    },
+    {
+      "children": [
+        {
+          "name": "Menu item",
+          "url": "/menu-item"
+        },
+        {
+          "url": "/menu-item",
+          "name": "Menu item"
+        }
+      ],
+      "image": {
+        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+      },
+      "name": "Food Service",
+      "url": "/food-service",
+      "identifier": "Bom para o seu negócio"
+    },
+    {
+      "children": [],
+      "image": {
+        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+      },
+      "name": "Varejo",
+      "url": "/varejo",
       "identifier": "Bom para o seu negócio"
     },
     {
@@ -69,62 +90,27 @@
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
-      "name": "Atendimento",
-      "url": "/Atendimento",
-      "identifier": "sdadsadadsada"
-    },
-    {
-      "children": [
-        {
-          "name": "Restaurantes, Bares e Lanchonetes",
-          "url": "/",
-          "children": [],
-          "image": {
-            "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-          },
-          "identifier": "Bom para o seu negócio:"
-        },
-        {
-          "name": "Cruzeiros, Hotéis e Resorts",
-          "url": "/"
-        },
-        {
-          "name": "Hospitais e Clínicas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
-        }
-      ],
-      "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-      },
-      "name": "Quem Somos",
-      "url": "/quem-somos",
+      "url": "/produtos",
+      "name": "Produtos",
       "identifier": "Bom para o seu negócio"
     },
     {
-      "children": [
-        {
-          "name": "Seo",
-          "url": "/seo"
-        },
-        {
-          "name": "Seo",
-          "url": "/seo"
-        }
-      ],
+      "children": [],
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
-      "url": "/Atendimento",
-      "name": "Atendimento",
-      "identifier": "sdadsadadsada"
+      "url": "/receitas",
+      "name": "Receitas",
+      "identifier": "Bom para o seu negócio"
+    },
+    {
+      "children": [],
+      "image": {
+        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+      },
+      "url": "/blog",
+      "identifier": "Bom para o seu negócio",
+      "name": "Blog"
     }
   ],
   "loading": "eager"

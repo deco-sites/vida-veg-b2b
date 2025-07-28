@@ -80,7 +80,7 @@ function BannerItem(
           height={400}
         />
         <img
-          class="object-cover w-full h-full rounded-2xl"
+          class="object-cover w-full h-[400px]"
           loading={lcp ? "eager" : "lazy"}
           src={desktop}
           alt={alt}
@@ -90,56 +90,48 @@ function BannerItem(
   );
 }
 
-function Carousel({ images = [], preload, interval }: Props) {
+function Carousel({ images = [], preload, interval = 5 }: Props) {
   const id = useId();
 
   return (
     <div
       id={id}
-      class="w-full"
+      class="relative w-full"
     >
-      <div class="relative">
-        <Slider class="carousel carousel-center w-full gap-6 rounded-2xl">
-          {images.map((image, index) => (
-            <Slider.Item index={index} class="carousel-item w-full">
-              <BannerItem image={image} lcp={index === 0 && preload} />
-            </Slider.Item>
-          ))}
-        </Slider>
+      <Slider class="carousel carousel-center w-full gap-6 scroll-smooth">
+        {images.map((image, index) => (
+          <Slider.Item index={index} class="carousel-item w-full">
+            <BannerItem image={image} lcp={index === 0 && preload} />
+          </Slider.Item>
+        ))}
+      </Slider>
 
-        <div class="container">
-          <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 left-0 mx-4 ">
-            <Slider.PrevButton
-              class="hidden sm:flex  disabled:invisible btn  text-white   btn-circle no-animation border  bg-white  bg-opacity-50"
-              disabled={false}
-            >
-              <Icon id="arrow-white"  size={24}  />
-            </Slider.PrevButton>
-          </div>
-
-          <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 right-0 mx-4">
-            <Slider.NextButton
-              class="hidden sm:flex disabled:invisible btn  text-white  btn-circle no-animation border  bg-white  bg-opacity-50"
-              disabled={false}
-            >
-              <Icon id="arrow-white"  size={24} class="rotate-180" />
-            </Slider.NextButton>
-          </div>
-
+      <div class="container absolute inset-0 pointer-events-none">
+        <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 left-0 mx-4 pointer-events-auto">
+          <Slider.PrevButton
+            class="hidden sm:flex  disabled:invisible btn  text-white   btn-circle no-animation border  bg-white  bg-opacity-50"
+            disabled={false}
+          >
+            <Icon id="arrow-white" size={24} />
+          </Slider.PrevButton>
         </div>
-        {/* <ul class="flex items-center justify-center w-full gap-3 mt-2">
-          {images.map((_, index) => (
-            <li class="carousel-item">
-              <Slider.Dot
-                index={index}
-                class="bg-base-200 h-2 w-2 no-animation rounded-full disabled:bg-primary"
-              />
-            </li>
-          ))}
-        </ul> */}
+
+        <div class="hidden sm:flex items-center justify-center z-10 absolute top-1/2 -translate-y-1/2 right-0 mx-4 pointer-events-auto">
+          <Slider.NextButton
+            class="hidden sm:flex disabled:invisible btn  text-white  btn-circle no-animation border  bg-white  bg-opacity-50"
+            disabled={false}
+          >
+            <Icon id="arrow-white" size={24} class="rotate-180" />
+          </Slider.NextButton>
+        </div>
       </div>
 
-      <Slider.JS rootId={id} interval={interval && interval * 1e3} infinite />
+      <Slider.JS
+        rootId={id}
+        interval={interval && interval * 1e3}
+        infinite
+        scroll="smooth"
+      />
     </div>
   );
 }

@@ -210,7 +210,7 @@ function Result(props: SectionProps<typeof loader>) {
   });
   const results = (
     <span class="text-sm font-normal text-base-300">
-      {page.pageInfo.recordPerPage}  resultados
+      {page.pageInfo.recordPerPage} resultados
     </span>
   );
   const sortBy = sortOptions.length > 0 && (
@@ -261,7 +261,6 @@ function Result(props: SectionProps<typeof loader>) {
                 {device === "desktop" && (
                   <aside class="place-self-start flex flex-col gap-9">
                     <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
-
                       <Icon id="filter-desktop" />
                       Filtrar
                     </span>

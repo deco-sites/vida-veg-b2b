@@ -11,7 +11,7 @@
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "images": [
         {
-          "desktop": "https://assets.decocache.com/storefront/cda73525-1147-4616-8ff1-65b566b7ed75/1742560195835-5b022a01-ba88-46fe-86ae-93ae644605b7",
+          "desktop": "https://assets.decocache.com/vida-veg-b2b/d704a83f-13b9-4771-b5b5-63366ab3dc0e/Frame-117.png",
           "mobile": "https://assets.decocache.com/storefront/9c8c0ce3-4ffb-49d6-a8d1-fe17a3db7e86/1742560203848-88b2ad41-be6d-4640-b9fe-c58942362f0f",
           "alt": "Shoes",
           "action": {
@@ -56,19 +56,23 @@
         "deals": [
           {
             "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
-            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg",
+            "label": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>"
           },
           {
             "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
-            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg",
+            "label": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>"
           },
           {
             "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
-            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg",
+            "label": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>"
           },
           {
             "content": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>",
-            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg"
+            "image": "https://assets.decocache.com/vida-veg-b2b/54173224-13d0-4943-8632-c79f9578f34b/SealPercent.svg",
+            "label": "<p><strong><span>15%OFF</span></strong><span> na primeira compra</span></p>"
           }
         ],
         "preload": false
@@ -112,7 +116,6 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "Featured Products",
         "products": {
           "__resolveType": "shopify/loaders/ProductList.ts",
           "props": {
@@ -128,6 +131,7 @@
           },
           "metafields": []
         },
+        "title": "Featured Products",
         "cta": "/mono"
       }
     },
@@ -158,13 +162,13 @@
           },
           "metafields": []
         },
+        "title": "Vitrine 2",
         "banner": {
           "mobile": "https://placehold.co/350x240",
           "alt": "banner",
           "href": "/",
           "desktop": "https://placehold.co/440x440"
-        },
-        "title": "Vitrine 2"
+        }
       }
     },
     {
@@ -186,13 +190,13 @@
           },
           "metafields": []
         },
+        "title": "Vitrine 3",
         "banner": {
           "mobile": "https://placehold.co/350x240",
           "alt": "banner",
           "href": "/",
           "desktop": "https://placehold.co/440x440"
-        },
-        "title": "Vitrine 3"
+        }
       }
     },
     {
@@ -214,13 +218,13 @@
           },
           "metafields": []
         },
+        "title": "Vitrine 4",
         "banner": {
           "mobile": "https://placehold.co/350x240",
           "alt": "banner",
           "href": "/",
           "desktop": "https://placehold.co/440x440"
-        },
-        "title": "Vitrine 4"
+        }
       }
     },
     {
@@ -251,6 +255,12 @@
             "mobile": "https://placehold.co/350x165"
           }
         ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Content/PartnersTestimonials.tsx"
       }
     },
     {

@@ -3,11 +3,8 @@
  * like clicking on add to cart and the cart modal being displayed
  */
 
-import { signal } from "@preact/signals";
+import { signal as _signal } from "@preact/signals";
 
-
-
-const state = {
-};
+const state = {};
 
 export const useUI = () => state;

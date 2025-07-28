@@ -14,6 +14,7 @@ export type AvailableIcons =
   | "new-trash"
   | "order-by"
   | "arrow-white"
+  | "new-heart-testimonials"
   | "new-menu"
   | "minus"
   | "plus"

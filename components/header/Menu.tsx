@@ -13,9 +13,11 @@ function MenuItem({ item }: { item: SiteNavigationElement }) {
       <div class="collapse-title font-bold">{item.name}</div>
       <div class="collapse-content">
         <ul>
-          {/* <li>
+          {
+            /* <li>
             <a class="underline text-sm" href={item.url}>Ver todos</a>
-          </li> */}
+          </li> */
+          }
           {item.children?.map((node) => (
             <li>
               <MenuItem item={node} />
@@ -44,8 +46,6 @@ function Menu({ navItems = [] }: Props) {
           </li>
         ))}
       </ul>
-
-
     </div>
   );
 }

@@ -64,7 +64,7 @@ export default function ProductShelf({
       {...viewItemListEvent}
       class="w-full container p-0 py-4 lg:p-4 mx-auto"
     >
-      <Section.Header title={title}  />
+      <Section.Header title={title} />
 
       <div class="grid grid-cols-1 sm:grid-cols-[450px_1fr_1fr] items-center gap-4 sm:gap-8">
         <a class="block px-4 lg:px-0" href={href}>
