@@ -95,7 +95,7 @@ export default function PartnersTestimonials({
   const id = useId();
 
   return (
-    <section class="lg:py-5 bg-white overflow-hidden">
+    <section class="py-5 bg-white overflow-hidden">
       <div class="w-full">
         {/* Título */}
         <div class="text-center mb-12 px-4">

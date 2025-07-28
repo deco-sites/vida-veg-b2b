@@ -1,30 +1,34 @@
-import Icon from "../../components/ui/Icon.tsx";
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
 import Login from "./Login.tsx";
+import Collapsible from "../ui/Collapsible.tsx";
 
 export interface Props {
   navItems?: SiteNavigationElement[];
 }
 
 function MenuItem({ item }: { item: SiteNavigationElement }) {
-  return (
-    <div class="collapse collapse-plus">
-      <input type="checkbox" />
-      <div class="collapse-title font-bold">{item.name}</div>
-      <div class="collapse-content">
+  const hasChildren = item.children && item.children.length > 0;
+
+  if (hasChildren) {
+    return (
+      <Collapsible title={item.name} className="h-auto">
         <ul>
-          {
-            /* <li>
-            <a class="underline text-sm" href={item.url}>Ver todos</a>
-          </li> */
-          }
           {item.children?.map((node) => (
-            <li>
+            <li class="py-1">
               <MenuItem item={node} />
             </li>
           ))}
         </ul>
-      </div>
+      </Collapsible>
+    );
+  }
+
+  // Item sem filhos - sem ícone, sem collapsible
+  return (
+    <div class="flex items-center h-[60px] px-4 cursor-pointer hover:bg-gray-50">
+      <a href={item.url} class="font-bold w-full">
+        {item.name}
+      </a>
     </div>
   );
 }

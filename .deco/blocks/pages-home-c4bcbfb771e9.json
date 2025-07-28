@@ -230,31 +230,7 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Content/Banner.tsx",
-        "mobile": "https://placehold.co/340x164",
-        "desktop": "https://placehold.co/1440x292",
-        "alt": "/",
-        "href": "/"
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Images/ImageGallery.tsx",
-        "banners": [
-          {
-            "desktop": "https://placehold.co/612x292",
-            "alt": "/",
-            "href": "/",
-            "mobile": "https://placehold.co/350x165"
-          },
-          {
-            "desktop": "https://placehold.co/612x292",
-            "alt": "/",
-            "href": "/",
-            "mobile": "https://placehold.co/350x165"
-          }
-        ]
+        "__resolveType": "site/sections/Content/DoubleBanner.tsx"
       }
     },
     {
@@ -267,6 +243,12 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Cookie Consent - 01"
       }
     }
   ],

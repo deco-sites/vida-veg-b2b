@@ -62,12 +62,12 @@ export default function ProductShelf({
   return (
     <div
       {...viewItemListEvent}
-      class="w-full container p-0 py-4 lg:p-4 mx-auto"
+      class="w-full container py-5 lg:px-0 px-4  mx-auto"
     >
       <Section.Header title={title} />
 
       <div class="grid grid-cols-1 sm:grid-cols-[450px_1fr_1fr] items-center gap-4 sm:gap-8">
-        <a class="block px-4 lg:px-0" href={href}>
+        <a class="block lg:px-0" href={href}>
           <Image
             alt={alt}
             src={device === "mobile" ? mobileBanner : desktopBanner}
@@ -78,7 +78,11 @@ export default function ProductShelf({
         </a>
 
         <div class="lg:col-span-2">
-          <ProductSlider products={products} itemListName={title} />
+          <ProductSlider
+            products={products}
+            itemListName={title}
+            removePaddingFirst
+          />
         </div>
       </div>
     </div>

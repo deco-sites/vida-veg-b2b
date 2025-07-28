@@ -155,7 +155,7 @@ function Header({
 }
 
 export const LoadingFallback = (props: LoadingFallbackProps<Props>) => (
-  <Header {...(props as Record<string, unknown>)} loading="lazy" />
+  <Header {...props} loading="lazy" />
 );
 
 export default Header;

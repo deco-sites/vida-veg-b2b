@@ -1,5 +1,4 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
-import Image from "apps/website/components/Image.tsx";
 import { useDevice } from "@deco/deco/hooks";
 interface Deal {
   /**
@@ -35,15 +34,13 @@ interface Props {
    */
   deals: Deal[];
 }
-const Deals = ({ deals, preload }: Props) => {
-  const width = 200;
-  const height = 200;
+const Deals = ({ deals, preload: _preload }: Props) => {
   const device = useDevice();
   return (
     <div className="lg:container px-0 lg:px-5">
       {device === "mobile"
         ? (
-          <div className="overflow-x-auto no-scrollbar px-5">
+          <div className="overflow-x-auto no-scrollbar px-5 py-5">
             <div className="flex space-x-4 animate-scroll">
               {deals && deals.map((deal, index) => (
                 <div

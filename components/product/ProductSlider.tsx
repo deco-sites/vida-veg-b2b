@@ -8,9 +8,12 @@ import { useId } from "../../sdk/useId.ts";
 interface Props {
   products: Product[];
   itemListName?: string;
+  removePaddingFirst?: boolean;
 }
 
-function ProductSlider({ products, itemListName }: Props) {
+function ProductSlider(
+  { products, itemListName, removePaddingFirst = false }: Props,
+) {
   const id = useId();
 
   return (
@@ -29,7 +32,7 @@ function ProductSlider({ products, itemListName }: Props) {
                 index={index}
                 class={clx(
                   "carousel-item",
-                  "first:pl-5 first:sm:pl-0",
+                  !removePaddingFirst && "first:pl-4",
                   "last:pr-5 last:sm:pr-0",
                 )}
               >

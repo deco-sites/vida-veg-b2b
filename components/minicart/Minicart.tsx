@@ -162,12 +162,12 @@ export default function Cart(
           {count === 0
             ? (
               <div class="flex flex-col gap-6">
-                <span class="font-bold text-2xl text-base-300">
+                <span class="font-bold text-lg md:text-2xl text-base-300">
                   Seu carrinho está vazio
                 </span>
                 <label
                   for={MINICART_DRAWER_ID}
-                  class="bg-primary text-base font-bold text-white rounded-2xl h-14 justify-center items-center flex"
+                  class="bg-primary text-sm md:text-base font-bold text-white rounded-2xl h-14 justify-center items-center flex"
                 >
                   Escolher produtos
                 </label>
@@ -190,7 +190,7 @@ export default function Cart(
                 {/* Cart Items */}
                 <ul
                   role="list"
-                  class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
+                  class="mt-4 md:mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-4 md:gap-6 w-full"
                 >
                   {items.map((item, index) => (
                     <li>
@@ -205,9 +205,9 @@ export default function Cart(
                 </ul>
 
                 {/* Cart Footer */}
-                <footer class="w-full px-5 py-5 shadow-[0_-2px_8px_rgba(0,0,0,0.05)]">
+                <footer class="w-full px-3 md:px-5 py-3 md:py-5 shadow-[0_-2px_8px_rgba(0,0,0,0.05)]">
                   {/* Subtotal */}
-                  <div class="lg:pb-5 flex gap-4 flex-col">
+                  <div class="pb-3 md:pb-5 flex gap-3 md:gap-4 flex-col">
                     {enableCoupon && <Coupon coupon={coupon} />}
 
                     {/* Shipping Display */}
@@ -219,7 +219,7 @@ export default function Cart(
                     )}
 
                     <Hr color="#ccc" />
-                    <div class="w-full flex justify-between text-base-300 font-bold text-base">
+                    <div class="w-full flex justify-between text-base-300 font-bold text-sm md:text-base">
                       <span>Subtotal</span>
                       <output form={MINICART_FORM_ID}>
                         {formatPrice(subtotal, currency, locale)}
@@ -235,11 +235,11 @@ export default function Cart(
                       </div>
                     )}
                     {/* Total */}
-                    <div class="flex justify-between items-center w-full text-base text-base-300 font-bold">
+                    <div class="flex justify-between items-center w-full text-sm md:text-base text-base-300 font-bold">
                       <span>Total</span>
                       <output
                         form={MINICART_FORM_ID}
-                        class="font-medium text-base"
+                        class="font-medium text-sm md:text-base"
                       >
                         {formatPrice(total, currency, locale)}
                       </output>
@@ -252,20 +252,20 @@ export default function Cart(
                     }
                   </div>
 
-                  <div class="flex flex-col gap-4">
+                  <div class="flex flex-col gap-3 md:gap-4">
                     <a
-                      class="btn btn-primary w-full no-animation rounded-2xl"
+                      class="btn btn-primary w-full no-animation rounded-2xl h-12 md:h-14"
                       href={checkoutHref}
                       hx-on:click={useScript(sendBeginCheckoutEvent)}
                     >
-                      <span class="[.htmx-request_&]:hidden text-accent text-base">
+                      <span class="[.htmx-request_&]:hidden text-accent text-sm md:text-base">
                         Finalizar Compra
                       </span>
                       <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
                     </a>
                     <label
                       for={MINICART_DRAWER_ID}
-                      class="flex justify-center text-base font-bold text-base-300"
+                      class="flex justify-center text-sm md:text-base font-bold text-base-300"
                     >
                       Continuar Comprando
                     </label>
