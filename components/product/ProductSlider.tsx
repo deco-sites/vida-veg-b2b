@@ -26,7 +26,7 @@ function ProductSlider(
         }}
       >
         <div class="col-start-1 col-span-3 row-start-1 row-span-1">
-          <Slider class="carousel carousel-center sm:carousel-end gap-5 sm:gap-10 w-full">
+          <Slider class="carousel carousel-center sm:carousel-end gap-4 w-full">
             {products?.map((product, index) => (
               <Slider.Item
                 index={index}
