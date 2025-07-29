@@ -80,7 +80,7 @@ function ProductCard({
       <figure
         class={clx(
           "relative bg-base-200",
-          "rounded"
+          "rounded-2xl"
         )}
         style={{ aspectRatio: ASPECT_RATIO }}
       >
@@ -146,42 +146,21 @@ function ProductCard({
         </div> */}
       </figure>
 
-      <a href={relativeUrl} class="flex flex-col gap-5">
-        <span class="font-normal text-base text-base-content h-12 overflow-hidden ">
+      <a href={relativeUrl} class="flex flex-col gap-2 py-4">
+        <span class="text-sm text-ellipsis font-normal line-clamp-2 h-10 text-primary normal-case">
           {title}
         </span>
-        <div class="flex items-center gap-1 mb-4">
-
+        <div class="flex items-center gap-2">
           {listPrice && (
             <span class="line-through font-normal text-base-300 text-sm">
               {formatPrice(listPrice, offers?.priceCurrency)}
             </span>
           )}
-          <span class="font-bold text-primary lg:text-xl">
+          <span class="font-bold text-primary text-base">
             {formatPrice(price, offers?.priceCurrency)}
           </span>
         </div>
       </a>
-
-      {/* SKU Selector
-      {variants.length > 1 && firstVariantName !== shoeSizeVariant && (
-        <ul class="flex items-center justify-start gap-2 pt-4 pb-1 pl-1 overflow-x-auto">
-          {variants.map(([value, link]) => [value, relative(link)] as const)
-            .map(([value, link]) => (
-              <li>
-                <a href={link} class="cursor-pointer">
-                  <input
-                    class="hidden peer"
-                    type="radio"
-                    name={`${id}-${firstSkuVariations?.[0]}`}
-                    checked={link === relativeUrl}
-                  />
-                  <Ring value={value} checked={link === relativeUrl} />
-                </a>
-              </li>
-            ))}
-        </ul>
-      )} */}
 
       <div>
         {inStock
@@ -190,21 +169,15 @@ function ProductCard({
               product={product}
               seller={seller}
               item={item}
-              class="bg-secondary rounded-2xl text-base font-bold text-base h-12 items-center"
+              class="bg-secondary rounded-2xl text-base font-bold h-10 items-center"
             />
           )
           : (
             <a
               href={relativeUrl}
-              class={clx(
-                "btn",
-                "btn-outline justify-start border-none !text-sm !font-medium px-0 no-animation w-full",
-                "hover:!bg-transparent",
-                "disabled:!bg-transparent disabled:!opacity-75",
-                "btn-error hover:!text-error disabled:!text-error",
-              )}
+              class="bg-base-200 text-white rounded-2xl text-base font-bold h-12 items-center"
             >
-              Sold out
+              Avise-me
             </a>
           )}
       </div>

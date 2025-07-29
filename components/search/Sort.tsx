@@ -34,25 +34,27 @@ function Sort({ sortOptions, url }: Props) {
   return (
     <>
       <label for="sort" class="sr-only">Sort by</label>
-      <select
-        name="sort"
-        class="select w-full max-w-sm rounded-lg bg-base-200 font-bold outline-0 text-base-300" 
-        hx-on:change={useScript(() => {
-          const select = event!.currentTarget as HTMLSelectElement;
-          window.location.href = select.value;
-        })}
-      >
-        <Icon id="order-by" />
-        {options.map(({ value, label }) => (
-          <option
-            label={labels[label] ?? label}
-            value={value}
-            selected={value === current}
-          >
-            {label}
-          </option>
-        ))}
-      </select>
+      <div class="grid grid-cols-[24px_1fr] items-center gap-2 bg-transparent sm:bg-base-200 rounded-lg w-full max-w-32 sm:max-w-sm">
+        <Icon id="list" size={24} class="text-secondary" />
+        <select
+          name="sort"
+          class="w-full text-sm font-medium text-base-300 appearance-none" 
+          hx-on:change={useScript(() => {
+            const select = event!.currentTarget as HTMLSelectElement;
+            window.location.href = select.value;
+          })}
+        >
+          {options.map(({ value, label }) => (
+            <option
+              label={labels[label] ?? label}
+              value={value}
+              selected={value === current}
+            >
+              {label}
+            </option>
+          ))}
+        </select>
+      </div>
     </>
   );
 }

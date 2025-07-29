@@ -17,15 +17,13 @@ const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function ValueItem(
-  { url, selected, label, quantity }: FilterToggleValue,
+  { url, selected, label }: FilterToggleValue,
 ) {
   return (
     <a href={url} rel="nofollow" class="flex items-center gap-2">
-      <div aria-checked={selected} class={`relative h-6 w-6 rounded-none border border-secondary after:content-[''] after:absolute after:top-[0.2rem] after:left-[0.2rem] after:rounded-none after:w-4 after:h-4 after:bg-secondary after:transition-all ${
-    selected ? 'after:opacity-100' : 'after:opacity-0'
-  }`} />
-      <span class="text-sm">{label}</span>
-      {quantity > 0 && <span class="text-sm text-base-400">({quantity})</span>}
+      <div aria-checked={selected} class={`relative h-6 w-6 rounded-lg border border-secondary after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[3px] after:w-3 after:h-3 after:bg-secondary after:transition-all ${selected ? 'after:opacity-100' : 'after:opacity-0'
+        }`} />
+      <span class="text-sm text-base-300">{label}</span>
     </a>
   );
 }
@@ -69,16 +67,23 @@ function FilterValues({ key, values }: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-6 p-4 sm:p-0">
+    <div class="flex flex-col gap-4 w-full">
       {filters
         .filter(isToggle)
-        .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <span>{filter.label}</span>
-            <FilterValues {...filter} />
-          </li>
-        ))}
-    </ul>
+        .map((filter) => {
+          const hasAnyFilterSelected = filter.values.some((value) => value.selected);
+          return (
+            <details class="collapse collapse-arrow rounded-none sm:rounded-2xl bg-base-200 max-w-sm:odd:bg-white" open={hasAnyFilterSelected}>
+              <summary class="relative collapse-title text-sm text-secondary font-semibold !flex items-center justify-between min-h-[unset] after:!top-1/2">
+                {filter.label}
+              </summary>
+              <div class="collapse-content">
+                <FilterValues {...filter} />
+              </div>
+            </details>
+          );
+        })}
+    </div>
   );
 }
 

@@ -1,17 +1,32 @@
-import type { ProductListingPage } from "apps/commerce/types.ts";
-import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import ProductCard from "../../components/product/ProductCard.tsx";
-import Filters from "../../components/search/Filters.tsx";
+import Sort from "./Sort.tsx";
 import Icon from "../../components/ui/Icon.tsx";
+import Drawer from "../ui/Drawer.tsx";
+import Filters from "../../components/search/Filters.tsx";
+import Breadcrumb from "../ui/Breadcrumb.tsx";
+import ProductCard from "../../components/product/ProductCard.tsx";
+
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
+import { ItemCard } from "../../sections/Content/OurProducts.tsx";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Breadcrumb from "../ui/Breadcrumb.tsx";
-import Drawer from "../ui/Drawer.tsx";
-import Sort from "./Sort.tsx";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useDevice, useScript, useSection } from "@deco/deco/hooks";
-import { type SectionProps } from "@deco/deco";
+
+import type { SectionProps } from "@deco/deco";
+import type { ImageWidget, RichText } from "apps/admin/widgets.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
+import type { Card } from "../../sections/Content/OurProducts.tsx";
+
+/** @titleBy route */
+interface Seo {
+  route?: string;
+  image?: ImageWidget;
+  title?: RichText;
+  description?: RichText;
+  productCards?: Card[];
+}
+
 export interface Layout {
   /**
    * @title Pagination
@@ -19,7 +34,9 @@ export interface Layout {
    */
   pagination?: "show-more" | "pagination";
 }
+
 export interface Props {
+  pageSeo: Seo[];
   /** @title Integration */
   page: ProductListingPage | null;
   layout?: Layout;
@@ -28,6 +45,7 @@ export interface Props {
   /** @hidden */
   partial?: "hideMore" | "hideLess";
 }
+
 function NotFound() {
   return (
     <div class="w-full flex justify-center items-center py-10">
@@ -35,6 +53,7 @@ function NotFound() {
     </div>
   );
 }
+
 const useUrlRebased = (overrides: string | undefined, base: string) => {
   let url: string | undefined = undefined;
   if (overrides) {
@@ -48,6 +67,7 @@ const useUrlRebased = (overrides: string | undefined, base: string) => {
   }
   return url;
 };
+
 function PageResult(props: SectionProps<typeof loader>) {
   const { layout, startingPage = 0, url, partial } = props;
   const page = props.page!;
@@ -67,7 +87,7 @@ function PageResult(props: SectionProps<typeof loader>) {
   });
   const infinite = layout?.pagination !== "pagination";
   return (
-    <div class="grid grid-flow-row grid-cols-1 place-items-center">
+    <div class="grid grid-flow-row grid-cols-1 place-items-center px-4 sm:px-0">
       <div
         class={clx(
           "pb-2 sm:pb-10",
@@ -156,6 +176,7 @@ function PageResult(props: SectionProps<typeof loader>) {
     </div>
   );
 }
+
 const setPageQuerystring = (page: string, id: string) => {
   const element = document.getElementById(id)?.querySelector(
     "[data-product-list]",
@@ -179,6 +200,7 @@ const setPageQuerystring = (page: string, id: string) => {
     history.replaceState({ prevPage }, "", url.href);
   }).observe(element);
 };
+
 function Result(props: SectionProps<typeof loader>) {
   const container = useId();
   const controls = useId();
@@ -189,6 +211,7 @@ function Result(props: SectionProps<typeof loader>) {
   const perPage = pageInfo?.recordPerPage || products.length;
   const zeroIndexedOffsetPage = pageInfo.currentPage - startingPage;
   const offset = zeroIndexedOffsetPage * perPage;
+
   const viewItemListEvent = useSendEvent({
     on: "view",
     event: {
@@ -208,81 +231,148 @@ function Result(props: SectionProps<typeof loader>) {
       },
     },
   });
+
   const results = (
     <span class="text-sm font-normal text-base-300">
       {page.pageInfo.recordPerPage}  resultados
     </span>
   );
+
   const sortBy = sortOptions.length > 0 && (
     <Sort sortOptions={sortOptions} url={url} />
   );
+
+  const { pageSeo = [] } = props;
+  const {
+    image: seoImage,
+    title: seoTitle,
+    description: seoDescription,
+    productCards: seoProductCards = [],
+  } = pageSeo[0] || {};
+
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
+            <>
 
               {device === "mobile" && (
-                <Drawer
-                  id={controls}
-                  aside={
-                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                      <div class="flex justify-between items-center">
-                        <h1 class="px-4 py-3">
-                          <span class="font-medium text-2xl">Filters</span>
-                        </h1>
-                        <label class="btn btn-ghost" for={controls}>
-                          <Icon id="close" />
-                        </label>
-                      </div>
-                      <div class="flex-grow overflow-auto">
-                        <Filters filters={filters} />
-                      </div>
-                    </div>
-                  }
-                >
-                  <div class="flex sm:hidden justify-between items-end">
-                    <div class="flex flex-col">
-                      {results}
-                      {sortBy}
-                    </div>
-
-                    <label class="btn btn-ghost" for={controls}>
-                      Filters
-                    </label>
+                <div class="flex flex-col gap-2 w-full p-4">
+                  <div class="">
+                    <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
                   </div>
-                </Drawer>
+                  <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none">
+                    Produtos
+                    <small>{results}</small>
+                  </div>
+                </div>
               )}
-
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
-                {device === "desktop" && (
-                  <aside class="place-self-start flex flex-col gap-9">
-                    <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
-
-                      <Icon id="filter-desktop" />
-                      Filtrar
-                    </span>
-
-                    <Filters filters={filters} />
-                  </aside>
-                )}
-
-                <div class="flex flex-col gap-9">
+              {seoImage && (
+                <div
+                  class="flex items-center justify-end h-52 bg-cover bg-center bg-no-repeat"
+                  style={{
+                    backgroundImage: `url(${seoImage})`,
+                  }}
+                >
+                  {seoTitle && (
+                    <div
+                      class="container px-5 sm:px-0 text-3xl font-bold text-white text-right"
+                      dangerouslySetInnerHTML={{ __html: seoTitle }}
+                    />
+                  )}
+                </div>
+              )}
+              <div class="container w-full">
+                <div class="flex flex-col gap-4 py-4 sm:py-8">
                   {device === "desktop" && (
-                    <div class="flex justify-between items-center">
-                      {results}
-                      <div>
-                        {sortBy}
+                    <>
+                      <div class="px-4 sm:px-0">
+                        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
                       </div>
+                      <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none px-4 sm:px-0">
+                        Produtos
+                        <small>{results}</small>
+                      </div>
+                    </>
+                  )}
+
+                  {seoDescription && (
+                    <div
+                      class="text-sm text-base-300 px-4 sm:px-0"
+                      dangerouslySetInnerHTML={{ __html: seoDescription }}
+                    />
+                  )}
+
+                  {seoProductCards.length > 0 && (
+                    <div class="flex gap-4 sm:gap-8 overflow-x-auto flex-nowrap sm:flex-wrap justify-start sm:justify-center">
+                      {seoProductCards.map((card, index) => (
+                        <div class="first:ml-4 last:mr-4 min-w-32">
+                          <ItemCard
+                            key={index}
+                            src={card.src}
+                            label={card.label}
+                          />
+                        </div>
+                      ))}
                     </div>
                   )}
-                  <PageResult {...props} />
+                </div>
+
+                {device === "mobile" && (
+                  <Drawer
+                    id={controls}
+                    aside={
+                      <div class="bg-base-100 flex flex-col h-full overflow-y-hidden w-full max-w-[85vw]">
+                        <div class="flex justify-between items-center bg-secondary text-white">
+                          <h1 class="flex items-center px-4 py-3 gap-2">
+                            <Icon id="filter" size={24} />
+                            <span class="font-semibold text-base">Filtrar</span>
+                          </h1>
+                          <label class="btn btn-ghost" for={controls}>
+                            <Icon id="close" />
+                          </label>
+                        </div>
+                        <div class="flex-grow overflow-auto">
+                          <Filters filters={filters} />
+                        </div>
+                      </div>
+                    }
+                  >
+                    <div class="flex sm:hidden justify-between px-4 mb-4">
+                      <label class="btn btn-ghost text-base-300" for={controls}>
+                        <Icon id="filter" size={24} class="text-secondary" />
+                        Filtrar
+                      </label>
+                      {sortBy}
+                    </div>
+                  </Drawer>
+                )}
+
+                <div class="grid grid-cols-1 sm:grid-cols-[250px_1fr] gap-10">
+                  {device === "desktop" && (
+                    <aside class="flex flex-col gap-4 w-full">
+                      <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
+                        <Icon id="filter" />
+                        Filtrar
+                      </span>
+
+                      <Filters filters={filters} />
+                    </aside>
+                  )}
+
+                  <div class="flex flex-col gap-4 items-end">
+                    {device === "desktop" && (
+                      <div class="flex justify-between items-center">
+                        {sortBy}
+                      </div>
+                    )}
+                    <PageResult {...props} />
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
       </div>
 
@@ -299,16 +389,19 @@ function Result(props: SectionProps<typeof loader>) {
     </>
   );
 }
+
 function SearchResult({ page, ...props }: SectionProps<typeof loader>) {
   if (!page) {
     return <NotFound />;
   }
   return <Result {...props} page={page} />;
 }
+
 export const loader = (props: Props, req: Request) => {
   return {
     ...props,
     url: req.url,
   };
 };
+
 export default SearchResult;

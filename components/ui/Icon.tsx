@@ -9,7 +9,7 @@ export type AvailableIcons =
   | "new-cart"
   | "new-chevron-down"
   | "new-chevron-right"
-  | "filter-desktop"
+  | "filter"
   | "new-close-white"
   | "new-trash"
   | "order-by"
@@ -32,7 +32,8 @@ export type AvailableIcons =
   | "sell"
   | "check-circle"
   | "error"
-  | "trash";
+  | "trash"
+  | "list";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

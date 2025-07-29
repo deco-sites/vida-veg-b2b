@@ -3,7 +3,7 @@ import { useScript } from "@deco/deco/hooks";
 import Image from "apps/website/components/Image.tsx";
 import type { ImageWidget } from "apps/admin/widgets.ts";
 
-interface Props {
+export interface Props {
     /**
      * @title Título da sessão
      */
@@ -23,7 +23,7 @@ interface Props {
     cta?: CTA;
 }
 
-interface Card {
+export interface Card {
     /**
      * @title Imagem
      * @description tamanho da imagem 132x132
@@ -40,7 +40,7 @@ interface CTA {
     link?: string;
 }
 
-const ItemCard = ({ src, label }: Card) => (
+export const ItemCard = ({ src, label }: Card) => (
     <div class="swiper-slide max-w-32">
         <div class="flex flex-col gap-2">
             <Image

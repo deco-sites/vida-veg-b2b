@@ -5,15 +5,6 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "commerce/sections/Seo/SeoPLPV2.tsx",
-        "jsonLD": {
-          "__resolveType": "PLP Loader"
-        }
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
         "__resolveType": "Header"
       }
     },
@@ -32,13 +23,41 @@
           "variant": "aside",
           "pagination": "show-more"
         },
-        "startingPage": 1
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Newsletter/Newsletter.tsx"
+        "startingPage": 1,
+        "pageSeo": [
+          {
+            "productCards": [
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              },
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              },
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              },
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              },
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              },
+              {
+                "src": "https://assets.decocache.com/vida-veg-b2b/51c1826a-0e41-4072-a141-2df4049a94b9/Ellipse-6.png",
+                "label": "Requeijão"
+              }
+            ],
+            "image": "https://assets.decocache.com/vida-veg-b2b/169d5c60-4746-4af6-8352-b99c8672c220/search_bg.png",
+            "title": "<h1>Nossos <br>Produtos</h1>",
+            "description": "<p><span>Se diferencie e destaque o potencial do seu cardápio com </span><strong><span>produtos saudáveis</span></strong><span>. Nosso compromisso é inovação e qualidade para negócios que buscam alimentos </span><strong><span>plant-based</span></strong><span>. Aqui, tudo é desenvolvido para garantir a </span><strong><span>qualidade e a excelência que o seu negócio busca</span></strong><span>.</span></p>",
+            "route": "*"
+          }
+        ]
       }
     },
     {
