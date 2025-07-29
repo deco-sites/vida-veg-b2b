@@ -60,54 +60,33 @@ const OurProducts = ({ title, subtitle, cards, cta }: Props) => {
 
   return (
     <>
-      <div class="px-4 lg:px-0 py-5 container flex flex-col lg:gap-7 items-center overflow-hidden">
+      <div className="px-4 lg:px-0 py-5 container flex flex-col items-center overflow-hidden lg:container">
         {title && (
-          <h3 class="text-2xl sm:text-3xl font-semibold text-secondary mb-4 lg:mb-0">
+          <h3 className="text-2xl mb-2 sm:text-3xl font-semibold text-secondary">
             {title}
           </h3>
         )}
         {subtitle && (
           <div
-            class="text-lg text-primary text-center mb-7 lg:mb-0"
+            className="text-xs lg:text-lg text-primary text-center mb-4"
             dangerouslySetInnerHTML={{ __html: subtitle }}
           />
         )}
-        <div id={id} class="max-w-full">
-          <div class="swiper-wrapper flex gap-4 lg:gap-10 lg:transform-none overflow-x-auto lg:overflow-x-visible lg:flex-wrap lg:justify-center">
+        <div id={id} className="max-w-full">
+          <div className="flex gap-4 lg:gap-10 lg:transform-none overflow-x-auto lg:overflow-x-visible lg:flex-wrap lg:justify-center">
             {cards?.map((item, index) => <ItemCard key={index} {...item} />)}
           </div>
         </div>
 
         {cta?.label && cta?.link && (
           <a
-            class="py-4 px-6 bg-primary text-base font-bold rounded-full"
+            className="py-4 px-6 bg-primary text-base font-bold rounded-full"
             href={cta.link}
           >
             {cta.label}
           </a>
         )}
       </div>
-
-      <script
-        type="text/javascript"
-        defer
-        dangerouslySetInnerHTML={{
-          __html: useScript((id) => {
-            // Aplicar Swiper apenas em mobile
-            if (window.innerWidth < 1024) {
-              // @ts-ignore .
-              new Swiper(`#${id}`, {
-                freeMode: true,
-                grabCursor: true,
-                slidesPerView: "auto",
-                centeredSlides: false,
-                centerInsufficientSlides: true,
-                spaceBetween: 16,
-              });
-            }
-          }, id),
-        }}
-      />
     </>
   );
 };

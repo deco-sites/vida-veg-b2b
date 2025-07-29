@@ -32,8 +32,10 @@ function ProductSlider(
                 index={index}
                 class={clx(
                   "carousel-item",
-                  !removePaddingFirst && "first:pl-4",
+                  !removePaddingFirst && "lg:first:pl-5",
+                  "first:pl-4 last:pr-4",
                   "last:pr-5 last:sm:pr-0",
+                  "first:pr-5 first:sm:pr-0",
                 )}
               >
                 <ProductCard
@@ -48,13 +50,13 @@ function ProductSlider(
         </div>
 
         <div class="col-start-1 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.PrevButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
+          <Slider.PrevButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation bg-white">
             <Icon id="chevron-right" class="rotate-180" />
           </Slider.PrevButton>
         </div>
 
         <div class="col-start-3 col-span-1 row-start-1 row-span-1 z-10 self-center p-2 relative bottom-[15%]">
-          <Slider.NextButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation">
+          <Slider.NextButton class="hidden sm:flex disabled:invisible btn btn-outline btn-sm btn-circle no-animation bg-white">
             <Icon id="chevron-right" />
           </Slider.NextButton>
         </div>

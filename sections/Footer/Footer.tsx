@@ -93,7 +93,7 @@ function Footer({
                   Receba as{" "}
                   <span class="text-secondary">novidades da Vida Veg!</span>
                 </div>
-                <div class="grid grid-cols-1 md:flex lg:justify-end gap-2 items-center w-full  md:max-w-full">
+                <div class="grid grid-cols-1 md:flex lg:justify-end gap-4 items-center w-full  md:max-w-full">
                   <input
                     name="name"
                     class="w-full text-sm border-white border bg-transparent lg:max-w-64 rounded-2xl text-accent outline-0 h-14 placeholder:text-accent px-4 lg:px-10"
@@ -122,7 +122,7 @@ function Footer({
           </div>
           {device === "mobile"
             ? (
-              <div class="flex flex-col gap-5">
+              <ul class="flex flex-col gap-4">
                 {social && social.length > 0 && (
                   <li class="flex justify-center gap-4">
                     {social.map(({ image, href, alt }) => (
@@ -201,7 +201,7 @@ function Footer({
                     })}
                   </ul>
                 )}
-              </div>
+              </ul>
             )
             : (
               <ul class="grid grid-flow-row sm:grid-flow-col gap-6 pb-10">
@@ -300,23 +300,6 @@ function Footer({
               </ul>
             )}
 
-          <div class="flex flex-col gap-5 sm:flex-row sm:gap-12 justify-between items-start sm:items-center pb-5 sm:pb-0">
-            {
-              /* <ul class="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start w-full sm:w-auto">
-              {paymentMethods.map(({ image, alt }) => (
-                <li class="h-6 w-12 flex justify-center items-center">
-                  <Image
-                    src={image}
-                    alt={alt}
-                    width={49}
-                    height={32}
-                    loading="lazy"
-                  />
-                </li>
-              ))}
-            </ul> */
-            }
-          </div>
 
           <div class="flex flex-col items-center lg:items-start lg:flex-row gap-5 lg:gap-1">
             <p class="text-xs text-accent">{policies}</p>

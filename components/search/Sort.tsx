@@ -34,11 +34,11 @@ function Sort({ sortOptions, url }: Props) {
   return (
     <>
       <label for="sort" class="sr-only">Sort by</label>
-      <div class="grid grid-cols-[24px_1fr] items-center gap-2 bg-transparent sm:bg-base-200 rounded-lg w-full max-w-32 sm:max-w-sm">
+      <div class="grid grid-cols-[24px_1fr] items-center gap-2 bg-transparent sm:bg-base-200 rounded-lg w-full max-w-32 sm:max-w-sm p-2">
         <Icon id="list" size={24} class="text-secondary" />
         <select
           name="sort"
-          class="w-full text-sm font-medium text-base-300 appearance-none"
+          class="w-full text-sm font-medium text-base-300 appearance-none bg-transparent"
           hx-on:change={useScript(() => {
             const select = event!.currentTarget as HTMLSelectElement;
             window.location.href = select.value;

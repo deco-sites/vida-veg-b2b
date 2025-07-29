@@ -219,7 +219,7 @@ export default function Cart(
                     )}
 
                     <Hr color="#ccc" />
-                    <div class="w-full flex justify-between text-base-300 font-bold text-sm md:text-base">
+                    <div class="w-full flex justify-between text-base-300 font-medium text-sm md:text-base">
                       <span>Subtotal</span>
                       <output form={MINICART_FORM_ID}>
                         {formatPrice(subtotal, currency, locale)}

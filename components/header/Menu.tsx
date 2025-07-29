@@ -6,7 +6,7 @@ export interface Props {
   navItems?: SiteNavigationElement[];
 }
 
-function MenuItem({ item }: { item: SiteNavigationElement }) {
+function MenuItem({ item, isChild = false }: { item: SiteNavigationElement, isChild?: boolean }) {
   const hasChildren = item.children && item.children.length > 0;
 
   if (hasChildren) {
@@ -15,7 +15,7 @@ function MenuItem({ item }: { item: SiteNavigationElement }) {
         <ul>
           {item.children?.map((node) => (
             <li class="py-1">
-              <MenuItem item={node} />
+              <MenuItem item={node} isChild={true} />
             </li>
           ))}
         </ul>
@@ -26,7 +26,7 @@ function MenuItem({ item }: { item: SiteNavigationElement }) {
   // Item sem filhos - sem ícone, sem collapsible
   return (
     <div class="flex items-center h-[60px] px-4 cursor-pointer hover:bg-gray-50">
-      <a href={item.url} class="font-bold w-full">
+      <a href={item.url} class={isChild ? "w-full" : "font-semibold w-full"}>
         {item.name}
       </a>
     </div>

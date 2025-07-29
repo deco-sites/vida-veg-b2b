@@ -62,12 +62,12 @@ export default function ProductShelf({
   return (
     <div
       {...viewItemListEvent}
-      class="w-full container py-5 lg:px-0 px-4  mx-auto"
+      class="w-full lg:container flex flex-col gap-4 sm:gap-6 py-5 mx-auto "
     >
       <Section.Header title={title} />
 
-      <div class="grid grid-cols-1 sm:grid-cols-[450px_1fr_1fr] items-center gap-4 sm:gap-8">
-        <a class="block lg:px-0" href={href}>
+      <div class="grid grid-cols-1 sm:grid-cols-[450px_1fr_1fr] items-center gap-4  sm:gap-8">
+        <a class="block px-4 lg:px-0" href={href}>
           <Image
             alt={alt}
             src={device === "mobile" ? mobileBanner : desktopBanner}

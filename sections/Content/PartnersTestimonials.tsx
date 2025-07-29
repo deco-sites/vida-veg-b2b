@@ -105,7 +105,7 @@ export default function PartnersTestimonials({
         </div>
 
         {/* Swiper de Depoimentos */}
-        <div id={id} class="swiper w-full">
+        <div id={id} class="swiper w-full lg:container">
           <div class="swiper-wrapper">
             {testimonials?.map((testimonial, index) => (
               <div

@@ -74,9 +74,9 @@ const Mobile = ({ logo, searchbar, navItems, loading }: Props) => (
   <>
     <Drawer
       id={SIDEMENU_DRAWER_ID}
-      class="drawer-end"
+      class="drawer-start"
       aside={
-        <Drawer.Aside title="Menu" drawer={SIDEMENU_DRAWER_ID}>
+        <Drawer.Aside  title="Menu" drawer={SIDEMENU_DRAWER_ID}>
           {loading === "lazy"
             ? (
               <div
