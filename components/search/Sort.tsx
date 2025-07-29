@@ -38,7 +38,7 @@ function Sort({ sortOptions, url }: Props) {
         <Icon id="list" size={24} class="text-secondary" />
         <select
           name="sort"
-          class="w-full text-sm font-medium text-base-300 appearance-none" 
+          class="w-full text-sm font-medium text-base-300 appearance-none"
           hx-on:change={useScript(() => {
             const select = event!.currentTarget as HTMLSelectElement;
             window.location.href = select.value;

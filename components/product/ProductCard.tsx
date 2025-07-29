@@ -56,7 +56,7 @@ function ProductCard({
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {/* Add click event to dataLayer */ }
+  {/* Add click event to dataLayer */}
   const event = useSendEvent({
     on: "click",
     event: {
@@ -80,7 +80,7 @@ function ProductCard({
       <figure
         class={clx(
           "relative bg-base-200",
-          "rounded-2xl"
+          "rounded-2xl",
         )}
         style={{ aspectRatio: ASPECT_RATIO }}
       >

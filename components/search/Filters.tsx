@@ -21,8 +21,12 @@ function ValueItem(
 ) {
   return (
     <a href={url} rel="nofollow" class="flex items-center gap-2">
-      <div aria-checked={selected} class={`relative h-6 w-6 rounded-lg border border-secondary after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[3px] after:w-3 after:h-3 after:bg-secondary after:transition-all ${selected ? 'after:opacity-100' : 'after:opacity-0'
-        }`} />
+      <div
+        aria-checked={selected}
+        class={`relative h-6 w-6 rounded-lg border border-secondary after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-[3px] after:w-3 after:h-3 after:bg-secondary after:transition-all ${
+          selected ? "after:opacity-100" : "after:opacity-0"
+        }`}
+      />
       <span class="text-sm text-base-300">{label}</span>
     </a>
   );
@@ -71,9 +75,14 @@ function Filters({ filters }: Props) {
       {filters
         .filter(isToggle)
         .map((filter) => {
-          const hasAnyFilterSelected = filter.values.some((value) => value.selected);
+          const hasAnyFilterSelected = filter.values.some((value) =>
+            value.selected
+          );
           return (
-            <details class="collapse collapse-arrow rounded-none sm:rounded-2xl bg-base-200 max-w-sm:odd:bg-white" open={hasAnyFilterSelected}>
+            <details
+              class="collapse collapse-arrow rounded-none sm:rounded-2xl bg-base-200 max-w-sm:odd:bg-white"
+              open={hasAnyFilterSelected}
+            >
               <summary class="relative collapse-title text-sm text-secondary font-semibold !flex items-center justify-between min-h-[unset] after:!top-1/2">
                 {filter.label}
               </summary>

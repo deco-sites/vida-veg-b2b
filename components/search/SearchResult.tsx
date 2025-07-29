@@ -253,127 +253,126 @@ function Result(props: SectionProps<typeof loader>) {
   return (
     <>
       <div id={container} {...viewItemListEvent} class="w-full">
-        {partial
-          ? <PageResult {...props} />
-          : (
-            <>
-
-              {device === "mobile" && (
-                <div class="flex flex-col gap-2 w-full p-4">
-                  <div class="">
-                    <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-                  </div>
-                  <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none">
-                    Produtos
-                    <small>{results}</small>
-                  </div>
+        {partial ? <PageResult {...props} /> : (
+          <>
+            {device === "mobile" && (
+              <div class="flex flex-col gap-2 w-full p-4">
+                <div class="">
+                  <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
                 </div>
-              )}
-              {seoImage && (
-                <div
-                  class="flex items-center justify-end h-52 bg-cover bg-center bg-no-repeat"
-                  style={{
-                    backgroundImage: `url(${seoImage})`,
-                  }}
-                >
-                  {seoTitle && (
-                    <div
-                      class="container px-5 sm:px-0 text-3xl font-bold text-white text-right"
-                      dangerouslySetInnerHTML={{ __html: seoTitle }}
-                    />
-                  )}
-                </div>
-              )}
-              <div class="container w-full">
-                <div class="flex flex-col gap-4 py-4 sm:py-8">
-                  {device === "desktop" && (
-                    <>
-                      <div class="px-4 sm:px-0">
-                        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-                      </div>
-                      <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none px-4 sm:px-0">
-                        Produtos
-                        <small>{results}</small>
-                      </div>
-                    </>
-                  )}
-
-                  {seoDescription && (
-                    <div
-                      class="text-sm text-base-300 px-4 sm:px-0"
-                      dangerouslySetInnerHTML={{ __html: seoDescription }}
-                    />
-                  )}
-
-                  {seoProductCards.length > 0 && (
-                    <div class="flex gap-4 sm:gap-8 overflow-x-auto flex-nowrap sm:flex-wrap justify-start sm:justify-center">
-                      {seoProductCards.map((card, index) => (
-                        <div class="first:ml-4 last:mr-4 min-w-32">
-                          <ItemCard
-                            key={index}
-                            src={card.src}
-                            label={card.label}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {device === "mobile" && (
-                  <Drawer
-                    id={controls}
-                    aside={
-                      <div class="bg-base-100 flex flex-col h-full overflow-y-hidden w-full max-w-[85vw]">
-                        <div class="flex justify-between items-center bg-secondary text-white">
-                          <h1 class="flex items-center px-4 py-3 gap-2">
-                            <Icon id="filter" size={24} />
-                            <span class="font-semibold text-base">Filtrar</span>
-                          </h1>
-                          <label class="btn btn-ghost" for={controls}>
-                            <Icon id="close" />
-                          </label>
-                        </div>
-                        <div class="flex-grow overflow-auto">
-                          <Filters filters={filters} />
-                        </div>
-                      </div>
-                    }
-                  >
-                    <div class="flex sm:hidden justify-between px-4 mb-4">
-                      <label class="btn btn-ghost text-base-300" for={controls}>
-                        <Icon id="filter" size={24} class="text-secondary" />
-                        Filtrar
-                      </label>
-                      {sortBy}
-                    </div>
-                  </Drawer>
-                )}
-
-                <div class="grid grid-cols-1 sm:grid-cols-[250px_1fr] gap-10">
-                  {device === "desktop" && (
-                    <aside class="flex flex-col gap-4 w-full">
-                      <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
-                        <Icon id="filter" />
-                        Filtrar
-                      </span>
-
-                      <Filters filters={filters} />
-                    </aside>
-                  )}
-
-                  <div class="flex flex-col gap-4 items-end">
-                    {device === "desktop" && (
-                      <div class="flex justify-between items-center">
-                        {sortBy}
-                      </div>
-                    )}
-                    <PageResult {...props} />
-                  </div>
+                <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none">
+                  Produtos
+                  <small>{results}</small>
                 </div>
               </div>
-            </>
-          )}
+            )}
+            {seoImage && (
+              <div
+                class="flex items-center justify-end h-52 bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url(${seoImage})`,
+                }}
+              >
+                {seoTitle && (
+                  <div
+                    class="container px-5 sm:px-0 text-3xl font-bold text-white text-right"
+                    dangerouslySetInnerHTML={{ __html: seoTitle }}
+                  />
+                )}
+              </div>
+            )}
+            <div class="container w-full">
+              <div class="flex flex-col gap-4 py-4 sm:py-8">
+                {device === "desktop" && (
+                  <>
+                    <div class="px-4 sm:px-0">
+                      <Breadcrumb
+                        itemListElement={breadcrumb?.itemListElement}
+                      />
+                    </div>
+                    <div class="flex items-center text-base-300 gap-2 font-semibold text-4xl leading-none px-4 sm:px-0">
+                      Produtos
+                      <small>{results}</small>
+                    </div>
+                  </>
+                )}
+
+                {seoDescription && (
+                  <div
+                    class="text-sm text-base-300 px-4 sm:px-0"
+                    dangerouslySetInnerHTML={{ __html: seoDescription }}
+                  />
+                )}
+
+                {seoProductCards.length > 0 && (
+                  <div class="flex gap-4 sm:gap-8 overflow-x-auto flex-nowrap sm:flex-wrap justify-start sm:justify-center">
+                    {seoProductCards.map((card, index) => (
+                      <div class="first:ml-4 last:mr-4 min-w-32">
+                        <ItemCard
+                          key={index}
+                          src={card.src}
+                          label={card.label}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {device === "mobile" && (
+                <Drawer
+                  id={controls}
+                  aside={
+                    <div class="bg-base-100 flex flex-col h-full overflow-y-hidden w-full max-w-[85vw]">
+                      <div class="flex justify-between items-center bg-secondary text-white">
+                        <h1 class="flex items-center px-4 py-3 gap-2">
+                          <Icon id="filter" size={24} />
+                          <span class="font-semibold text-base">Filtrar</span>
+                        </h1>
+                        <label class="btn btn-ghost" for={controls}>
+                          <Icon id="close" />
+                        </label>
+                      </div>
+                      <div class="flex-grow overflow-auto">
+                        <Filters filters={filters} />
+                      </div>
+                    </div>
+                  }
+                >
+                  <div class="flex sm:hidden justify-between px-4 mb-4">
+                    <label class="btn btn-ghost text-base-300" for={controls}>
+                      <Icon id="filter" size={24} class="text-secondary" />
+                      Filtrar
+                    </label>
+                    {sortBy}
+                  </div>
+                </Drawer>
+              )}
+
+              <div class="grid grid-cols-1 sm:grid-cols-[250px_1fr] gap-10">
+                {device === "desktop" && (
+                  <aside class="flex flex-col gap-4 w-full">
+                    <span class="font-bold h-12 flex gap-2 items-center text-base-300 text-xl">
+                      <Icon id="filter" />
+                      Filtrar
+                    </span>
+
+                    <Filters filters={filters} />
+                  </aside>
+                )}
+
+                <div class="flex flex-col gap-4 items-end">
+                  {device === "desktop" && (
+                    <div class="flex justify-between items-center">
+                      {sortBy}
+                    </div>
+                  )}
+                  <PageResult {...props} />
+                </div>
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <script
