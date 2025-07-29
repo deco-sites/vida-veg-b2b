@@ -14,7 +14,7 @@ export const WISHLIST_FORM_ID = "wishlist-form";
 
 export const HEADER_HEIGHT_MOBILE = "144px";
 export const NAVBAR_HEIGHT_MOBILE = "56px";
-export const HEADER_HEIGHT_DESKTOP = "170px";
+export const HEADER_HEIGHT_DESKTOP = "140px";
 export const NAVBAR_HEIGHT_DESKTOP = "44px";
 
 export const CEP_VALIDATION_MODAL_ID = "cep-validation-modal";

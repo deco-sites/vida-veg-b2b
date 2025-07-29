@@ -16,86 +16,30 @@
   "logo": {
     "src": "https://data.decoassets.com/lp-vida-veg/25984b16-e82d-4fca-91fd-934dfbbe6ba4/logo-chef.png",
     "alt": "Deco Storefront",
-    "width": 94,
-    "height": 93
+    "width": 80,
+    "height": 80
   },
   "navItems": [
     {
-      "children": [
-        {
-          "children": [],
-          "image": {
-            "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-          },
-          "name": "Restaurantes, Bares e Lanchonetes",
-          "url": "/",
-          "identifier": "Bom para o seu negócio:"
-        },
-        {
-          "name": "Cruzeiros, Hotéis e Resorts",
-          "url": "/"
-        },
-        {
-          "name": "Hospitais e Clínicas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
-        }
-      ],
+      "children": [],
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "url": "/quem-somos",
-      "name": "Quem Somos",
-      "identifier": "Bom para o seu negócio"
-    },
-    {
-      "children": [
-        {
-          "name": "Seo",
-          "url": "/seo"
-        },
-        {
-          "name": "Seo",
-          "url": "/seo"
-        }
-      ],
-      "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-      },
-      "name": "Atendimento",
-      "url": "/Atendimento",
-      "identifier": "sdadsadadsada"
+      "name": "Quem Somos"
     },
     {
       "children": [
         {
           "name": "Restaurantes, Bares e Lanchonetes",
-          "url": "/",
-          "children": [],
-          "image": {
-            "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
-          },
-          "identifier": "Bom para o seu negócio:"
+          "url": "/menu-item"
         },
         {
-          "name": "Cruzeiros, Hotéis e Resorts",
-          "url": "/"
+          "url": "/menu-item",
+          "name": "Cruzeiros, Hotéis e Risortes"
         },
         {
-          "name": "Hospitais e Clínicas"
-        },
-        {
-          "name": "Escolas"
-        },
-        {
-          "name": "Escolas"
+          "name": "Hospitais e Clinicas"
         },
         {
           "name": "Escolas"
@@ -104,27 +48,68 @@
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
-      "name": "Quem Somos",
-      "url": "/quem-somos",
+      "name": "Food Service",
+      "url": "/food-service",
       "identifier": "Bom para o seu negócio"
     },
     {
       "children": [
         {
-          "name": "Seo",
-          "url": "/seo"
+          "name": " Academias e Clubes"
         },
         {
-          "name": "Seo",
-          "url": "/seo"
+          "name": "Indústrias de Alimentos"
         }
       ],
       "image": {
         "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
-      "url": "/Atendimento",
-      "name": "Atendimento",
-      "identifier": "sdadsadadsada"
+      "name": "Varejo",
+      "url": "/varejo",
+      "identifier": "Bom para o seu negócio"
+    },
+    {
+      "children": [
+        {
+          "name": "Bebida Vegetal",
+          "url": "/seo"
+        },
+        {
+          "name": "Iogurte Proteico",
+          "url": "/seo"
+        },
+        {
+          "name": "Iogurte Vegetal"
+        },
+        {
+          "name": "Cremes e Pastas"
+        },
+        {
+          "name": "Shake Proteico"
+        },
+        {
+          "name": "Proteina Culinária"
+        }
+      ],
+      "image": {
+        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+      },
+      "url": "/produtos",
+      "name": "Produtos",
+      "identifier": "Bom para o seu negócio"
+    },
+    {
+      "children": [],
+      "url": "https://vidaveg.com.br/category/plant-based/",
+      "name": "Receitas"
+    },
+    {
+      "children": [],
+      "url": "https://vidaveg.com.br/receita/",
+      "name": "Blog",
+      "image": {
+        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+      }
     }
   ],
   "loading": "eager"

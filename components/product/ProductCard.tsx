@@ -129,7 +129,6 @@ function ProductCard({
 
         {/* Wishlist button */}
         <div class="absolute top-0 left-0 w-full flex items-center justify-between">
-
           {/* Discounts */}
           <span
             class={clx(
@@ -141,9 +140,11 @@ function ProductCard({
           </span>
         </div>
 
-        {/* <div class="absolute bottom-0 right-0">
+        {
+          /* <div class="absolute bottom-0 right-0">
           <WishlistButton item={item} variant="icon" />
-        </div> */}
+        </div> */
+        }
       </figure>
 
       <a href={relativeUrl} class="flex flex-col gap-2 py-4">

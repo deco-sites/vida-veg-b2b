@@ -58,8 +58,7 @@ function Footer({
   links = [],
   seals = [],
   social = [],
-  policies =
-  "© 2024 Vida Veg. Todos os Direitos Reservados. By:",
+  policies = "© 2024 Vida Veg. Todos os Direitos Reservados. By:",
   // paymentMethods = [],
   logo,
 }: Props) {
@@ -70,7 +69,8 @@ function Footer({
     <div class="pt-2 bg-primary mt-5 lg:mt-10">
       <footer class="rounded-t-3xl bg-ice">
         <div class="container mx-auto px-4 flex flex-col gap-5 sm:gap-10 py-10">
-            {device === "mobile" &&
+          {device === "mobile" &&
+            (
               <li class="flex justify-center">
                 <img
                   loading="lazy"
@@ -79,10 +79,8 @@ function Footer({
                   height={82}
                 />
               </li>
-            }
+            )}
           <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pb-5 lg:pb-10">
-
-
             <div class="w-full">
               <form
                 hx-swap="innerHTML"
@@ -92,18 +90,19 @@ function Footer({
                 class="flex flex-col sm:flex-row gap-5 w-full items-center"
               >
                 <div class="text-lg sm:text-2xl font-bold w-full text-accent text-center lg:text-start">
-                  Receba as <span class="text-secondary">novidades da Vida Veg!</span>
+                  Receba as{" "}
+                  <span class="text-secondary">novidades da Vida Veg!</span>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 items-center w-full  md:max-w-full">
+                <div class="grid grid-cols-1 md:flex lg:justify-end gap-2 items-center w-full  md:max-w-full">
                   <input
                     name="name"
-                    class="w-full text-sm border-white border bg-transparent lg:max-w-64 rounded-2xl text-accent outline-0 h-14 placeholder:text-accent px-4"
+                    class="w-full text-sm border-white border bg-transparent lg:max-w-64 rounded-2xl text-accent outline-0 h-14 placeholder:text-accent px-4 lg:px-10"
                     type="text"
                     placeholder="Seu nome"
                   />
                   <input
                     name="email"
-                    class="w-full text-sm border-white border bg-transparent lg:max-w-64 rounded-2xl text-accent outline-0 h-14 placeholder:text-accent px-4"
+                    class="w-full text-sm border-white border bg-transparent lg:max-w-64 rounded-2xl text-accent outline-0 h-14 placeholder:text-accent px-4 lg:px-10"
                     type="text"
                     placeholder="seu@email.com.br"
                   />
@@ -120,12 +119,10 @@ function Footer({
               </form>
               <div id={id} />
             </div>
-
           </div>
           {device === "mobile"
             ? (
               <div class="flex flex-col gap-5">
-
                 {social && social.length > 0 && (
                   <li class="flex justify-center gap-4">
                     {social.map(({ image, href, alt }) => (
@@ -176,14 +173,15 @@ function Footer({
                           <li>
                             <a href={href}>
                               {image &&
-                                <Image
-                                  src={image}
-                                  alt={alt}
-                                  width={width}
-                                  height={height}
-                                  loading="lazy"
-                                />
-                              }
+                                (
+                                  <Image
+                                    src={image}
+                                    alt={alt}
+                                    width={width}
+                                    height={height}
+                                    loading="lazy"
+                                  />
+                                )}
                             </a>
                           </li>
                         );
@@ -245,7 +243,7 @@ function Footer({
                 ))}
                 <div class="flex flex-col justify-between">
                   {social && social.length > 0 && (
-                    <li class="flex gap-4">
+                    <li class="flex gap-4 justfy-center sm:justify-end w-full sm:w-auto">
                       {social.map(({ image, href, alt }) => (
                         <div class="w-12 h-12 flex items-center justify-center border border-primary rounded-full">
                           <a href={href}>
@@ -263,21 +261,22 @@ function Footer({
                   )}
 
                   {seals.length > 0 && (
-                    <ul class="flex items-center gap-4 justify-center sm:justify-start w-full sm:w-auto">
+                    <ul class="flex items-center gap-4 justify-center sm:justify-end w-full sm:w-auto">
                       {seals.map(({ image, alt, href, width, height }) => {
                         if (href) {
                           return (
                             <li>
                               <a href={href}>
                                 {image &&
-                                  <Image
-                                    src={image}
-                                    alt={alt}
-                                    width={width}
-                                    height={height}
-                                    loading="lazy"
-                                  />
-                                }
+                                  (
+                                    <Image
+                                      src={image}
+                                      alt={alt}
+                                      width={width}
+                                      height={height}
+                                      loading="lazy"
+                                    />
+                                  )}
                               </a>
                             </li>
                           );
@@ -298,14 +297,12 @@ function Footer({
                     </ul>
                   )}
                 </div>
-
-
-
               </ul>
             )}
 
           <div class="flex flex-col gap-5 sm:flex-row sm:gap-12 justify-between items-start sm:items-center pb-5 sm:pb-0">
-            {/* <ul class="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start w-full sm:w-auto">
+            {
+              /* <ul class="flex flex-wrap gap-3 sm:gap-4 justify-center sm:justify-start w-full sm:w-auto">
               {paymentMethods.map(({ image, alt }) => (
                 <li class="h-6 w-12 flex justify-center items-center">
                   <Image
@@ -317,16 +314,19 @@ function Footer({
                   />
                 </li>
               ))}
-            </ul> */}
-
-
+            </ul> */
+            }
           </div>
 
           <div class="flex flex-col items-center lg:items-start lg:flex-row gap-5 lg:gap-1">
             <p class="text-xs text-accent">{policies}</p>
             <div class="flex flex-nowrap items-center justify-center sm:justify-end gap-4 col-span-2">
               <a href="https://www.wavecommerce.com.br/?utm_source=rodape&utm_medium=site+vida-veg">
-                <img width={97} height={17} src="https://assets.decocache.com/vida-veg-b2b/d3d67d8a-7381-4383-9aea-bfc2feaf0e07/Group-697.svg" />
+                <img
+                  width={97}
+                  height={17}
+                  src="https://assets.decocache.com/vida-veg-b2b/d3d67d8a-7381-4383-9aea-bfc2feaf0e07/Group-697.svg"
+                />
               </a>
             </div>
           </div>

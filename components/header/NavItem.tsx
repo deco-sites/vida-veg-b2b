@@ -24,7 +24,7 @@ export interface MenuItem {
   identifier?: string;
   /**
    * @title Imagem do submenu
-   * @description  
+   * @description
    * Largura: 372px x Altura: 245px
    */
   image?: {
@@ -79,12 +79,12 @@ function NavItem({ item }: { item: MenuItem }) {
 
   return (
     <li
-      class="group flex items-center pr-5 text-accent transition-all"
+      class="group flex items-center text-accent transition-all"
       style={{ height: NAVBAR_HEIGHT_DESKTOP }}
     >
       <a
         href={url}
-        class="flex gap-1 items-center text-sm font-medium transition-all"
+        class="flex gap-2 items-center text-sm font-normal transition-all"
       >
         {name}
         {hasChildren && (
@@ -105,7 +105,11 @@ function NavItem({ item }: { item: MenuItem }) {
             left: 0,
           }}
         >
-          <div className={`container flex items-start py-5 gap-6 ${isSingleColumn ? 'justify-center' : ''}`}>
+          <div
+            className={`container flex items-center py-5 gap-6 ${
+              isSingleColumn ? "justify-center" : ""
+            }`}
+          >
             {/* Render da imagem, se existir */}
             {image?.url && (
               <Image
@@ -128,7 +132,11 @@ function NavItem({ item }: { item: MenuItem }) {
               )}
 
               {/* Colunas de submenus */}
-              <div className={`flex gap-10 ${isSingleColumn ? 'justify-center' : 'justify-start'}`}>
+              <div
+                className={`flex gap-10 ${
+                  isSingleColumn ? "justify-center" : "justify-start"
+                }`}
+              >
                 {columns.map((col, colIndex) => (
                   <ul
                     class="flex flex-col items-start gap-4"

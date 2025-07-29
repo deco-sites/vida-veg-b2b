@@ -1,4 +1,3 @@
-
 import { type ImageWidget } from "apps/admin/widgets.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 /**

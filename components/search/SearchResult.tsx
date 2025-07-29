@@ -234,7 +234,7 @@ function Result(props: SectionProps<typeof loader>) {
 
   const results = (
     <span class="text-sm font-normal text-base-300">
-      {page.pageInfo.recordPerPage}  resultados
+      {page.pageInfo.recordPerPage} resultados
     </span>
   );
 
