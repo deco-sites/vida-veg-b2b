@@ -96,7 +96,7 @@ function PageResult(props: SectionProps<typeof loader>) {
       >
         <a
           rel="prev"
-          class="btn btn-ghost"
+          class="btn btn-ghost w-fit mx-auto bg-primary text-white rounded-2xl hover:bg-secondary"
           hx-swap="outerHTML show:parent:top"
           hx-get={partialPrev}
         >
@@ -136,8 +136,9 @@ function PageResult(props: SectionProps<typeof loader>) {
                 class={clx(
                   "btn btn-ghost",
                   (!nextPageUrl || partial === "hideMore") && "hidden",
+                  "bg-primary text-white rounded-2xl mb-10 hover:bg-secondary"
                 )}
-                hx-swap="outerHTML show:parent:top"
+                hx-swap="outerHTML show:parent:top "
                 hx-get={partialNext}
               >
                 <span class="inline [.htmx-request_&]:hidden">
