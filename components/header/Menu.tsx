@@ -6,7 +6,9 @@ export interface Props {
   navItems?: SiteNavigationElement[];
 }
 
-function MenuItem({ item, isChild = false }: { item: SiteNavigationElement, isChild?: boolean }) {
+function MenuItem(
+  { item, isChild = false }: { item: SiteNavigationElement; isChild?: boolean },
+) {
   const hasChildren = item.children && item.children.length > 0;
 
   if (hasChildren) {

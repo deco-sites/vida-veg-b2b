@@ -136,7 +136,7 @@ function PageResult(props: SectionProps<typeof loader>) {
                 class={clx(
                   "btn btn-ghost",
                   (!nextPageUrl || partial === "hideMore") && "hidden",
-                  "bg-primary text-white rounded-2xl mb-10 hover:bg-secondary"
+                  "bg-primary text-white rounded-2xl mb-10 hover:bg-secondary",
                 )}
                 hx-swap="outerHTML show:parent:top "
                 hx-get={partialNext}
