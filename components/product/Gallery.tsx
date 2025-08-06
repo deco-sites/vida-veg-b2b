@@ -31,8 +31,6 @@ export default function GallerySlider(props: Props) {
 
   const { page: { product: { name, isVariantOf, image: pImages } } } = props;
 
-  // Filter images when image's alt text matches product name
-  // More info at: https://community.shopify.com/c/shopify-discussions/i-can-not-add-multiple-pictures-for-my-variants/m-p/2416533
   const groupImages = isVariantOf?.image ?? pImages ?? [];
   const filtered = groupImages.filter((img) =>
     name?.includes(img.alternateName || "")
@@ -45,7 +43,6 @@ export default function GallerySlider(props: Props) {
         id={id}
         class="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-[min-content_1fr] gap-5"
       >
-        {/* Image Slider */}
         <div class="col-start-1 col-span-1 sm:col-start-2">
           <div class="relative h-min flex-grow">
             <Slider class="carousel carousel-center gap-6 w-full">
@@ -62,7 +59,6 @@ export default function GallerySlider(props: Props) {
                     alt={img.alternateName}
                     width={WIDTH}
                     height={HEIGHT}
-                    // Preload LCP image for better web vitals
                     preload={index === 0}
                     loading={index === 0 ? "eager" : "lazy"}
                   />
@@ -91,8 +87,6 @@ export default function GallerySlider(props: Props) {
             </div>
           </div>
         </div>
-
-        {/* Dots */}
         <div class="col-start-1 col-span-1">
           <ul
             class={clx(
@@ -106,7 +100,7 @@ export default function GallerySlider(props: Props) {
             style={{ maxHeight: "600px" }}
           >
             {images.map((img, index) => (
-              <li class="carousel-item w-16 h-16">
+              <li class="carousel-item w-32 h-32">
                 <Slider.Dot index={index}>
                   <Image
                     style={{ aspectRatio: "1 / 1" }}
@@ -121,7 +115,6 @@ export default function GallerySlider(props: Props) {
             ))}
           </ul>
         </div>
-
         <Slider.JS rootId={id} />
       </div>
       <ProductImageZoom
