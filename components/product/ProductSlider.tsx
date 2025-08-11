@@ -30,13 +30,7 @@ function ProductSlider(
             {products?.map((product, index) => (
               <Slider.Item
                 index={index}
-                class={clx(
-                  "carousel-item",
-                  !removePaddingFirst && "lg:first:pl-5",
-                  "first:pl-4 last:pr-4",
-                  "last:pr-5 last:sm:pr-0",
-                  "first:pr-5 first:sm:pr-0",
-                )}
+                class="carousel-item"
               >
                 <ProductCard
                   index={index}

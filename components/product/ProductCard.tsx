@@ -44,19 +44,15 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const [front, back] = images ?? [];
 
-  const { listPrice, price, seller = "1", availability } = useOffer(offers);
+  const { listPrice, price, seller = "1", availability, discount } = useOffer(offers);
   const inStock = availability === "https://schema.org/InStock";
   const possibilities = useVariantPossibilities(hasVariant, product);
   const firstSkuVariations = Object.entries(possibilities)?.[0];
   const variants = Object.entries(firstSkuVariations?.[1] ?? {});
   const relativeUrl = relative(url);
-  const percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
 
   const item = mapProductToAnalyticsItem({ product, price, listPrice, index });
 
-  {/* Add click event to dataLayer */}
   const event = useSendEvent({
     on: "click",
     event: {
@@ -67,10 +63,6 @@ function ProductCard({
       },
     },
   });
-
-  //Added it to check the variant name in the SKU Selector later, so it doesn't render the SKU to "shoes size" in the Product Card
-  const firstVariantName = firstSkuVariations?.[0]?.toLowerCase();
-  const shoeSizeVariant = "shoe size";
 
   return (
     <div
@@ -84,7 +76,6 @@ function ProductCard({
         )}
         style={{ aspectRatio: ASPECT_RATIO }}
       >
-        {/* Product Images */}
         <a
           href={relativeUrl}
           aria-label="view product"
@@ -127,24 +118,16 @@ function ProductCard({
           />
         </a>
 
-        {/* Wishlist button */}
         <div class="absolute top-0 left-0 w-full flex items-center justify-between">
-          {/* Discounts */}
           <span
             class={clx(
               "text-xs font-bold text-white bg-secondary text-center rounded-badge mt-2 ml-2 px-2 py-1",
-              (percent < 1 || !inStock) && "opacity-0",
+              (discount < 1 || !inStock) && "opacity-0",
             )}
           >
-            {percent} % OFF
+            {discount}% OFF
           </span>
         </div>
-
-        {
-          /* <div class="absolute bottom-0 right-0">
-          <WishlistButton item={item} variant="icon" />
-        </div> */
-        }
       </figure>
 
       <a href={relativeUrl} class="flex flex-col gap-2 py-4">

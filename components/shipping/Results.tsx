@@ -1,10 +1,8 @@
-/**
- * TODO: support other platforms. Currently only for VTEX
- */
 import { AppContext } from "apps/vtex/mod.ts";
 import type { SimulationOrderForm, SKU, Sla } from "apps/vtex/utils/types.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { ComponentProps } from "../../sections/Component.tsx";
+import Icon from "../ui/Icon.tsx";
 
 export interface Props {
   items: SKU[];
@@ -42,8 +40,12 @@ export default function Results({ result }: ComponentProps<typeof action>) {
 
   if (!methods.length) {
     return (
-      <div class="p-2">
-        <span>CEP inválido</span>
+      <div class="flex flex-col items-center justify-center p-6 border border-red-200 bg-red-50 rounded-2xl">
+        <Icon id="error" size={32} class="text-red-500 mb-3" />
+        <span class="text-red-700 font-medium text-center">CEP inválido</span>
+        <span class="text-red-600 text-sm mt-1 text-center">
+          Verifique se o CEP foi digitado corretamente
+        </span>
       </div>
     );
   }

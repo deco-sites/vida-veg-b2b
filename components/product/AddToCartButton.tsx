@@ -6,82 +6,84 @@ import { useScript } from "@deco/deco/hooks";
 import { AnalyticsItem, Product } from "apps/commerce/types.ts";
 
 import Icon from "../ui/Icon.tsx";
-import QuantitySelector from "../ui/QuantitySelector.tsx";
 
 export interface Props extends JSX.HTMLAttributes<HTMLButtonElement> {
   product: Product;
   seller: string;
   item: AnalyticsItem;
   type?: "shelf" | "productPage";
+  /** @description Mostrar seletor de quantidade */
+  showQuantitySelector?: boolean;
+  /** @description Texto do botão */
+  buttonText?: string;
+  /** @description Esconder ícone */
+  hideIcon?: boolean;
 }
 
-const onClick = () => {
+const onClick = async () => {
   event?.stopPropagation();
   const button = event?.currentTarget as HTMLButtonElement | null;
   const container = button!.closest<HTMLDivElement>("div[data-cart-item]")!;
+  
+  const quantityInput = container.querySelector<HTMLInputElement>('input[type="number"]');
+  const quantity = quantityInput ? Number(quantityInput.value) || 1 : 1;
+  console.log("quantity", quantity);
+  
   const { item, platformProps } = JSON.parse(
     decodeURIComponent(container.getAttribute("data-cart-item")!),
   );
-  window.STOREFRONT.CART.addToCart(item, platformProps);
+  
+  item.quantity = quantity;
+  
+  console.log("item", item);
+  console.log("platformProps", platformProps);
+  
+  try {
+    await window.STOREFRONT.CART.addToCart(item, platformProps);
+    
+    if (quantity > 1) {
+      await setTimeout(() => {
+        window.STOREFRONT.CART.setQuantity(item.item_id, quantity);
+      }, 500);
+    }
+  } catch (error) {
+    console.error('Erro ao adicionar ao carrinho:', error);
+  }
 };
 
-const onChange = (containerId: string, selectorId: string) => {
-  const selector = document.getElementById(selectorId) as HTMLInputElement;
-  const quantity = Number(selector.value);
+const quantityScript = (containerId: string) => {
   const container = document.getElementById(containerId);
   if (!container) return;
-  const { item, platformProps } = JSON.parse(
-    decodeURIComponent(container.getAttribute("data-cart-item")!),
-  );
-  platformProps.orderItems[0].quantity = quantity;
-  container.setAttribute(
-    "data-cart-item",
-    encodeURIComponent(
-      JSON.stringify({ item, platformProps }),
-    ),
-  );
-};
-
-const onLoad = (id: string, type: string) => {
-  window.STOREFRONT.CART.subscribe(() => {
-    if (type === "productPage") {
-      const container = document.getElementById(id);
-      const checkbox = container?.querySelector<HTMLInputElement>(
-        'input[type="checkbox"]',
-      );
-      const input = container?.querySelector<HTMLInputElement>(
-        'input[type="number"]',
-      );
-      const quantity = 1;
-      if (!input || !checkbox) {
-        return;
-      }
-      input.value = quantity.toString();
-      checkbox.checked = quantity > 0;
-      container?.querySelectorAll<HTMLButtonElement>("button").forEach((node) =>
-        node.disabled = false
-      );
-      container?.querySelectorAll<HTMLButtonElement>("input").forEach((node) =>
-        node.disabled = false
-      );
-    }
-
-    if (type === "shelf") {
-      const container = document.getElementById(id);
-      const checkbox = container?.querySelector<HTMLInputElement>(
-        'input[type="checkbox"]',
-      );
-      const quantity = 1;
-      if (!checkbox) {
-        return;
-      }
-      checkbox.checked = quantity > 0;
-      container?.querySelectorAll<HTMLButtonElement>("button").forEach((node) =>
-        node.disabled = false
-      );
-    }
+  
+  const quantityInput = container.querySelector<HTMLInputElement>('input[type="number"]');
+  const decreaseBtn = container.querySelector('[data-quantity="decrease"]');
+  const increaseBtn = container.querySelector('[data-quantity="increase"]');
+  
+  if (!quantityInput || !decreaseBtn || !increaseBtn) return;
+  
+  const updateQuantity = (newQuantity: number) => {
+    const min = parseInt(quantityInput.min) || 1;
+    const max = parseInt(quantityInput.max) || 100;
+    const validQuantity = Math.max(min, Math.min(max, newQuantity));
+    quantityInput.value = validQuantity.toString();
+  };
+  
+  decreaseBtn.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value) || 1;
+    updateQuantity(currentValue - 1);
+  });
+  
+  increaseBtn.addEventListener('click', () => {
+    const currentValue = parseInt(quantityInput.value) || 1;
+    updateQuantity(currentValue + 1);
+  });
+  
+  quantityInput.addEventListener('input', () => {
+    const currentValue = parseInt(quantityInput.value) || 1;
+    updateQuantity(currentValue);
   });
 };
+
 const useAddToCart = ({ product, seller }: Props) => {
   const platform = usePlatform();
   const { additionalProperty = [], isVariantOf, productID } = product;
@@ -130,10 +132,22 @@ const useAddToCart = ({ product, seller }: Props) => {
   return null;
 };
 function AddToCartButton(props: Props) {
-  const { product, item, type = "shelf", class: _class } = props;
+  const { 
+    product, 
+    item, 
+    type = "shelf", 
+    class: _class,
+    showQuantitySelector = false,
+    buttonText = "Adicionar",
+    hideIcon = false,
+  } = props;
   const platformProps = useAddToCart(props);
   const id = useId();
   const qtdId = useId();
+  
+  const onClickScript = useScript(onClick);
+  const quantityScriptContent = useScript(quantityScript, id);
+  
   return (
     <div
       id={id}
@@ -144,30 +158,50 @@ function AddToCartButton(props: Props) {
       )}
     >
       <input type="checkbox" class="hidden peer" />
-      {type === "productPage" && (
-        <QuantitySelector
-          id={qtdId}
-          disabled
-          min={0}
-          max={100}
-          hx-on:change={useScript(onChange, id, qtdId)}
-        />
+      {(showQuantitySelector || type === "productPage") && (
+        <div class="flex items-center border border-gray-300 rounded-lg bg-white">
+          <button
+            type="button"
+            class="flex items-center justify-center w-8 h-8 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-l-lg transition-colors"
+            data-quantity="decrease"
+          >
+            -
+          </button>
+          <input
+            id={qtdId}
+            type="number"
+            min={1}
+            max={100}
+            value={1}
+            class="w-12 h-8 text-center border-0 outline-none bg-transparent text-sm font-medium"
+          />
+          <button
+            type="button"
+            class="flex items-center justify-center w-8 h-8 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-r-lg transition-colors"
+            data-quantity="increase"
+          >
+            +
+          </button>
+        </div>
       )}
       <button
-        disabled
+        type="button"
         class={clx(
           "flex items-center gap-2 flex-grow justify-center text-accent",
           _class?.toString(),
         )}
-        hx-on:click={useScript(onClick)}
+        hx-on:click={onClickScript}
       >
-        <Icon id="cart-white" size={20} />
-        Adicionar
+        {!hideIcon && <Icon id="cart-white" size={20} />}
+        {buttonText}
       </button>
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(onLoad, id, type) }}
-      />
+      
+      {(showQuantitySelector || type === "productPage") && (
+        <script
+          type="module"
+          src={`data:text/javascript,${encodeURIComponent(quantityScriptContent)}`}
+        />
+      )}
     </div>
   );
 }

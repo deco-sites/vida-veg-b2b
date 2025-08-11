@@ -24,7 +24,7 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "You may also like",
+        "title": "Quem viu, viu também",
         "products": {
           "__resolveType": "shopify/loaders/ProductList.ts",
           "props": {
