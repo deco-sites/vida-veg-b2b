@@ -1,0 +1,31 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "name": "Quem Somos",
+  "path": "/quem-somos",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Header"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/AboutUs.tsx",
+        "intro": {
+          "content": "<p><span>A Vida Veg foi criada com a intenção de contribuir com alimentação saudável e mais sustentável. A partir de pesquisas e da experiência de empreender, Anderson Rodrigues e Álvaro Gazolla se tornaram sócios com o objetivo de suprir a demanda por alimentos plant based no mercado. Com a chegada de novos sócios, a Vida Veg foi se aprimorando e expandindo, oferecendo alimentos cada vez mais gostosos, saudáveis e acessíveis à população.<br> Hoje, a Vida Veg conta com uma equipe unida e preparada, uma fábrica em expansão, um portifólio em torno de 40 produtos e presença em mais de 6.000 pontos de venda no país. Com certeza, é uma das marcas de referência e bastante diferenciada no segmento plant based do Brasil.</span></p>"
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer"
+      }
+    }
+  ]
+}

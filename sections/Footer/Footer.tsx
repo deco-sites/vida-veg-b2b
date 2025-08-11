@@ -300,7 +300,6 @@ function Footer({
               </ul>
             )}
 
-
           <div class="flex flex-col items-center lg:items-start lg:flex-row gap-5 lg:gap-1">
             <p class="text-xs text-accent">{policies}</p>
             <div class="flex flex-nowrap items-center justify-center sm:justify-end gap-4 col-span-2">
