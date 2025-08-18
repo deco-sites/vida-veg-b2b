@@ -1,0 +1,9 @@
+{
+  "__resolveType": "site/apps/deco/records.ts",
+  "url": "libsql://vida-veg-b2b-decocx.turso.io",
+  "authToken": {
+    "__resolveType": "website/loaders/secret.ts",
+    "name": "DATABASE_AUTH_TOKEN",
+    "encrypted": "7a62e64a664a43ee6f863602e54c342a4e3ac589e978735ebdbf5363330cec46b33ed0b29b739b997b226fad05d5fca7a696c94e8bb2da9dc6f9bdd5e492ddd3b120befbbd49b885ab4ed7fe9e3b954ad40cec39157a751457119751b31b0a8d076a4d4eb4ac4dd41470635c85d646e9243eb71e737e8e3cb873ed51dbb4ff280392e3a3b4d812fb16b1c30c5c43eaff1c1422ce7a6fc59d5aa299b0fe4caaea98c7d99a6c6a0f03cc874d984620281e128df400817a6be2e30a4d5a1a33bf9ca6c78e581cd7ebfd2f4ba92deea5b7a4cce10ae31c0e1139676b24be3c24b1e9"
+  }
+}
