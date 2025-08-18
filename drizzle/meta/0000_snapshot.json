@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "523dbb0a-c007-4b20-abad-2299e4109edb",
+  "id": "b422f1d5-24f5-4bf9-a8ab-1da048a35be1",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "profiles": {
-      "name": "profiles",
+    "Contato": {
+      "name": "Contato",
       "columns": {
         "id": {
           "name": "id",
