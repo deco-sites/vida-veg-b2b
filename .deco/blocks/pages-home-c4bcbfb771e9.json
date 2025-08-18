@@ -236,7 +236,7 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Content/PartnersTestimonials.tsx"
+        "__resolveType": "site/sections/Content/Testimonials.tsx"
       }
     },
     {

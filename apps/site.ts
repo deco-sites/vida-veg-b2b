@@ -10,7 +10,17 @@ import { rgb24 } from "std/fmt/colors.ts";
 import manifest, { Manifest } from "../manifest.gen.ts";
 import { type Section } from "@deco/deco/blocks";
 import { type App as A, type AppContext as AC } from "@deco/deco";
+
+/** @titleBy label  */
+export interface MenuInstitutionalProps {
+  label?: string;
+  link?: string;
+}
+
 export interface Props extends WebsiteProps {
+  institutional?: {
+    menu?: MenuInstitutionalProps[];
+  };
   /**
    * @title Active Commerce Platform
    * @description Choose the active ecommerce platform
@@ -19,6 +29,7 @@ export interface Props extends WebsiteProps {
   platform: Platform;
   theme?: Section;
 }
+
 export type Platform =
   | "vtex"
   | "vnda"
@@ -27,10 +38,12 @@ export type Platform =
   | "linx"
   | "nuvemshop"
   | "custom";
+
 export let _platform: Platform = "custom";
 export type App = ReturnType<typeof Site>;
 // @ts-ignore somehow deno task check breaks, I have no idea why
 export type AppContext = AC<App>;
+
 const color = (platform: string) => {
   switch (platform) {
     case "vtex":
@@ -51,7 +64,9 @@ const color = (platform: string) => {
       return 0x212121;
   }
 };
+
 let firstRun = true;
+
 /**
  * @title Site
  * @description Start your site from a template or from scratch.

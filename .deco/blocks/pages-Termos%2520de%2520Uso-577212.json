@@ -15,9 +15,16 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Institutional/InstitutionalContent.tsx",
-        "title": "Termos de Uso",
-        "content": "<p><span>Lorem ipsum dolor sit amet consectetur. Porttitor in blandit sed pretium. Sit at eu arcu phasellus. Suspendisse augue urna purus mus at non sed. Tincidunt habitasse congue viverra tincidunt ut et erat auctor amet. Nunc convallis purus condimentum bibendum gravida non lacinia enim.<br><br>Semper nec sed hendrerit vel. Pulvinar volutpat in diam donec. Et aliquam nec orci porttitor quisque. Eget velit viverra donec mi ut porttitor. Tellus turpis blandit sit tincidunt sapien dui sociis vitae nisi. Pellentesque pharetra tellus est etiam. Diam duis mauris in pellentesque vitae pretium a pulvinar quis.<br>Iaculis urna tincidunt commodo neque et scelerisque sit maecenas vulputate. Aliquet vulputate sit interdum orci tortor nisi tempor nunc massa. Sit nisl diam sit porta commodo. Nulla habitasse hac massa sit feugiat et tellus. Eget sed massa commodo a sed. Ornare sagittis in eget facilisi sit orci lacus mattis. Porta est pretium cursus commodo tellus iaculis a felis vitae.<br><br>Sed mauris ornare faucibus sit:<br><br>Mollis pellentesque orci a montes lectus fames duis mattis. Purus nunc varius velit lectus bibendum sed aliquam purus ut. Nisl sit scelerisque faucibus sed mi sed eget a quam. <br><br>Sed mauris ornare faucibus sit:<br><br>Mollis pellentesque orci a montes lectus fames duis mattis. Purus nunc varius velit lectus bibendum sed aliquam purus ut. Nisl sit scelerisque faucibus sed mi sed eget a quam.</span></p>"
+        "__resolveType": "site/sections/Institutional/Template.tsx",
+        "sections": [
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/Content.tsx",
+              "content": "<p>Lorem ipsum dolor sit amet consectetur. Porttitor in blandit sed pretium. Sit at eu arcu phasellus. Suspendisse augue urna purus mus at non sed. Tincidunt habitasse congue viverra tincidunt ut et erat auctor amet. Nunc convallis purus condimentum bibendum gravida non lacinia enim.<br><br>Semper nec sed hendrerit vel. Pulvinar volutpat in diam donec. Et aliquam nec orci porttitor quisque. Eget velit viverra donec mi ut porttitor. Tellus turpis blandit sit tincidunt sapien dui sociis vitae nisi. Pellentesque pharetra tellus est etiam. Diam duis mauris in pellentesque vitae pretium a pulvinar quis.<br>Iaculis urna tincidunt commodo neque et scelerisque sit maecenas vulputate. Aliquet vulputate sit interdum orci tortor nisi tempor nunc massa. Sit nisl diam sit porta commodo. Nulla habitasse hac massa sit feugiat et tellus. Eget sed massa commodo a sed. Ornare sagittis in eget facilisi sit orci lacus mattis. Porta est pretium cursus commodo tellus iaculis a felis vitae.<br><br>Sed mauris ornare faucibus sit:<br><br>Mollis pellentesque orci a montes lectus fames duis mattis. Purus nunc varius velit lectus bibendum sed aliquam purus ut. Nisl sit scelerisque faucibus sed mi sed eget a quam. <br><br>Sed mauris ornare faucibus sit:<br><br>Mollis pellentesque orci a montes lectus fames duis mattis. Purus nunc varius velit lectus bibendum sed aliquam purus ut. Nisl sit scelerisque faucibus sed mi sed eget a quam.</p>"
+            }
+          }
+        ]
       }
     },
     {

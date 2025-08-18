@@ -1,17 +1,5 @@
-import { useScript, useDevice } from "@deco/deco/hooks";
 import { useId } from "../../sdk/useId.ts";
-
-/** @titleBy label  */
-export interface MenuInstitutionalProps {
-  label?: string;
-  link?: string;
-}
-interface Props {
-  /** @title Adicione novos menus  */
-  menus: MenuInstitutionalProps[];
-}
-
-
+import { useScript, useDevice } from "@deco/deco/hooks";
 
 const MockMenu = [
   { label: "Quem Somos", link: "/quem-somos" },
@@ -21,9 +9,6 @@ const MockMenu = [
   { label: "Termos de Uso", link: "/termos-de-uso" },
   { label: "Contato", link: "/contato" },
 ];
-
-
-
 
 const MenuInstitutional = ({ menus }: Props) => {
   const menuList = menus && menus.length > 0 ? menus : MockMenu;

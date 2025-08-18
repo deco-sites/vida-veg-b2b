@@ -23,7 +23,7 @@ interface Props {
   testimonials?: Testimonial[];
 }
 
-export default function PartnersTestimonials({
+export default function Testimonials({
   title = "Parceiros que Já Aumentaram suas Vendas com Vida Veg Chef",
   testimonials = [
     {

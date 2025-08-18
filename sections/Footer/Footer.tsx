@@ -66,7 +66,7 @@ function Footer({
   const device = useDevice();
 
   return (
-    <div class="pt-2 bg-primary mt-5 lg:mt-10">
+    <div class="bg-primary">
       <footer class="rounded-t-3xl bg-ice">
         <div class="container mx-auto px-4 flex flex-col gap-5 sm:gap-10 py-10">
           {device === "mobile" &&

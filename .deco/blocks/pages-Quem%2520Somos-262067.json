@@ -15,10 +15,81 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Institutional/AboutUs.tsx",
-        "intro": {
-          "content": "<p><span>A Vida Veg foi criada com a intenção de contribuir com alimentação saudável e mais sustentável. A partir de pesquisas e da experiência de empreender, Anderson Rodrigues e Álvaro Gazolla se tornaram sócios com o objetivo de suprir a demanda por alimentos plant based no mercado. Com a chegada de novos sócios, a Vida Veg foi se aprimorando e expandindo, oferecendo alimentos cada vez mais gostosos, saudáveis e acessíveis à população.<br> Hoje, a Vida Veg conta com uma equipe unida e preparada, uma fábrica em expansão, um portifólio em torno de 40 produtos e presença em mais de 6.000 pontos de venda no país. Com certeza, é uma das marcas de referência e bastante diferenciada no segmento plant based do Brasil.</span></p>"
-        }
+        "__resolveType": "site/sections/Institutional/Template.tsx",
+        "sections": [
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/Content.tsx",
+              "content": "<h1>Quem Somos</h1><p></p><p>A Vida Veg foi criada com a intenção de contribuir com alimentação saudável e mais sustentável.A partir de pesquisas e da experiência de empreender, Anderson Rodrigues e Álvaro Gazolla se tornaram sócios com o objetivo de suprir a demanda por alimentos plant based no mercado.Com a chegada de novos sócios, a Vida Veg foi se aprimorando e expandindo, oferecendo alimentos cada vez mais gostosos, saudáveis e acessíveis à população.</p><p></p><p>Hoje, a Vida Veg conta com uma equipe unida e preparada, uma fábrica em expansão, um portifólio em torno de 40 produtos e presença em mais de 6.000 pontos de venda no país. Com certeza, é uma das marcas de referência e bastante diferenciada no segmento plant based do Brasil.</p>"
+            }
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/InfoCard.tsx",
+              "content": "<h2>Posicionamento</h2><p><span>Somos uma Food Tech Plant Based que acredita na alimentação como forma de cuidar da vida e contribuir para um mundo melhor.</span></p><h2>Diferencial</h2><p><span>O maior e mais variado portifólio de produtos Plant Based do Brasil: Leites frescos Vegetais, Iogurtes, Queijos, Cremes e Pastas, Manteigas e Sobremesas.</span></p><h2>Propósito</h2><p><span>Contribuir para um mundo melhor facilitando o acesso a alimentos de base vegetal.</span></p><h2>Atuação</h2><p><span>Presente em todos os estados do Brasil.</span></p>",
+              "image": {
+                "src": "https://assets.decocache.com/vida-veg-b2b/03b9952d-55d2-448f-9eb0-f336d871639b/image-4.png",
+                "alt": "Fundadores da Vida Veg"
+              },
+              "imageCaption": "Fundadores Álvaro e Anderson"
+            }
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/TwoImages.tsx",
+              "images": [
+                {
+                  "src": "https://assets.decocache.com/vida-veg-b2b/35eceb80-2369-4568-a1f5-0ddde48cd929/image-5-(1).png",
+                  "alt": "Exterior da Fábrica"
+                },
+                {
+                  "src": "https://assets.decocache.com/vida-veg-b2b/7fc2bea3-2234-48fe-87b9-4ed7588ce5ed/image-(27).png",
+                  "alt": "Interior da Fábrica"
+                }
+              ],
+              "title": "Maior e mais moderna fábrica do Brasil em Lavras"
+            }
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/Video.tsx",
+              "embedUrl": "https://www.youtube.com/watch?v=vhc4a3QbAcY&feature=youtu.be"
+            }
+          },
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/Cards.tsx",
+              "title": "Nossos selos e certificações",
+              "cards": [
+                {
+                  "icon": "https://assets.decocache.com/vida-veg-b2b/6abf3241-5d9f-4327-806e-737eb45b2e01/image-6.png",
+                  "title": "SELO SVB",
+                  "description": "Todos produtos certificados pela SVB sociedade vegetariana Brasileira"
+                },
+                {
+                  "icon": "https://assets.decocache.com/vida-veg-b2b/2dee4b13-229b-4162-9388-e75b11fb79ac/image-7.png",
+                  "title": "SELO EU RECICLO",
+                  "description": "A cada um produto vendido, 1 outra embalagem é reciclada"
+                },
+                {
+                  "icon": "https://assets.decocache.com/vida-veg-b2b/727f3c95-1dd4-4ced-83dd-6a5a947c53ec/image-8-(1).png",
+                  "title": "SELO KOSHER",
+                  "description": "Kosher – Comunidade Judaica"
+                },
+                {
+                  "icon": "https://assets.decocache.com/vida-veg-b2b/f386f6be-c08b-40eb-b072-6c480c2aa4cf/image-9.png",
+                  "title": "SELO KOSHER",
+                  "description": "Kosher – Comunidade Judaica"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {

@@ -15,7 +15,15 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
-        "__resolveType": "site/sections/Institutional/Form.tsx"
+        "__resolveType": "site/sections/Institutional/Template.tsx",
+        "sections": [
+          {
+            "__resolveType": "website/sections/Rendering/Lazy.tsx",
+            "section": {
+              "__resolveType": "site/sections/Institutional/Form.tsx"
+            }
+          }
+        ]
       }
     },
     {
