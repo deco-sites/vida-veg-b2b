@@ -49,15 +49,15 @@ export default function Form() {
                             <div class="flex-1">
                                 <label
                                     class="font-bold text-primary"
-                                    htmlFor="nome"
+                                    htmlFor="name"
                                 >
                                     Nome completo*
                                 </label>
                                 <input
                                     class="block w-full rounded-xl border border-base-300 p-3 mt-1 text-base-300 focus:outline-none focus:ring-2 focus:ring-primary"
                                     type="text"
-                                    id="nome"
-                                    name="nome"
+                                    id="name"
+                                    name="name"
                                     placeholder="Lorem Ipsum"
                                     required
                                     pattern="^[A-Za-zÀ-ÿ '´`^~çÇ-]+$"
@@ -67,15 +67,15 @@ export default function Form() {
                             <div class="flex-1">
                                 <label
                                     class="font-bold text-primary"
-                                    htmlFor="telefone"
+                                    htmlFor="phone"
                                 >
                                     Telefone*
                                 </label>
                                 <input
                                     class="block w-full rounded-xl border border-base-300 p-3 mt-1 text-base-300 focus:outline-none focus:ring-2 focus:ring-primary"
                                     type="tel"
-                                    id="telefone"
-                                    name="telefone"
+                                    id="phone"
+                                    name="phone"
                                     placeholder="(00) 00000-0000"
                                     required
                                     pattern="^\(?\d{2}\)? ?\d{4,5}-?\d{4}$"
@@ -88,32 +88,30 @@ export default function Form() {
                         <div>
                             <label
                                 class="font-bold text-primary"
-                                htmlFor="cidade"
+                                htmlFor="city"
                             >
                                 Cidade*
                             </label>
                             <input
                                 class="block w-full rounded-xl border border-base-300 p-3 mt-1 text-base-300 focus:outline-none focus:ring-2 focus:ring-primary"
                                 type="text"
-                                id="cidade"
-                                name="cidade"
-                                placeholder="Lorem Ipsum"
+                                id="city"
+                                name="city"
                                 required
-                                pattern="^[A-Za-zÀ-ÿ '´`^~çÇ-]+$"
                                 title="Digite apenas letras e espaços"
                             />
                         </div>
                         <div>
                             <label
                                 class="font-bold text-primary"
-                                htmlFor="mensagem"
+                                htmlFor="message"
                             >
                                 Mensagem*
                             </label>
                             <textarea
                                 class="block w-full rounded-xl border border-base-300 p-3 mt-1 text-base-300 focus:outline-none focus:ring-2 focus:ring-primary min-h-[120px]"
-                                id="mensagem"
-                                name="mensagem"
+                                id="message"
+                                name="message"
                                 placeholder="Escreva aqui..."
                                 required
                             />
