@@ -71,7 +71,7 @@ function FilterValues({ key, values }: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <div class="flex flex-col gap-4 w-full">
+    <div class="flex flex-col gap-0 lg:gap-4 w-full">
       {filters
         .filter(isToggle)
         .map((filter) => {
@@ -79,17 +79,19 @@ function Filters({ filters }: Props) {
             value.selected
           );
           return (
-            <details
-              class="collapse collapse-arrow rounded-none sm:rounded-2xl bg-base-200 max-w-sm:odd:bg-white"
-              open={hasAnyFilterSelected}
-            >
-              <summary class="relative collapse-title text-sm text-secondary font-semibold !flex items-center justify-between min-h-[unset] after:!top-1/2">
-                {filter.label}
-              </summary>
-              <div class="collapse-content">
-                <FilterValues {...filter} />
-              </div>
-            </details>
+            <div class="odd:bg--white bg-base-200 rounded-none sm:rounded-2xl">
+              <details
+                class="collapse collapse-arrow"
+                open={hasAnyFilterSelected}
+              >
+                <summary class="relative collapse-title text-sm text-secondary font-semibold !flex items-center justify-between min-h-[unset] after:!top-1/2">
+                  {filter.label}
+                </summary>
+                <div class="collapse-content">
+                  <FilterValues {...filter} />
+                </div>
+              </details>
+            </div>
           );
         })}
     </div>

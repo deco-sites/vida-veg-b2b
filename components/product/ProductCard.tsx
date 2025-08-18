@@ -153,13 +153,13 @@ function ProductCard({
               product={product}
               seller={seller}
               item={item}
-              class="bg-secondary rounded-2xl text-base font-bold h-10 items-center"
+              class="rounded-2xl w-full btn btn-primary"
             />
           )
           : (
             <a
               href={relativeUrl}
-              class="bg-base-200 text-white rounded-2xl text-base font-bold h-12 items-center"
+              class="btn rounded-2xl w-full"
             >
               Avise-me
             </a>

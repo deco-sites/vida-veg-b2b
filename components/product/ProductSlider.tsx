@@ -30,7 +30,7 @@ function ProductSlider(
             {products?.map((product, index) => (
               <Slider.Item
                 index={index}
-                class="carousel-item"
+                class="carousel-item first:ml-4 last:mr-4 sm:first:ml-0 sm:last:mr-0"
               >
                 <ProductCard
                   index={index}

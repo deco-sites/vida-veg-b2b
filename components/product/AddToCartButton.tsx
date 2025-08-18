@@ -27,16 +27,12 @@ const onClick = async () => {
   
   const quantityInput = container.querySelector<HTMLInputElement>('input[type="number"]');
   const quantity = quantityInput ? Number(quantityInput.value) || 1 : 1;
-  console.log("quantity", quantity);
   
   const { item, platformProps } = JSON.parse(
     decodeURIComponent(container.getAttribute("data-cart-item")!),
   );
   
   item.quantity = quantity;
-  
-  console.log("item", item);
-  console.log("platformProps", platformProps);
   
   try {
     await window.STOREFRONT.CART.addToCart(item, platformProps);
@@ -159,10 +155,10 @@ function AddToCartButton(props: Props) {
     >
       <input type="checkbox" class="hidden peer" />
       {(showQuantitySelector || type === "productPage") && (
-        <div class="flex items-center border border-gray-300 rounded-lg bg-white">
+        <div class="flex items-center border border-primary rounded-2xl bg-white">
           <button
             type="button"
-            class="flex items-center justify-center w-8 h-8 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-l-lg transition-colors"
+            class="flex items-center justify-center w-8 h-8 text-primary"
             data-quantity="decrease"
           >
             -
@@ -173,11 +169,11 @@ function AddToCartButton(props: Props) {
             min={1}
             max={100}
             value={1}
-            class="w-12 h-8 text-center border-0 outline-none bg-transparent text-sm font-medium"
+            class="w-12 h-8 text-center border-0 outline-none bg-transparent text-base font-bold text-base-300"
           />
           <button
             type="button"
-            class="flex items-center justify-center w-8 h-8 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-r-lg transition-colors"
+            class="flex items-center justify-center w-8 h-8 text-primary"
             data-quantity="increase"
           >
             +

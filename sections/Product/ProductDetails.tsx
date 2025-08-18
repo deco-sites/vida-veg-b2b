@@ -59,8 +59,10 @@ export default function ProductDetails(props: Props) {
   )?.value || null;
 
   return (
-    <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-      <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
+    <div class="sm:container flex flex-col gap-4 sm:gap-5 w-full my-5">
+      <div class="px-4 sm:px-0">
+        <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
+      </div>
 
       <div
         class={clx(
@@ -77,9 +79,9 @@ export default function ProductDetails(props: Props) {
         </div>
       </div>
 
-      <div>
+      <div class="mx-4 sm:mx-0">
         {description && (
-          <details class="collapse bg-base-100 border-base-300 border-y rounded-none">
+          <details class="collapse collapse-arrow bg-transparent border-base-200 border-y rounded-none">
             <summary class="collapse-title font-semibold">Descrição</summary>
             <div
               class="collapse-content text-sm"
@@ -88,7 +90,7 @@ export default function ProductDetails(props: Props) {
           </details>
         )}
         {nutritionFacts && (
-          <details class="collapse bg-base-100 border-base-300 border-b rounded-none">
+          <details class="collapse collapse-arrow bg-transparent border-base-200 border-b rounded-none">
             <summary class="collapse-title font-semibold">
               Tabela Nutricional
             </summary>

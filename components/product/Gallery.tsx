@@ -41,7 +41,7 @@ export default function GallerySlider(props: Props) {
       id={id}
       class="grid grid-flow-row sm:grid-flow-col grid-cols-1 sm:grid-cols-[128px_620px] gap-5 justify-center"
     >
-      <div class="col-start-1 col-span-1 sm:col-start-2">
+      <div class="mx-4 sm:mx-0 col-start-1 col-span-1 sm:col-start-2">
         <div class="relative h-min flex-grow">
           <Slider class="carousel carousel-center gap-6 w-full">
             {images.map((img, index) => (
@@ -93,8 +93,8 @@ export default function GallerySlider(props: Props) {
             style={{ maxHeight: "600px" }}
           >
             {images.map((img, index) => (
-              <li class="carousel-item w-32 h-32">
-                <Slider.Dot index={index}>
+              <li class="carousel-item w-32 h-32 first:ml-4 last:mr-4 sm:first:ml-0 sm:last:mr-0">
+                <Slider.Dot index={index + 4}>
                   <Image
                     style={{ aspectRatio: "1 / 1" }}
                     class="group-disabled:border-base-400 border rounded-2xl object-cover w-full h-full"

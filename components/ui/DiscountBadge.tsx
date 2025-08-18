@@ -39,7 +39,7 @@ const SHAPES = {
 
 export default function DiscountBadge({ 
   offers,
-  size = "sm",
+  size = "md",
   variant = "secondary",
   shape = "badge",
   class: customClass = "",

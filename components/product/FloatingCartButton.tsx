@@ -2,6 +2,7 @@ import { Product, ProductDetailsPage } from "apps/commerce/types.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useId } from "../../sdk/useId.ts";
+import { formatPrice } from "../../sdk/format.ts";
 import { useScript } from "@deco/deco/hooks";
 import AddToCartButton from "./AddToCartButton.tsx";
 import PriceDisplay from "../ui/PriceDisplay.tsx";
@@ -44,7 +45,7 @@ const floatingCartScript = (targetId: string) => {
   function initialCheck() {
     const rect = productInfo.getBoundingClientRect();
     const shouldShow = rect.bottom < window.innerHeight - 350;
-    
+
     if (shouldShow) {
       floatingCart.style.transform = "translateY(0)";
       isVisible = true;
@@ -68,9 +69,9 @@ export default function FloatingCartButton({
   breadcrumbList,
 }: Props) {
   const targetId = useId();
-  
+
   const scriptContent = useScript(floatingCartScript, targetId);
-  
+
   const { offers, isVariantOf } = product;
   const title = isVariantOf?.name ?? product.name;
 
@@ -108,18 +109,9 @@ export default function FloatingCartButton({
         class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg transform translate-y-full transition-transform duration-300 ease-in-out rounded-t-2xl"
         data-floating-cart={targetId}
       >
-        <div class="container grid grid-cols-[1fr_auto_1fr] items-center p-4 gap-4">
-          <div class="flex items-center gap-3 sm:hidden col-span-2">
-            <div class="flex flex-col">
-              <span class="text-sm font-medium line-clamp-1">{title}</span>
-              <PriceDisplay
-                offers={offers}
-                priceSize="lg"
-                listPriceSize="xs"
-                showInstallments={false}
-                layout="horizontal"
-              />
-            </div>
+        <div class="container grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center p-4 gap-4">
+          <div class="block sm:hidden text-lg">
+            Total: <span class="font-bold text-primary text-2xl">{formatPrice(price)}</span>
           </div>
 
           <div class="hidden sm:flex items-center gap-4">
@@ -148,7 +140,7 @@ export default function FloatingCartButton({
             />
           </div>
 
-          <div class="flex justify-end sm:justify-center">
+          <div class="sm:flex sm:justify-center">
             <AddToCartButton
               item={item}
               seller={seller}
@@ -156,7 +148,7 @@ export default function FloatingCartButton({
               disabled={false}
               buttonText="Adicionar"
               showQuantitySelector
-              class="btn btn-primary no-animation min-w-[120px] sm:min-w-[140px]"
+              class="btn btn-primary no-animation min-w-[120px] sm:min-w-[140px] w-full sm:w-auto shrink rounded-2xl"
             />
           </div>
         </div>
