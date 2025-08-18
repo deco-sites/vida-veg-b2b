@@ -19,24 +19,24 @@ interface Props {
 
 const PRICE_SIZES = {
   sm: "text-sm",
-  md: "text-lg", 
+  md: "text-lg",
   lg: "text-2xl",
-  xl: "text-3xl"
+  xl: "text-3xl",
 };
 
 const LIST_PRICE_SIZES = {
   xs: "text-xs",
   sm: "text-sm",
-  md: "text-base"
+  md: "text-base",
 };
 
-export default function PriceDisplay({ 
+export default function PriceDisplay({
   offers,
   priceSize = "xl",
-  listPriceSize = "sm", 
+  listPriceSize = "sm",
   showInstallments = true,
   class: customClass = "",
-  layout = "vertical"
+  layout = "vertical",
 }: Props) {
   const {
     price = 0,
@@ -48,24 +48,28 @@ export default function PriceDisplay({
 
   const containerClass = clx(
     layout === "vertical" ? "flex flex-col gap-1" : "flex items-center gap-2",
-    customClass
+    customClass,
   );
 
   return (
     <div class={containerClass}>
       <div class="flex items-center gap-2">
         {hasDiscount && (
-          <span class={clx(
-            "line-through font-medium text-gray-400",
-            LIST_PRICE_SIZES[listPriceSize]
-          )}>
+          <span
+            class={clx(
+              "line-through font-medium text-gray-400",
+              LIST_PRICE_SIZES[listPriceSize],
+            )}
+          >
             {formatPrice(listPrice, offers?.priceCurrency)}
           </span>
         )}
-        <span class={clx(
-          "font-bold text-primary",
-          PRICE_SIZES[priceSize]
-        )}>
+        <span
+          class={clx(
+            "font-bold text-primary",
+            PRICE_SIZES[priceSize],
+          )}
+        >
           {formatPrice(price, offers?.priceCurrency)}
         </span>
       </div>

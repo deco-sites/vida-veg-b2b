@@ -1,4 +1,3 @@
-
 import type { RichText } from "apps/admin/widgets.ts";
 
 interface Props {
@@ -8,13 +7,18 @@ interface Props {
 
 const InstitutuonalContent = ({ content, verticalPadding = false }: Props) => {
   return (
-    <div class={`container px-4 lg:px-0 ${verticalPadding ? 'py-5 lg:py-10' : ''}`}>
+    <div
+      class={`container px-4 lg:px-0 ${verticalPadding ? "py-5 lg:py-10" : ""}`}
+    >
       <div class="flex flex-col justify-start gap-6">
-        <div class="fluid-text font-normal text-sm text-base-300" dangerouslySetInnerHTML={{ __html: content }} />
+        <div
+          class="fluid-text font-normal text-sm text-base-300"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
     </div>
   );
-}
+};
 
 export const LoadingFallback = () => {
   return (
@@ -30,7 +34,10 @@ export const LoadingFallback = () => {
             <div class="h-8 w-1/2 bg-base-200 rounded animate-pulse mb-2" />
             <div class="space-y-4">
               {[...Array(4)].map((_, i) => (
-                <div key={i} class="h-6 bg-base-200 rounded animate-pulse w-full" />
+                <div
+                  key={i}
+                  class="h-6 bg-base-200 rounded animate-pulse w-full"
+                />
               ))}
             </div>
           </div>

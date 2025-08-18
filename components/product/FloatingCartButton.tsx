@@ -111,7 +111,10 @@ export default function FloatingCartButton({
       >
         <div class="container grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center p-4 gap-4">
           <div class="block sm:hidden text-lg">
-            Total: <span class="font-bold text-primary text-2xl">{formatPrice(price)}</span>
+            Total:{" "}
+            <span class="font-bold text-primary text-2xl">
+              {formatPrice(price)}
+            </span>
           </div>
 
           <div class="hidden sm:flex items-center gap-4">

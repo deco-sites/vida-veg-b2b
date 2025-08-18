@@ -24,57 +24,61 @@ const onClick = async () => {
   event?.stopPropagation();
   const button = event?.currentTarget as HTMLButtonElement | null;
   const container = button!.closest<HTMLDivElement>("div[data-cart-item]")!;
-  
-  const quantityInput = container.querySelector<HTMLInputElement>('input[type="number"]');
+
+  const quantityInput = container.querySelector<HTMLInputElement>(
+    'input[type="number"]',
+  );
   const quantity = quantityInput ? Number(quantityInput.value) || 1 : 1;
-  
+
   const { item, platformProps } = JSON.parse(
     decodeURIComponent(container.getAttribute("data-cart-item")!),
   );
-  
+
   item.quantity = quantity;
-  
+
   try {
     await window.STOREFRONT.CART.addToCart(item, platformProps);
-    
+
     if (quantity > 1) {
       await setTimeout(() => {
         window.STOREFRONT.CART.setQuantity(item.item_id, quantity);
       }, 500);
     }
   } catch (error) {
-    console.error('Erro ao adicionar ao carrinho:', error);
+    console.error("Erro ao adicionar ao carrinho:", error);
   }
 };
 
 const quantityScript = (containerId: string) => {
   const container = document.getElementById(containerId);
   if (!container) return;
-  
-  const quantityInput = container.querySelector<HTMLInputElement>('input[type="number"]');
+
+  const quantityInput = container.querySelector<HTMLInputElement>(
+    'input[type="number"]',
+  );
   const decreaseBtn = container.querySelector('[data-quantity="decrease"]');
   const increaseBtn = container.querySelector('[data-quantity="increase"]');
-  
+
   if (!quantityInput || !decreaseBtn || !increaseBtn) return;
-  
+
   const updateQuantity = (newQuantity: number) => {
     const min = parseInt(quantityInput.min) || 1;
     const max = parseInt(quantityInput.max) || 100;
     const validQuantity = Math.max(min, Math.min(max, newQuantity));
     quantityInput.value = validQuantity.toString();
   };
-  
-  decreaseBtn.addEventListener('click', () => {
+
+  decreaseBtn.addEventListener("click", () => {
     const currentValue = parseInt(quantityInput.value) || 1;
     updateQuantity(currentValue - 1);
   });
-  
-  increaseBtn.addEventListener('click', () => {
+
+  increaseBtn.addEventListener("click", () => {
     const currentValue = parseInt(quantityInput.value) || 1;
     updateQuantity(currentValue + 1);
   });
-  
-  quantityInput.addEventListener('input', () => {
+
+  quantityInput.addEventListener("input", () => {
     const currentValue = parseInt(quantityInput.value) || 1;
     updateQuantity(currentValue);
   });
@@ -128,10 +132,10 @@ const useAddToCart = ({ product, seller }: Props) => {
   return null;
 };
 function AddToCartButton(props: Props) {
-  const { 
-    product, 
-    item, 
-    type = "shelf", 
+  const {
+    product,
+    item,
+    type = "shelf",
     class: _class,
     showQuantitySelector = false,
     buttonText = "Adicionar",
@@ -140,10 +144,10 @@ function AddToCartButton(props: Props) {
   const platformProps = useAddToCart(props);
   const id = useId();
   const qtdId = useId();
-  
+
   const onClickScript = useScript(onClick);
   const quantityScriptContent = useScript(quantityScript, id);
-  
+
   return (
     <div
       id={id}
@@ -191,11 +195,13 @@ function AddToCartButton(props: Props) {
         {!hideIcon && <Icon id="cart-white" size={20} />}
         {buttonText}
       </button>
-      
+
       {(showQuantitySelector || type === "productPage") && (
         <script
           type="module"
-          src={`data:text/javascript,${encodeURIComponent(quantityScriptContent)}`}
+          src={`data:text/javascript,${
+            encodeURIComponent(quantityScriptContent)
+          }`}
         />
       )}
     </div>

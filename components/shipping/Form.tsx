@@ -55,7 +55,10 @@ export default function Form({ items }: Props) {
           maxLength={9}
           placeholder="Seu CEP aqui"
         />
-        <button type="submit" class="btn join-item no-animation rounded-r-2xl text-base-300">
+        <button
+          type="submit"
+          class="btn join-item no-animation rounded-r-2xl text-base-300"
+        >
           <span class="[.htmx-request_&]:hidden inline">Calcular</span>
           <span class="[.htmx-request_&]:inline hidden loading loading-spinner loading-xs" />
         </button>

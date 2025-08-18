@@ -44,7 +44,9 @@ function ProductCard({
   const title = isVariantOf?.name ?? product.name;
   const [front, back] = images ?? [];
 
-  const { listPrice, price, seller = "1", availability, discount } = useOffer(offers);
+  const { listPrice, price, seller = "1", availability, discount } = useOffer(
+    offers,
+  );
   const inStock = availability === "https://schema.org/InStock";
   const possibilities = useVariantPossibilities(hasVariant, product);
   const firstSkuVariations = Object.entries(possibilities)?.[0];

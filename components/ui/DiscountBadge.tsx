@@ -18,9 +18,9 @@ interface Props {
 
 const SIZES = {
   xs: "text-xs px-2 py-0.5",
-  sm: "text-xs px-3 py-1", 
+  sm: "text-xs px-3 py-1",
   md: "text-sm px-4 py-1",
-  lg: "text-base px-6 py-2"
+  lg: "text-base px-6 py-2",
 };
 
 const VARIANTS = {
@@ -28,22 +28,22 @@ const VARIANTS = {
   secondary: "bg-secondary text-white",
   success: "bg-green-500 text-white",
   warning: "bg-yellow-500 text-black",
-  error: "bg-red-500 text-white"
+  error: "bg-red-500 text-white",
 };
 
 const SHAPES = {
   badge: "rounded-badge",
   rounded: "rounded-lg",
-  square: "rounded-none"
+  square: "rounded-none",
 };
 
-export default function DiscountBadge({ 
+export default function DiscountBadge({
   offers,
   size = "md",
   variant = "secondary",
   shape = "badge",
   class: customClass = "",
-  onlyInStock = true
+  onlyInStock = true,
 }: Props) {
   const {
     price = 0,
@@ -53,7 +53,9 @@ export default function DiscountBadge({
 
   const inStock = availability === "https://schema.org/InStock";
   const hasDiscount = listPrice && listPrice > price;
-  const discountPercentage = hasDiscount ? Math.round(((listPrice - price) / listPrice) * 100) : 0;
+  const discountPercentage = hasDiscount
+    ? Math.round(((listPrice - price) / listPrice) * 100)
+    : 0;
 
   // Não renderizar se não houver desconto
   if (!hasDiscount || discountPercentage <= 0) {
@@ -70,7 +72,7 @@ export default function DiscountBadge({
     SIZES[size],
     VARIANTS[variant],
     SHAPES[shape],
-    customClass
+    customClass,
   );
 
   return (
