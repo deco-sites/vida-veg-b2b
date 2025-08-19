@@ -35,18 +35,9 @@ const onClick = async () => {
   );
 
   item.quantity = quantity;
+  platformProps.lines.quantity = quantity;
 
-  try {
-    await window.STOREFRONT.CART.addToCart(item, platformProps);
-
-    if (quantity > 1) {
-      await setTimeout(() => {
-        window.STOREFRONT.CART.setQuantity(item.item_id, quantity);
-      }, 500);
-    }
-  } catch (error) {
-    console.error("Erro ao adicionar ao carrinho:", error);
-  }
+  await window.STOREFRONT.CART.addToCart(item, platformProps);
 };
 
 const quantityScript = (containerId: string) => {

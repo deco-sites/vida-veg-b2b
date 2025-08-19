@@ -5,14 +5,52 @@ import ImageGallerySlider from "../../components/product/Gallery.tsx";
 import FloatingCartButton from "../../components/product/FloatingCartButton.tsx";
 
 import { clx } from "../../sdk/clx.ts";
+import { ComponentProps } from "../Component.tsx";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
+
+import type { AppContext } from "../../apps/site.ts";
 
 export interface Props {
   /** @title Integration */
   page: ProductDetailsPage | null;
 }
 
-export default function ProductDetails(props: Props) {
+export const loader = async (
+  props: Props,
+  _req: Request,
+  ctx: AppContext,
+) => {
+  const {
+    page,
+  } = props;
+
+  try {
+    // deno-lint-ignore no-explicit-any
+    const response = await (ctx as any).invoke.shopify.actions.order
+      .draftOrderCalculate({
+        input: {
+          lineItems: [
+            {
+              variantId: page?.product.productID,
+              quantity: 1,
+            },
+          ],
+          shippingAddress: {
+            zip: "12954400",
+            countryCode: "BR",
+          },
+        },
+      });
+  
+    console.log("response", response);
+  } catch(err) {
+    console.error(err);
+  }
+  
+  return props;
+};
+
+export default function ProductDetails(props: ComponentProps<typeof loader>) {
   const {
     page,
   } = props;

@@ -14,7 +14,7 @@ import DiscountBadge from "../ui/DiscountBadge.tsx";
 
 const onLoad = () => {
   window.STOREFRONT.CART.subscribe((sdk) => {
-    console.log("Cart SDK:", sdk);
+    // console.log("Cart SDK:", sdk);
   });
 };
 

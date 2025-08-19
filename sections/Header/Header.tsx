@@ -19,6 +19,7 @@ import {
 import { useDevice } from "@deco/deco/hooks";
 import { type LoadingFallbackProps } from "@deco/deco";
 import Login from "../../components/header/Login.tsx";
+import CepModal from "./CepModal.tsx";
 
 export interface Logo {
   src: ImageWidget;
@@ -137,20 +138,23 @@ function Header({
   const device = useDevice();
 
   return (
-    <header
-      style={{
-        height: device === "desktop"
-          ? HEADER_HEIGHT_DESKTOP
-          : HEADER_HEIGHT_MOBILE,
-      }}
-      class={`bg-primary`}
-    >
-      <div class="bg-primary fixed w-full z-40">
-        {device === "desktop"
-          ? <Desktop logo={logo} {...props} />
-          : <Mobile logo={logo} {...props} />}
-      </div>
-    </header>
+    <>
+      <header
+        style={{
+          height: device === "desktop"
+            ? HEADER_HEIGHT_DESKTOP
+            : HEADER_HEIGHT_MOBILE,
+        }}
+        class={`bg-primary`}
+      >
+        <div class="bg-primary fixed w-full z-40">
+          {device === "desktop"
+            ? <Desktop logo={logo} {...props} />
+            : <Mobile logo={logo} {...props} />}
+        </div>
+      </header>
+      <CepModal />
+    </>
   );
 }
 

@@ -1,6 +1,48 @@
 import Icon from "../../components/ui/Icon.tsx";
 
+import { contact } from "../../db/schema.ts";
+import { useSection } from "@deco/deco/hooks";
+import type { AppContext } from "../../apps/deco/records.ts";
+
+export async function loader(
+  _props: unknown,
+  req: Request,
+  ctx: AppContext,
+) {
+  const drizzle = await ctx.invoke.records.loaders.drizzle();
+
+  if (req.body) {
+    const formData = await req.formData();
+
+    const email = formData.get("email")?.toString();
+    const name = formData.get("name")?.toString();
+    const phone = formData.get("phone")?.toString();
+    const city = formData.get("city")?.toString();
+    const message = formData.get("message")?.toString();
+
+    if (!email || !name || !phone || !city || !message) {
+      throw new Error("Todos os campos são obrigatórios");
+    }
+
+    const newContact: typeof contact.$inferInsert = {
+      email,
+      name,
+      phone,
+      city,
+      message,
+    };
+
+    console.log("newContact", newContact);
+
+    await drizzle.insert(contact).values(newContact);
+  }
+
+  return null;
+}
+
 export default function Form() {
+  const createUrl = useSection();
+
   return (
     <div class="container px-4 lg:px-0 w-full">
       <div class="flex flex-col gap-3">
@@ -21,11 +63,10 @@ export default function Form() {
         <div class="flex flex-col gap-2">
           <form
             class="flex flex-col gap-4"
-            method="POST"
-            action="/api/contato"
-            hx-post="/api/contato"
-            hx-target="#form-mensagem"
-            hx-swap="afterbegin"
+            hx-post={createUrl}
+            hx-trigger="click"
+            hx-target="closest section"
+            hx-swap="outerHTML"
           >
             <div>
               <label
@@ -41,7 +82,6 @@ export default function Form() {
                 name="email"
                 placeholder="loremipsum@lorem.com"
                 required
-                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
                 title="Digite um e-mail válido"
               />
             </div>
@@ -60,7 +100,6 @@ export default function Form() {
                   name="name"
                   placeholder="Lorem Ipsum"
                   required
-                  pattern="^[A-Za-zÀ-ÿ '´`^~çÇ-]+$"
                   title="Digite apenas letras e espaços"
                 />
               </div>
@@ -78,7 +117,6 @@ export default function Form() {
                   name="phone"
                   placeholder="(00) 00000-0000"
                   required
-                  pattern="^\(?\d{2}\)? ?\d{4,5}-?\d{4}$"
                   title="Digite um telefone válido no formato (99) 99999-9999"
                   maxlength={15}
                   inputmode="tel"

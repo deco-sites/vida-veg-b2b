@@ -1677,6 +1677,28 @@ html {
 :where(.menu li) .badge {
   justify-self: end;
 }
+.\!modal {
+  pointer-events: none !important;
+  position: fixed !important;
+  inset: 0px !important;
+  margin: 0px !important;
+  display: grid !important;
+  height: 100% !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: none !important;
+  justify-items: center !important;
+  padding: 0px !important;
+  opacity: 0 !important;
+  overscroll-behavior: contain !important;
+  z-index: 999 !important;
+  background-color: transparent !important;
+  color: inherit !important;
+  transition-duration: 200ms !important;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1) !important;
+  transition-property: transform, opacity, visibility !important;
+  overflow-y: hidden !important;
+}
 .modal {
   pointer-events: none;
   position: fixed;
@@ -1698,6 +1720,9 @@ html {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-property: transform, opacity, visibility;
   overflow-y: hidden;
+}
+:where(.\!modal) {
+  align-items: center !important;
 }
 :where(.modal) {
   align-items: center;
@@ -1726,6 +1751,14 @@ html {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+
+.\!modal:target,
+.modal-toggle:checked + .\!modal,
+.\!modal[open] {
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
 .modal-open,
 .modal:target,
 .modal-toggle:checked + .modal,
@@ -1733,6 +1766,14 @@ html {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
+}
+
+.\!modal:target,
+.modal-toggle:checked + .\!modal,
+.\!modal[open] {
+  pointer-events: auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 .modal-toggle {
   position: fixed;
@@ -1743,8 +1784,14 @@ html {
           appearance: none;
   opacity: 0;
 }
+:root:has(:is(.modal-open, .\!modal:target, .modal-toggle:checked + .\!modal, .\!modal[open])) {
+  overflow: hidden !important;
+}
 :root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
   overflow: hidden;
+}
+:root:has(:is(.modal-open, .\!modal:target, .modal-toggle:checked + .\!modal, .\!modal[open])) {
+  overflow: hidden !important;
 }
 .progress {
   position: relative;
@@ -3003,10 +3050,20 @@ details.collapse summary::-webkit-details-marker {
   border-color: currentColor;
   opacity: 0.6;
 }
+.\!modal:not(dialog:not(.modal-open)),
+  .\!modal::backdrop {
+  background-color: #0006 !important;
+  animation: modal-pop 0.2s ease-out !important;
+}
 .modal:not(dialog:not(.modal-open)),
   .modal::backdrop {
   background-color: #0006;
   animation: modal-pop 0.2s ease-out;
+}
+.\!modal:not(dialog:not(.modal-open)),
+  .\!modal::backdrop {
+  background-color: #0006 !important;
+  animation: modal-pop 0.2s ease-out !important;
 }
 .modal-backdrop {
   z-index: -1;
@@ -3025,6 +3082,15 @@ details.collapse summary::-webkit-details-marker {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.modal-toggle:checked + .\!modal .modal-box,
+.\!modal:target .modal-box,
+.\!modal[open] .modal-box {
+  --tw-translate-y: 0px !important;
+  --tw-scale-x: 1 !important;
+  --tw-scale-y: 1 !important;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
 }
 @keyframes modal-pop {
 
@@ -3748,6 +3814,9 @@ details.collapse summary::-webkit-details-marker {
   border-end-end-radius: inherit;
   border-start-end-radius: inherit;
 }
+.modal-bottom {
+  place-items: end;
+}
 .tabs-md :where(.tab) {
   height: 2rem;
   font-size: 0.875rem;
@@ -3884,9 +3953,6 @@ details.collapse summary::-webkit-details-marker {
 .pointer-events-auto {
   pointer-events: auto;
 }
-.visible {
-  visibility: visible;
-}
 .collapse {
   visibility: collapse;
 }
@@ -4016,6 +4082,10 @@ details.collapse summary::-webkit-details-marker {
 .m-8 {
   margin: 2rem;
 }
+.-mx-6 {
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
 .mx-10 {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -4058,6 +4128,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .-mt-12 {
   margin-top: -3rem;
+}
+.-mt-6 {
+  margin-top: -1.5rem;
 }
 .mb-10 {
   margin-bottom: 2.5rem;
@@ -4520,6 +4593,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-full {
   max-width: 100%;
+}
+.max-w-md {
+  max-width: 28rem;
 }
 .max-w-sm {
   max-width: 24rem;
@@ -5522,6 +5598,14 @@ details.collapse summary::-webkit-details-marker {
 .line-through {
   text-decoration-line: line-through;
 }
+.placeholder-secondary::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-placeholder-opacity)));
+}
+.placeholder-secondary::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: var(--fallback-s,oklch(var(--s)/var(--tw-placeholder-opacity)));
+}
 .opacity-0 {
   opacity: 0;
 }
@@ -5544,6 +5628,11 @@ details.collapse summary::-webkit-details-marker {
 .shadow-lg {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-none {
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .shadow-sm {
@@ -5676,14 +5765,6 @@ details.collapse summary::-webkit-details-marker {
   margin-bottom: 0.5rem;
   margin-left: 0px;
   margin-right: 0px;
-}
-.\!c p {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-  margin-left: 0px;
-  margin-right: 0px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 .c p,
   .fluid-text p,
@@ -5840,6 +5921,23 @@ details.collapse summary::-webkit-details-marker {
   .sm\:btn-ghost.btn-active {
     border-color: transparent;
     background-color: var(--fallback-bc,oklch(var(--bc)/0.2));
+  }
+
+  .sm\:modal-middle {
+    place-items: center;
+  }
+
+  .sm\:modal-middle :where(.modal-box) {
+    width: 91.666667%;
+    max-width: 32rem;
+    --tw-translate-y: 0px;
+    --tw-scale-x: .9;
+    --tw-scale-y: .9;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    border-top-left-radius: var(--rounded-box, 1rem);
+    border-top-right-radius: var(--rounded-box, 1rem);
+    border-bottom-right-radius: var(--rounded-box, 1rem);
+    border-bottom-left-radius: var(--rounded-box, 1rem);
   }
 }
 
