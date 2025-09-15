@@ -77,7 +77,7 @@ export default function BlogPosts({
       title: "Pizza com queijo muçarela Vida Veg",
       image: DEFAULT_IMAGE,
       videoLink:
-        "https://www.youtube.com/embed/XoodunTw0kw?si=2br2NUu3Fx_E-E0Y",
+        "https://www.youtube.com/embed/lrion5yTi-M?si=OrFrpUkWTBOL9nSm",
     },
     {
       title: "Pizza com queijo muçarela Vida Veg",
@@ -95,7 +95,7 @@ export default function BlogPosts({
       title: "Pizza com queijo muçarela Vida Veg",
       image: DEFAULT_IMAGE,
       videoLink:
-        "https://www.youtube.com/embed/XoodunTw0kw?si=2br2NUu3Fx_E-E0Y",
+        "https://www.youtube.com/embed/lrion5yTi-M?si=OrFrpUkWTBOL9nSm",
     },
   ],
 }: Props) {
@@ -104,7 +104,7 @@ export default function BlogPosts({
   return (
     <div class="container my-8">
       <div
-        class="text-2xl lg:text-3xl font-bold fluid-text mb-4"
+        class="px-4 sm:px-0 text-2xl lg:text-3xl font-bold fluid-text mb-4"
         dangerouslySetInnerHTML={{ __html: title }}
       />
 

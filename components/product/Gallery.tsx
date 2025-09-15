@@ -50,7 +50,7 @@ export default function GallerySlider(props: Props) {
                 class="carousel-item w-full"
               >
                 <Image
-                  class="w-full"
+                  class="w-full rounded-2xl"
                   sizes="(max-width: 640px) 100vw, 40vw"
                   style={{ aspectRatio: ASPECT_RATIO }}
                   src={img.url!}
@@ -65,14 +65,14 @@ export default function GallerySlider(props: Props) {
           </Slider>
 
           <Slider.PrevButton
-            class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline disabled:invisible"
+            class="no-animation absolute left-2 top-1/2 btn btn-circle bg-white btn-outline disabled:invisible"
             disabled
           >
             <Icon id="chevron-right" class="rotate-180" />
           </Slider.PrevButton>
 
           <Slider.NextButton
-            class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline disabled:invisible"
+            class="no-animation absolute right-2 top-1/2 btn btn-circle bg-white btn-outline disabled:invisible"
             disabled={images.length < 2}
           >
             <Icon id="chevron-right" />

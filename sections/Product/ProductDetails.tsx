@@ -120,20 +120,20 @@ export default function ProductDetails(props: ComponentProps<typeof loader>) {
       <div class="mx-4 sm:mx-0">
         {description && (
           <details class="collapse collapse-arrow bg-transparent border-base-200 border-y rounded-none">
-            <summary class="collapse-title font-semibold">Descrição</summary>
+            <summary class="collapse-title pl-0 font-semibold">Descrição</summary>
             <div
-              class="collapse-content text-sm"
+              class="collapse-content text-sm px-0"
               dangerouslySetInnerHTML={{ __html: description }}
             />
           </details>
         )}
         {nutritionFacts && (
           <details class="collapse collapse-arrow bg-transparent border-base-200 border-b rounded-none">
-            <summary class="collapse-title font-semibold">
+            <summary class="collapse-title pl-0 font-semibold">
               Tabela Nutricional
             </summary>
             <div
-              class="collapse-content text-sm"
+              class="collapse-content text-sm px-0"
               dangerouslySetInnerHTML={{ __html: nutritionFacts }}
             />
           </details>

@@ -75,6 +75,17 @@ const quantityScript = (containerId: string) => {
   });
 };
 
+const onLoad = (containerId: string) => {
+  window.STOREFRONT.CART.subscribe(() => {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container?.querySelectorAll<HTMLButtonElement>("button").forEach((node) =>
+      node.disabled = false
+    );
+  });
+};
+
 const useAddToCart = ({ product, seller }: Props) => {
   const platform = usePlatform();
   const { additionalProperty = [], isVariantOf, productID } = product;
@@ -136,6 +147,7 @@ function AddToCartButton(props: Props) {
   const id = useId();
   const qtdId = useId();
 
+  const onLoadScript = useScript(onLoad, id);
   const onClickScript = useScript(onClick);
   const quantityScriptContent = useScript(quantityScript, id);
 
@@ -148,7 +160,6 @@ function AddToCartButton(props: Props) {
         JSON.stringify({ item, platformProps }),
       )}
     >
-      <input type="checkbox" class="hidden peer" />
       {(showQuantitySelector || type === "productPage") && (
         <div class="flex items-center border border-primary rounded-2xl bg-white">
           <button
@@ -183,7 +194,7 @@ function AddToCartButton(props: Props) {
         )}
         hx-on:click={onClickScript}
       >
-        {!hideIcon && <Icon id="cart-white" size={20} />}
+        {!hideIcon && <Icon id="cart" size={20} />}
         {buttonText}
       </button>
 
@@ -195,6 +206,13 @@ function AddToCartButton(props: Props) {
           }`}
         />
       )}
+
+      <script
+        type="module"
+        src={`data:text/javascript,${
+          encodeURIComponent(onLoadScript)
+        }`}
+      />
     </div>
   );
 }

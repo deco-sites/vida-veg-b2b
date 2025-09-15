@@ -89,15 +89,13 @@ function ProductInfo({ page }: Props) {
                 priceSize="xl"
                 showInstallments
               />
-              <div class="h-12 opacity-0">
-                <AddToCartButton
-                  item={item}
-                  seller={seller}
-                  product={product}
-                  class="btn btn-primary no-animation rounded-2xl"
-                  disabled={false}
-                />
-              </div>
+              <AddToCartButton
+                item={item}
+                seller={seller}
+                product={product}
+                class="btn btn-primary no-animation rounded-2xl"
+                disabled={false}
+              />
               <ShippingSimulationForm
                 items={[{
                   id: Number(product.sku),

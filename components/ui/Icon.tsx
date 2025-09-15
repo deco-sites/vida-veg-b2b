@@ -20,7 +20,7 @@ export type AvailableIcons =
   | "new-menu"
   | "minus"
   | "plus"
-  | "cart-white"
+  | "cart"
   | "shopping_bag"
   | "menu"
   | "account_circle"
