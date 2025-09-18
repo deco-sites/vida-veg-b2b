@@ -20,7 +20,12 @@
     {
       "__resolveType": "website/sections/Analytics/Analytics.tsx",
       "dangerouslyRunOnMainThread": true,
-      "trackingIds": []
+      "trackingIds": [
+        "\tGTM-5L6DRCC"
+      ],
+      "googleAnalyticsIds": [
+        "G-VCHYFDRSM4"
+      ]
     },
     {
       "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx",
@@ -70,5 +75,8 @@
     "framework": "htmx"
   },
   "whilelistURLs": [],
-  "whitelistPatterns": []
+  "whitelistPatterns": [],
+  "institutional": {
+    "menu": []
+  }
 }
