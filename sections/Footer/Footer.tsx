@@ -307,7 +307,7 @@ function Footer({
                 <img
                   width={97}
                   height={17}
-                  src="https://assets.decocache.com/vida-veg-b2b/d3d67d8a-7381-4383-9aea-bfc2feaf0e07/Group-697.svg"
+                  src="https://decoims.com/vida-veg-b2b/d3d67d8a-7381-4383-9aea-bfc2feaf0e07/Group-697.svg"
                 />
               </a>
             </div>
