@@ -14,7 +14,7 @@
     "<p>Get 10% off today: <strong>NEW10</strong></p>"
   ],
   "logo": {
-    "src": "https://data.decoassets.com/lp-vida-veg/25984b16-e82d-4fca-91fd-934dfbbe6ba4/logo-chef.png",
+    "src": "https://decoims.com/lp-vida-veg/25984b16-e82d-4fca-91fd-934dfbbe6ba4/logo-chef.png",
     "alt": "Deco Storefront",
     "width": 80,
     "height": 80
@@ -23,7 +23,7 @@
     {
       "children": [],
       "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+        "url": "https://decoims.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "url": "/quem-somos",
       "name": "Quem Somos"
@@ -46,7 +46,7 @@
         }
       ],
       "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+        "url": "https://decoims.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "name": "Food Service",
       "url": "/food-service",
@@ -62,7 +62,7 @@
         }
       ],
       "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+        "url": "https://decoims.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "name": "Varejo",
       "url": "/varejo",
@@ -92,7 +92,7 @@
         }
       ],
       "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+        "url": "https://decoims.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       },
       "url": "/produtos",
       "name": "Produtos",
@@ -108,7 +108,7 @@
       "url": "https://vidaveg.com.br/receita/",
       "name": "Blog",
       "image": {
-        "url": "https://assets.decocache.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
+        "url": "https://decoims.com/vida-veg-b2b/edceef97-66a1-4387-a497-a6d57207e090/Rectangle-171.png"
       }
     }
   ],

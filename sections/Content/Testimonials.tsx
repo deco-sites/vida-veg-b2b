@@ -29,7 +29,7 @@ export default function Testimonials({
     {
       name: "Monreale",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/6a002b7a-0b0d-4724-b2f0-7e5e4a47b301/Group-39217.svg",
+        "https://decoims.com/vida-veg-b2b/6a002b7a-0b0d-4724-b2f0-7e5e4a47b301/Group-39217.svg",
       content:
         "Foi um produto que salvou bastante a gente, porque muita gente que restrição, pessoas que são veganas e os produtos atendem muito bem, em até receitas que vão para o salão.",
       showHeart: true,
@@ -37,7 +37,7 @@ export default function Testimonials({
     {
       name: "Di Blasi",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/42f968dd-678d-4fe0-91d4-b6f681009391/Group-(13).svg",
+        "https://decoims.com/vida-veg-b2b/42f968dd-678d-4fe0-91d4-b6f681009391/Group-(13).svg",
       content:
         "Aqui na Di Blasi Pizzas, temos explorado opções mais saudáveis e voltadas ao público vegano e vegetariano. Os produtos Vida Veg tem sido um ótimo complemento, especialmente por serem muito versáteis e de alta qualidade. Eles se integram bem nas preparações sem comprometer o sabor ou a textura, o que é essencial para manter o padrão das nossas pizzas. O feedback dos clientes tem sido positivo, pois muitos apreciam o sabor autêntico e a leveza dos ingredientes.",
       showHeart: true,
@@ -45,7 +45,7 @@ export default function Testimonials({
     {
       name: "Sodexo",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/fd04faca-a176-4540-8fbe-fd6472a818b3/Group-39217-(1).svg",
+        "https://decoims.com/vida-veg-b2b/fd04faca-a176-4540-8fbe-fd6472a818b3/Group-39217-(1).svg",
       content:
         "Foi um produto que salvou bastante a gente, porque muita gente que restrição, pessoas que são veganas e os produtos atendem muito bem, em até receitas que vão para o salão.",
       showHeart: true,
@@ -53,7 +53,7 @@ export default function Testimonials({
     {
       name: "Parceiro 4",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/695ab70b-3916-4b10-a2ab-01707ffff991/Group-39217-(2).svg",
+        "https://decoims.com/vida-veg-b2b/695ab70b-3916-4b10-a2ab-01707ffff991/Group-39217-(2).svg",
       content:
         "Cuidado com o todo, compromisso e a certeza do propósito fazendo o melhor para uma alimentação saudável, saborosa e nutritiva.",
       showHeart: false,
@@ -61,7 +61,7 @@ export default function Testimonials({
     {
       name: "Monreale",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/6a002b7a-0b0d-4724-b2f0-7e5e4a47b301/Group-39217.svg",
+        "https://decoims.com/vida-veg-b2b/6a002b7a-0b0d-4724-b2f0-7e5e4a47b301/Group-39217.svg",
       content:
         "Foi um produto que salvou bastante a gente, porque muita gente que restrição, pessoas que são veganas e os produtos atendem muito bem, em até receitas que vão para o salão.",
       showHeart: true,
@@ -69,7 +69,7 @@ export default function Testimonials({
     {
       name: "Di Blasi",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/42f968dd-678d-4fe0-91d4-b6f681009391/Group-(13).svg",
+        "https://decoims.com/vida-veg-b2b/42f968dd-678d-4fe0-91d4-b6f681009391/Group-(13).svg",
       content:
         "Aqui na Di Blasi Pizzas, temos explorado opções mais saudáveis e voltadas ao público vegano e vegetariano. Os produtos Vida Veg tem sido um ótimo complemento, especialmente por serem muito versáteis e de alta qualidade. Eles se integram bem nas preparações sem comprometer o sabor ou a textura, o que é essencial para manter o padrão das nossas pizzas. O feedback dos clientes tem sido positivo, pois muitos apreciam o sabor autêntico e a leveza dos ingredientes.",
       showHeart: true,
@@ -77,7 +77,7 @@ export default function Testimonials({
     {
       name: "Sodexo",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/fd04faca-a176-4540-8fbe-fd6472a818b3/Group-39217-(1).svg",
+        "https://decoims.com/vida-veg-b2b/fd04faca-a176-4540-8fbe-fd6472a818b3/Group-39217-(1).svg",
       content:
         "Foi um produto que salvou bastante a gente, porque muita gente que restrição, pessoas que são veganas e os produtos atendem muito bem, em até receitas que vão para o salão.",
       showHeart: true,
@@ -85,7 +85,7 @@ export default function Testimonials({
     {
       name: "Parceiro 4",
       avatar:
-        "https://assets.decocache.com/vida-veg-b2b/695ab70b-3916-4b10-a2ab-01707ffff991/Group-39217-(2).svg",
+        "https://decoims.com/vida-veg-b2b/695ab70b-3916-4b10-a2ab-01707ffff991/Group-39217-(2).svg",
       content:
         "Cuidado com o todo, compromisso e a certeza do propósito fazendo o melhor para uma alimentação saudável, saborosa e nutritiva.",
       showHeart: false,
